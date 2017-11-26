@@ -14,8 +14,9 @@ public class RobotMap {
 	public static CANTalon motorLeftTwo = new CANTalon(4);
 	public static CANTalon motorRightOne = new CANTalon(2);
 	public static CANTalon motorRightTwo = new CANTalon(3);
-	public static float maxRightRPM = 590.47f/2.5f;
-	public static float maxLeftRPM = 590.63f/2.5f;
+	public static float maxRightRPM =590.47f;
+	public static float maxLeftRPM = 590.63f;
+	
 	// For example to map the left and right motors, you could define the
 	// following variables to use with your drivetrain subsystem.
 	// public static int leftMotor = 1;
