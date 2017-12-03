@@ -1,8 +1,10 @@
 package org.usfirst.frc.team4499.robot.commands;
 
 import org.usfirst.frc.team4499.robot.OI;
+
 import org.usfirst.frc.team4499.robot.RobotMap;
 import org.usfirst.frc.team4499.robot.RobotStats;
+import org.usfirt.frc.team4499.robot.tools.PID;
 
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.TalonControlMode;
@@ -15,6 +17,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class DriveForward extends Command {
+	private PID angleorientation;
 	private float nativeUnitsPerCycleLeft; 
 	private float nativeUnitsPerCycleRight; 
 	private float autoDrivePower;
@@ -25,11 +28,22 @@ public class DriveForward extends Command {
 	private float startingEncPositionL;
 	private float startingEncPositionR;
 	private double starttime;
+	private float cruiseVelocityLeft = 100;
+	private float cruiseVelocityRight = 100;
+
+	
 	
 	
 
-    public DriveForward(float distance, float power) {
-    	starttime = Timer.getFPGATimestamp();
+    public DriveForward(float distance, float power,double angle) {
+    
+    	
+    	angleorientation = new PID(0, 0, 0);
+    	angleorientation.setContinuous(true);
+    	angleorientation.setPID(0.9, 0, 0);
+
+    	
+    	//setting up pid
     	autoDrivePower = power;
     	motionMagicEndPoint = (float) (2.5*((distance)/ ((RobotStats.driveDiameter * Math.PI))));
     	
@@ -46,6 +60,8 @@ public class DriveForward extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	angleorientation.setSetPoint(RobotMap.navx.getAngle());
+    	
     	RobotMap.motorLeftTwo.enableControl();
     	RobotMap.motorRightTwo.enableControl();
     	RobotMap.motorLeftTwo.enableControl();
@@ -68,11 +84,11 @@ public class DriveForward extends Command {
 		RobotMap.motorLeftTwo.setPID(0.345f, 0, 0, this.fGainLeft, 0, 0, 0);
 		RobotMap.motorRightTwo.setPID(0.345f, 0, 0, this.fGainRight, 0, 0, 0);
 		//setting Acceleration and velocity for the left
-		RobotMap.motorLeftTwo.setMotionMagicAcceleration(300);
-		RobotMap.motorLeftTwo.setMotionMagicCruiseVelocity(1250);
+		RobotMap.motorLeftTwo.setMotionMagicAcceleration(30);
+		RobotMap.motorLeftTwo.setMotionMagicCruiseVelocity(cruiseVelocityLeft);
 		//setting Acceleration and velocity for the right
-		RobotMap.motorRightTwo.setMotionMagicAcceleration(300);
-		RobotMap.motorRightTwo.setMotionMagicCruiseVelocity(1250);
+		RobotMap.motorRightTwo.setMotionMagicAcceleration(30);
+		RobotMap.motorRightTwo.setMotionMagicCruiseVelocity(cruiseVelocityRight);
 		//resets encoder position to 0		
 		RobotMap.motorLeftTwo.setEncPosition(0);
 		RobotMap.motorRightTwo.setEncPosition(0);
@@ -86,9 +102,14 @@ public class DriveForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println(Math.abs(RobotMap.motorLeftTwo.getEncPosition())- motionMagicEndPoint* 4096 + "left");
-    	System.out.println(Math.abs(RobotMap.motorRightTwo.getEncPosition())- motionMagicEndPoint* 4096 + "right");
+    	System.out.println(this.angleorientation.getResult());
+    	
+    	
+    	angleorientation.updatePID(RobotMap.navx.getAngle());
+    	RobotMap.motorLeftTwo.setMotionMagicCruiseVelocity(cruiseVelocityLeft + angleorientation.getResult());
+    	RobotMap.motorRightTwo.setMotionMagicCruiseVelocity(cruiseVelocityRight -angleorientation.getResult());
 
+    	
     
     }
 

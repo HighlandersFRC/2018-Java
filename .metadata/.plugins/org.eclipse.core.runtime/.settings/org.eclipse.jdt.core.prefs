@@ -11,6 +11,7 @@ org.eclipse.jdt.core.classpathVariable.OTDT_INSTALLDIR=C\:/Users/Simon HC/.p2/po
 org.eclipse.jdt.core.classpathVariable.USERLIBS_DIR=C\:/Users/Simon HC/wpilib/user/java/lib
 org.eclipse.jdt.core.classpathVariable.cscore=C\:/Users/Simon HC/wpilib/java/current/lib/cscore.jar
 org.eclipse.jdt.core.classpathVariable.cscore.sources=C\:/Users/Simon HC/wpilib/java/current/lib/cscore-sources.jar
+org.eclipse.jdt.core.classpathVariable.navx-mxp=C\:/Users/Simon HC/navx-mxp/java/lib/navx_frc.jar
 org.eclipse.jdt.core.classpathVariable.networktables=C\:/Users/Simon HC/wpilib/java/current/lib/NetworkTables.jar
 org.eclipse.jdt.core.classpathVariable.networktables.sources=C\:/Users/Simon HC/wpilib/java/current/lib/NetworkTables-sources.jar
 org.eclipse.jdt.core.classpathVariable.opencv=C\:/Users/Simon HC/wpilib/java/current/lib/opencv.jar

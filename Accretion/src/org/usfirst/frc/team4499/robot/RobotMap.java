@@ -1,6 +1,10 @@
 package org.usfirst.frc.team4499.robot;
 
 import org.usfirt.frc.team4499.robot.tools.DCMotor;
+import com.kauailabs.navx.frc.AHRS;
+
+import edu.wpi.first.wpilibj.SerialPort;
+
 import com.ctre.CANTalon;
 
 /**
@@ -16,6 +20,8 @@ public class RobotMap {
 	public static CANTalon motorRightTwo = new CANTalon(3);
 	public static float maxRightRPM =590.47f;
 	public static float maxLeftRPM = 590.63f;
+	public static AHRS navx = new AHRS(SerialPort.Port.kMXP);
+	
 	
 	// For example to map the left and right motors, you could define the
 	// following variables to use with your drivetrain subsystem.
