@@ -5,12 +5,14 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 
 
 
+
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc.team4499.robot.commands.driveForwardAndBack;
 import org.usfirst.frc.team4499.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4499.robot.subsystems.ExampleSubsystem;
 import org.usfirst.frc.team4499.robot.commands.DriveForward;
@@ -26,7 +28,10 @@ import com.ctre.CANTalon.TalonControlMode;
  * directory.
  */
 public class Robot extends IterativeRobot {
+	driveForwardAndBack drive2;
+	
 	DriveForward drive;
+	
 
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
@@ -42,6 +47,7 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void robotInit() {
 		drive = new DriveForward(24.0f, 0.2f);
+		drive2 = new driveForwardAndBack();
 	
 		
 		
@@ -80,7 +86,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		  drive.start();
+		  drive2.start();
 	
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",

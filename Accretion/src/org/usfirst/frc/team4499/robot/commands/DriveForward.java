@@ -8,6 +8,7 @@ import com.ctre.CANTalon;
 import com.ctre.CANTalon.TalonControlMode;
 
 import edu.wpi.first.wpilibj.RobotState;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -19,14 +20,18 @@ public class DriveForward extends Command {
 	private float autoDrivePower;
 	private float fGainLeft;
 	private float fGainRight;
-	private float motionMagicEndPoint = (2.0f*2.5f);
+	private float motionMagicEndPoint;
 	private float feedForwardp;
-	private float endpoint;
+	private float startingEncPositionL;
+	private float startingEncPositionR;
+	private double starttime;
+	
 	
 
     public DriveForward(float distance, float power) {
+    	starttime = Timer.getFPGATimestamp();
     	autoDrivePower = power;
-    	endpoint = (float) (2.5*((distance)/ ((RobotStats.driveDiameter * Math.PI))));
+    	motionMagicEndPoint = (float) (2.5*((distance)/ ((RobotStats.driveDiameter * Math.PI))));
     	
     	feedForwardp = 0.1f;
 		RobotMap.motorLeftTwo.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
@@ -41,6 +46,12 @@ public class DriveForward extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	RobotMap.motorLeftTwo.enableControl();
+    	RobotMap.motorRightTwo.enableControl();
+    	RobotMap.motorLeftTwo.enableControl();
+    	RobotMap.motorRightTwo.enableControl();
+ 
+        //settting talon control mode
     	RobotMap.motorLeftTwo.changeControlMode(TalonControlMode.MotionMagic);		
 		RobotMap.motorLeftOne.changeControlMode(TalonControlMode.Follower);	
 		RobotMap.motorRightTwo.changeControlMode(TalonControlMode.MotionMagic);	
@@ -54,8 +65,8 @@ public class DriveForward extends Command {
 		RobotMap.motorLeftOne.set(4);
 		RobotMap.motorRightOne.set(3);
 		//setting pid value for both sides
-		RobotMap.motorLeftTwo.setPID(0.3f, 0, 0, this.fGainLeft, 0, 0, 0);
-		RobotMap.motorRightTwo.setPID(0.3f, 0, 0, this.fGainRight, 0, 0, 0);
+		RobotMap.motorLeftTwo.setPID(0.345f, 0, 0, this.fGainLeft, 0, 0, 0);
+		RobotMap.motorRightTwo.setPID(0.345f, 0, 0, this.fGainRight, 0, 0, 0);
 		//setting Acceleration and velocity for the left
 		RobotMap.motorLeftTwo.setMotionMagicAcceleration(300);
 		RobotMap.motorLeftTwo.setMotionMagicCruiseVelocity(1250);
@@ -75,19 +86,21 @@ public class DriveForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    System.out.println(RobotMap.motorRightTwo.getEncPosition());
+    	System.out.println(Math.abs(RobotMap.motorLeftTwo.getEncPosition())- motionMagicEndPoint* 4096 + "left");
+    	System.out.println(Math.abs(RobotMap.motorRightTwo.getEncPosition())- motionMagicEndPoint* 4096 + "right");
+
     
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return false;
-    	/*if((RobotMap.motorRightTwo.getEncPosition()-(endpoint* 4096.0f))<100 && RobotMap.motorLeftTwo.getEncPosition()-(endpoint* 4096.0f)<100 )
-    		if(RobotMap.motorRightTwo.get()< 0.05 && RobotMap.motorLeftTwo.get()< 0.05){
-    			
+    
+    	
+    		
+ if((Math.abs(RobotMap.motorLeftTwo.getEncPosition()- motionMagicEndPoint* 4096) < 100) && (Math.abs(RobotMap.motorRightTwo.getEncPosition())- motionMagicEndPoint* 4096)< 100)  	{			
     			return true;
     		}
-        return false;*/
+        return false;
     }
 
     // Called once after isFinished returns true

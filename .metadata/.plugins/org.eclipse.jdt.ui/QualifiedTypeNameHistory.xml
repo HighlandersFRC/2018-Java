@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<qualifiedTypeNameHistroy/>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.RobotState"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team4499.robot.RobotStats"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team4499.robot.commands.DriveForward"/>
+</qualifiedTypeNameHistroy>
