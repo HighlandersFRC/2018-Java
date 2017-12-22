@@ -46,7 +46,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		drive = new DriveForward(72.0f, 0.2f, 20);
+		drive = new DriveForward(160.0f, 0.2f, RobotMap.navx.getAngle());
 		drive2 = new driveForwardAndBack();
 	
 		
@@ -86,7 +86,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		  drive.start();
+		  drive2.start();
 	
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -113,6 +113,11 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void teleopInit() {
+		RobotMap.motorLeftOne.changeControlMode(TalonControlMode.PercentVbus);
+		RobotMap.motorRightOne.changeControlMode(TalonControlMode.PercentVbus);
+		RobotMap.motorLeftTwo.changeControlMode(TalonControlMode.PercentVbus);
+		RobotMap.motorRightTwo.changeControlMode(TalonControlMode.PercentVbus);
+
 		//setting motor control modes
 		
 	
@@ -129,18 +134,29 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		
-		
-		System.out.println(RobotMap.motorLeftTwo.getEncPosition() + "left");
-		System.out.println(RobotMap.motorRightTwo.getEncPosition() + "Right");
-	  
-		
-		Scheduler.getInstance().run();
+		RobotMap.motorLeftOne.set( 0.5*OI.controllerOne.getRawAxis(1));
+    	RobotMap.motorLeftTwo.set(0.5*OI.controllerOne.getRawAxis(1));
+    	RobotMap.motorRightTwo.set(-0.5*OI.controllerOne.getRawAxis(3));
+    	RobotMap.motorRightOne.set(-0.5*OI.controllerOne.getRawAxis(3));
+
+    	
+    
+    	
+    
+    //	System.out.println(RobotMap.motorLeftOne.getEncVelocity());
+    
+	
+    	
+    
+       
+    
+    	
+    
 	}
 
-	/**
-	 * This function is called periodically during test mode
-	 */
+    
+    
+ 
 	@Override
 	public void testPeriodic() {
 		LiveWindow.run();
