@@ -2,16 +2,12 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="RobotMap.leftMotorOne" key="selection"/>
+		<item value="Right" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="RobotMap.leftMotorOne"/>
-			<item value="OI."/>
-			<item value=".set"/>
-			<item value="orientation"/>
 			<item value="right"/>
 		</list>
 		<list key="replacehistory">
