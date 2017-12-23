@@ -46,7 +46,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		drive = new DriveForward(160.0f, 0.2f, RobotMap.navx.getAngle());
+		drive = new DriveForward(24.0f, 0.2f, RobotMap.navx.getAngle());
 		drive2 = new driveForwardAndBack();
 	
 		
@@ -86,7 +86,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		  drive2.start();
+		  drive.start();
 	
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",

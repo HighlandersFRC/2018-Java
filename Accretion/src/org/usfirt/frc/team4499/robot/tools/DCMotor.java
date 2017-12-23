@@ -37,12 +37,12 @@ public class DCMotor extends CANTalon {
 	//then clamps it and calls it on the motor
 	@Override
 	public void set(double outputValue){
-		if(outputValue >= 1){
+	/*	if(outputValue >= 1){
 			outputValue = 1;
 		}
 		if(outputValue <=-1){
 			outputValue = -1;
-		}
+		}*/
 		
 		double voltage = panel.getVoltage();
 		double reference = RobotStats.referenceVoltage / voltage;

@@ -110,15 +110,15 @@ public class DriveForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-       System.out.println(RobotMap.navx.getAngle() );
-       if(endpoint > 0){
+       System.out.println(this.motionMagicEndPoint*4096 - RobotMap.motorRightTwo.getEncPosition());
+     if(endpoint > 0){
     	cruiseVelocityLeft = (float) (this.initCruiseVelocityLeft+ angleorientation.getResult());
     	cruiseVelocityRight = (float) (this.initCruiseVelocityRight - angleorientation.getResult());
        }
        if(endpoint <= 0){
        	cruiseVelocityLeft = (float) (this.initCruiseVelocityLeft- angleorientation.getResult());
        	cruiseVelocityRight = (float) (this.initCruiseVelocityRight + angleorientation.getResult());
-          }
+          
    //     System.out.println(this.angleorientation.getResult());
     //	System.out.println(cruiseVelocityLeft + "left" );
     //	System.out.println(cruiseVelocityRight + "right" );
@@ -126,9 +126,9 @@ public class DriveForward extends Command {
    
     	angleorientation.updatePID(RobotMap.navx.getAngle());
     	RobotMap.motorLeftTwo.setMotionMagicCruiseVelocity(cruiseVelocityLeft);
-    	RobotMap.motorRightTwo.setMotionMagicCruiseVelocity(cruiseVelocityRight );
+    	RobotMap.motorRightTwo.setMotionMagicCruiseVelocity(cruiseVelocityRight);
  
-
+       }
     	
     
     }
