@@ -11,4 +11,5 @@
 <fullyQualifiedTypeName name="org.usfirst.frc.team4499.robot.RobotMap"/>
 <fullyQualifiedTypeName name="org.usfirst.frc.team4499.robot.commands.NavXTurn"/>
 <fullyQualifiedTypeName name="com.ctre.CANTalon.TalonControlMode"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.smartdashboard.SmartDashboard"/>
 </qualifiedTypeNameHistroy>

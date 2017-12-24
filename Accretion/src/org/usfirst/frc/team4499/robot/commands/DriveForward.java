@@ -28,12 +28,13 @@ public class DriveForward extends Command {
 	private float startingEncPositionL;
 	private float startingEncPositionR;
 	private double starttime;
-	private float cruiseVelocityLeft = 200;
-	private float cruiseVelocityRight = 200;
+	private float cruiseVelocityLeft = 125;
+	private float cruiseVelocityRight = 125;
 	private float initCruiseVelocityLeft = cruiseVelocityLeft;
 	private float initCruiseVelocityRight = cruiseVelocityRight;
 	private double startAngle;
 	private double endpoint;
+	
 	
 
 	
@@ -43,7 +44,7 @@ public class DriveForward extends Command {
     public DriveForward(float distance, float power,double angle) {
     	endpoint = distance;
     	
-    
+    starttime = Timer.getFPGATimestamp();
     	
     	angleorientation = new PID(0, 0, 0);
     	angleorientation.setContinuous(true);
@@ -89,8 +90,8 @@ public class DriveForward extends Command {
 		RobotMap.motorLeftOne.set(4);
 		RobotMap.motorRightOne.set(3);
 		//setting pid value for both sides
-		RobotMap.motorLeftTwo.setPID(0.345f, 0, 0, this.fGainLeft, 0, 0, 0);
-		RobotMap.motorRightTwo.setPID(0.345f, 0, 0, this.fGainRight, 0, 0, 0);
+		RobotMap.motorLeftTwo.setPID(0.0001f, 0, 0, this.fGainLeft, 0, 0, 0);
+		RobotMap.motorRightTwo.setPID(0.0001f, 0, 0, this.fGainRight, 0, 0, 0);
 		//setting Acceleration and velocity for the left
 		RobotMap.motorLeftTwo.setMotionMagicAcceleration(50);
 		RobotMap.motorLeftTwo.setMotionMagicCruiseVelocity(cruiseVelocityLeft);
@@ -110,15 +111,17 @@ public class DriveForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-       System.out.println(RobotMap.navx.getAngle() );
-       if(endpoint > 0){
+       System.out.println((Timer.getFPGATimestamp()- starttime ) + "," + (RobotMap.motorLeftTwo.getEncPosition()) + ","
+    + RobotMap.motorLeftTwo.getEncVelocity() + "," + RobotMap.motorRightTwo.getEncPosition() + "," + RobotMap.motorRightTwo.getEncVelocity());
+    //   System.out.println(starttime- Timer.getFPGATimestamp() + ", " + RobotMap.motorRightTwo.getEncPosition() );
+ /*      if(endpoint > 0){
     	cruiseVelocityLeft = (float) (this.initCruiseVelocityLeft+ angleorientation.getResult());
     	cruiseVelocityRight = (float) (this.initCruiseVelocityRight - angleorientation.getResult());
        }
        if(endpoint <= 0){
        	cruiseVelocityLeft = (float) (this.initCruiseVelocityLeft- angleorientation.getResult());
        	cruiseVelocityRight = (float) (this.initCruiseVelocityRight + angleorientation.getResult());
-          }
+          }*/
    //     System.out.println(this.angleorientation.getResult());
     //	System.out.println(cruiseVelocityLeft + "left" );
     //	System.out.println(cruiseVelocityRight + "right" );
