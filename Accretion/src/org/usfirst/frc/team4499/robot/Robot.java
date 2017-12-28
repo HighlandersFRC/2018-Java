@@ -46,11 +46,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-<<<<<<< HEAD
-		drive = new DriveForward(120.0f, 0.2f, RobotMap.navx.getAngle());
-=======
-		drive = new DriveForward(24.0f, 0.2f, RobotMap.navx.getAngle());
->>>>>>> 71961aea2cec706924f6d82c4a5a1e5b2835d424
+		drive = new DriveForward(100.0f, 0.21f, RobotMap.navx.getAngle());
 		drive2 = new driveForwardAndBack();
 	
 		
@@ -90,7 +86,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		  drive.start();
+		  drive2.start();
 	
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -139,7 +135,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		RobotMap.motorLeftOne.set( 0.5*OI.controllerOne.getRawAxis(1));
+	   RobotMap.motorLeftOne.set( 0.5*OI.controllerOne.getRawAxis(1));
     	RobotMap.motorLeftTwo.set(0.5*OI.controllerOne.getRawAxis(1));
     	RobotMap.motorRightTwo.set(-0.5*OI.controllerOne.getRawAxis(3));
     	RobotMap.motorRightOne.set(-0.5*OI.controllerOne.getRawAxis(3));

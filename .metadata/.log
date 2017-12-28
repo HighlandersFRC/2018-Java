@@ -12469,3 +12469,1086 @@ java.net.UnknownHostException: download.eclipse.org
 
 !ENTRY WPILib_Java_Robot_Development 1 0 2017-12-23 17:48:18.511
 !MESSAGE Targets: deploy, Mode: run
+!SESSION 2017-12-27 12:07:26.200 -----------------------------------------------
+eclipse.buildId=4.6.3.M20170301-0400
+java.version=1.8.0_102
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-12-27 12:08:38.361
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.arduino.core.descriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-12-27 12:08:38.412
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2017-12-27 12:08:38.452
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.osgi 2 0 2017-12-27 12:08:44.603
+!MESSAGE While loading class "org.eclipse.egit.ui.internal.ConfigurationChecker$1$1", thread "Thread[Worker-1,5,main]" timed out waiting (5001ms) for thread "Thread[main,6,main]" to finish starting bundle "org.eclipse.egit.ui_4.6.1.201703071140-r [127]". To avoid deadlock, thread "Thread[Worker-1,5,main]" is proceeding but "org.eclipse.egit.ui.internal.ConfigurationChecker$1$1" may not be fully initialized.
+!STACK 0
+org.osgi.framework.BundleException: Unable to acquire the state change lock for the module: osgi.identity; type="osgi.bundle"; version:Version="4.6.1.201703071140-r"; osgi.identity="org.eclipse.egit.ui"; singleton:="true" [id=127] STARTED [STARTED]
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:337)
+	at org.eclipse.osgi.container.Module.start(Module.java:401)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:470)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:529)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:325)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:423)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:372)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:364)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:161)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.egit.ui.internal.ConfigurationChecker$1.run(ConfigurationChecker.java:45)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+Caused by: java.util.concurrent.TimeoutException: Timeout after waiting 5 seconds to acquire the lock.
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:334)
+	... 13 more
+Root exception:
+java.util.concurrent.TimeoutException: Timeout after waiting 5 seconds to acquire the lock.
+	at org.eclipse.osgi.container.Module.lockStateChange(Module.java:334)
+	at org.eclipse.osgi.container.Module.start(Module.java:401)
+	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:470)
+	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:107)
+	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:529)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:325)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:345)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:423)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:372)
+	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:364)
+	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:161)
+	at java.lang.ClassLoader.loadClass(Unknown Source)
+	at org.eclipse.egit.ui.internal.ConfigurationChecker$1.run(ConfigurationChecker.java:45)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.egit.ui 2 0 2017-12-27 12:09:13.060
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Simon HC'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2017-12-27 12:09:20.555
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2017-12-27 12:09:20.573
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2017-12-27 12:09:20.663
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2017-12-27 12:09:20.670
+!MESSAGE Installedcpp
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2017-12-27 12:09:20.681
+!MESSAGE Updating projects
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2017-12-27 12:09:20.712
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2017-12-27 12:09:20.722
+!MESSAGE Installedjava
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:09:20.737
+!MESSAGE Updating projects
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:10:09.097
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:10:09.166
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:11:43.415
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:11:43.432
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:12:48.397
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:12:48.406
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2017-12-27 12:14:03.030
+!MESSAGE Unknown Host: http://download.eclipse.org/modeling/emft/mwe/updates/releases/2.8.0/compositeContent.xml
+!STACK 0
+java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:262)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:161)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:328)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:612)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:447)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:884)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:263)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2017-12-27 12:14:03.094
+!MESSAGE Unknown Host: http://first.wpi.edu/FRC/roborio/release/eclipse/content.xml
+!STACK 0
+java.net.UnknownHostException: first.wpi.edu
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:262)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:161)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:328)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:612)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:447)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:884)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:263)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2017-12-27 12:14:03.131
+!MESSAGE Unknown Host: http://download.eclipse.org/releases/neon/compositeContent.xml
+!STACK 0
+java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:262)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:161)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:328)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:612)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:447)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:884)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:263)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2017-12-27 12:14:03.163
+!MESSAGE Unknown Host: http://download.eclipse.org/ldt/releases/stable/compositeContent.xml
+!STACK 0
+java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:262)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:161)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:328)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:612)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:447)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:884)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:263)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2017-12-27 12:14:03.182
+!MESSAGE Unknown Host: http://download.eclipse.org/eclipse/updates/4.6/compositeContent.xml
+!STACK 0
+java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:262)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:161)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:328)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:612)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:447)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:884)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:263)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2017-12-27 12:14:03.204
+!MESSAGE Unknown Host: http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/compositeContent.xml
+!STACK 0
+java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:262)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:161)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:328)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:612)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:447)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:884)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:263)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2017-12-27 12:14:03.247
+!MESSAGE Unknown Host: http://download.eclipse.org/modeling/emft/mwe/updates/releases/compositeContent.xml
+!STACK 0
+java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:262)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:161)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:328)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:612)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:447)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:884)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:263)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY org.eclipse.equinox.p2.transport.ecf 4 1006 2017-12-27 12:14:04.103
+!MESSAGE Unknown Host: http://download.eclipse.org/oomph/updates/milestone/latest/compositeContent.xml
+!STACK 0
+java.net.UnknownHostException: download.eclipse.org
+	at java.net.InetAddress.getAllByName0(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at java.net.InetAddress.getAllByName(Unknown Source)
+	at org.apache.http.impl.conn.SystemDefaultDnsResolver.resolve(SystemDefaultDnsResolver.java:45)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.resolveHostname(DefaultClientConnectionOperator.java:262)
+	at org.apache.http.impl.conn.DefaultClientConnectionOperator.openConnection(DefaultClientConnectionOperator.java:161)
+	at org.apache.http.impl.conn.ManagedClientConnectionImpl.open(ManagedClientConnectionImpl.java:328)
+	at org.apache.http.impl.client.DefaultRequestDirector.tryConnect(DefaultRequestDirector.java:612)
+	at org.apache.http.impl.client.DefaultRequestDirector.execute(DefaultRequestDirector.java:447)
+	at org.apache.http.impl.client.AbstractHttpClient.doExecute(AbstractHttpClient.java:884)
+	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+	at org.eclipse.ecf.provider.filetransfer.httpclient4.HttpClientFileSystemBrowser.runRequest(HttpClientFileSystemBrowser.java:263)
+	at org.eclipse.ecf.provider.filetransfer.browse.AbstractFileSystemBrowser$DirectoryJob.run(AbstractFileSystemBrowser.java:69)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:20:32.005
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:20:32.018
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:21:07.595
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:21:07.604
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:26:00.022
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:26:00.031
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:26:55.471
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:26:55.481
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:28:18.793
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:28:18.803
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:30:20.154
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:30:20.165
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:32:33.748
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:32:33.759
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:34:53.676
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:34:53.685
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:36:05.722
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:36:05.731
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:37:07.942
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:37:07.952
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:39:12.698
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:39:12.708
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:43:51.054
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:43:51.062
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:48:05.239
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:48:05.249
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:51:04.848
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:51:04.857
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:52:31.712
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:52:31.719
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:53:01.128
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:53:01.138
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:55:29.720
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:55:29.728
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:56:41.726
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:56:41.735
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:58:14.165
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 12:58:14.174
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:00:31.112
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:00:31.122
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:07:30.397
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:07:30.406
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:09:13.317
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:09:13.324
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:10:16.895
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:10:16.903
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:11:05.799
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:11:05.806
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:11:46.855
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:11:46.862
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:13:04.703
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:13:04.710
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:13:45.991
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:13:46.003
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:14:01.830
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:14:01.838
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:14:27.368
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:14:27.376
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:15:02.035
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:15:02.043
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:15:43.369
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:15:43.376
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:17:20.634
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:17:20.641
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:18:54.184
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:18:54.193
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:19:27.679
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:19:27.687
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:20:03.541
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:20:03.548
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:20:37.056
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:20:37.075
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:21:11.546
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:21:11.554
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:21:40.793
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:21:40.802
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:22:12.497
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:22:12.506
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:23:10.462
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:23:10.471
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:24:07.875
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:24:07.881
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:25:15.594
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:25:15.604
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:44:01.858
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:44:01.868
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:44:35.590
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:44:35.596
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:48:35.339
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:48:35.346
+!MESSAGE Targets: simulate, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:48:47.809
+!MESSAGE Last deploy running
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:48:47.817
+!MESSAGE Waiting
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:48:47.824
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:48:47.831
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:53:41.598
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:53:41.606
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:54:17.828
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:54:17.836
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:57:04.937
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:57:04.948
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:58:12.092
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 13:58:12.100
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:00:53.757
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:00:53.771
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:03:11.524
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:03:11.533
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:07:09.816
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:07:09.822
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:09:08.749
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:09:08.757
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:12:04.651
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:12:04.660
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:12:51.981
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:12:51.989
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:13:44.442
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:13:44.450
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:18:11.978
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:18:11.985
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:25:53.456
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:25:53.464
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:37:16.399
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:37:16.412
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:54:33.037
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 14:54:33.046
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:02:48.176
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:02:48.183
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:04:22.236
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:04:22.245
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:11:19.527
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:11:19.536
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:11:52.615
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:11:52.622
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:13:20.491
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:13:20.500
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:20:36.329
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:20:36.336
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:21:14.695
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:21:14.703
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:22:04.870
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:22:04.878
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:22:34.447
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:22:34.454
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:23:32.543
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:23:32.550
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:24:13.942
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:24:13.950
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:25:03.813
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:25:03.819
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:25:40.492
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:25:40.498
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:26:45.729
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:26:45.737
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:27:39.405
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:27:39.415
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:28:16.447
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:28:16.456
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:28:48.528
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:28:48.535
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:29:23.993
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:29:24.000
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:30:00.985
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:30:00.994
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:30:59.568
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:30:59.577
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:31:58.715
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:31:58.722
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:33:10.389
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:33:10.397
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:33:58.782
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:33:58.790
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:35:09.536
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:35:09.548
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:36:30.403
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:36:30.411
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:37:37.018
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:37:37.027
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:39:26.765
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:39:26.772
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:40:54.467
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:40:54.476
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:43:14.618
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:43:14.634
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:44:30.394
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:44:30.403
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:47:04.894
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:47:04.902
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:56:39.707
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:56:39.715
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:59:04.458
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 15:59:04.467
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:00:04.212
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:00:04.219
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:01:47.278
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:01:47.286
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:03:03.958
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:03:03.967
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:04:41.332
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:04:41.338
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:05:11.190
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:05:11.197
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:07:01.581
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:07:01.586
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:08:07.602
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:08:07.611
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:09:09.723
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:09:09.731
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:10:15.987
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:10:15.997
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:13:21.390
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:13:21.398
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:14:35.153
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:14:35.161
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:15:49.839
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:15:49.847
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:16:50.833
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:16:50.841
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:17:58.422
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:17:58.432
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:20:51.079
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:20:51.086
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:22:05.541
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:22:05.548
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:23:08.646
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:23:08.654
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:24:26.602
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:24:26.609
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:31:41.363
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:31:41.369
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:32:29.745
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:32:29.754
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:34:14.346
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:34:14.353
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:35:01.189
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:35:01.200
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:36:02.797
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:36:02.806
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:36:39.772
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:36:39.782
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:39:11.992
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:39:11.999
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:45:47.514
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:45:47.522
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:46:06.604
+!MESSAGE Last deploy running
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:46:06.612
+!MESSAGE Waiting
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:46:06.620
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:46:06.628
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:48:09.646
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:48:09.655
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:50:40.932
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:50:40.939
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:51:24.374
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:51:24.381
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:52:28.589
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:52:28.597
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:53:36.420
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:53:36.427
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:54:13.066
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:54:13.072
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:55:05.487
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:55:05.494
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:56:53.826
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:56:53.834
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:58:07.008
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:58:07.015
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:59:10.740
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 16:59:10.748
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 17:02:25.933
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 17:02:25.938
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 17:02:53.976
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 17:02:53.983
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 17:05:45.408
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 17:05:45.418
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 17:06:05.105
+!MESSAGE Last deploy running
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 17:06:05.113
+!MESSAGE Waiting
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 17:06:05.120
+!MESSAGE Running ant file: C:\Users\Simon HC\Documents\Robotics programming\2018-Java\Accretion\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2017-12-27 17:06:05.127
+!MESSAGE Targets: deploy, Mode: run
