@@ -46,7 +46,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		drive = new DriveForward(150.0f, 0.2f, RobotMap.navx.getAngle());
+		drive = new DriveForward(36.0f, 0.2f, RobotMap.navx.getAngle());
 		drive2 = new driveForwardAndBack();
 	
 		
