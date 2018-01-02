@@ -16,15 +16,12 @@ public class driveForwardAndBack extends CommandGroup {
 
     public driveForwardAndBack() {
     	Angle = RobotMap.navx.getAngle();
-   	addSequential(new DriveForward(200.0f, 0.20f, Angle));
+   	addSequential(new DriveForward(115.0f, 0.20f, Angle));
     	addSequential(new Wait(1));
     	//addSequential(new NavXTurn(3.0, RobotMap.navx.getAngle() * -1));
     //	addSequential(new DriveForward(-36, 0.23f, RobotMap.navx.getAngle()));
-    	addSequential(new DriveForward(-40.0f, 0.20f,RobotMap.navx.getAngle()));
-    	addSequential(new Wait(1));
-    	addSequential(new DriveForward(56.0f, 0.20f,RobotMap.navx.getAngle()));
-    	addSequential(new Wait(1));
-    	addSequential(new DriveForward(-216.0f, 0.20f,RobotMap.navx.getAngle()));
+    	addSequential(new DriveForward(-115.0f, 0.20f,RobotMap.navx.getAngle()));
+    
     	
 
 

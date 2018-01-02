@@ -47,7 +47,7 @@ public class DriveForward extends Command {
     	
     	endpoint = distance;
     	
-    starttime = Timer.getFPGATimestamp();
+   
     	
     	angleorientation = new PID(0, 0, 0);
     	angleorientation.setContinuous(true);
@@ -61,7 +61,7 @@ public class DriveForward extends Command {
     	
 		RobotMap.motorLeftTwo.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
     	RobotMap.motorRightTwo.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
-		nativeUnitsPerCycleLeft = (RobotMap.maxLeftRPM) * (1.0f / 60.0f) * (1.0f/10.0f) * (4096.0f)*(1.0f/(2.5f* 2.764f));
+		nativeUnitsPerCycleLeft = (RobotMap.maxLeftRPM) * (1.0f / 60.0f) * (1.0f/10.0f) * (4096.0f)*(1.0f/(2.5f* 2.774f));
 		nativeUnitsPerCycleRight = (RobotMap.maxRightRPM) * (1.0f / 60.0f) * (1.0f/10.0f) * (4096.0f)*(1.0f/(2.5f*2.589f));
     	fGainLeft =( autoDrivePower* 1023)/nativeUnitsPerCycleLeft;
     	fGainRight = ( autoDrivePower* 1023)/nativeUnitsPerCycleRight;
@@ -71,6 +71,7 @@ public class DriveForward extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	 starttime = Timer.getFPGATimestamp();
     	this.startAngle = RobotMap.navx.getAngle();
     	angleorientation.setSetPoint(RobotMap.navx.getAngle());
     	
@@ -95,17 +96,17 @@ public class DriveForward extends Command {
 		//setting pid value for both sides
 	
 		RobotMap.motorLeftTwo.setP(0.000009f);
-		RobotMap.motorLeftTwo.setI(0.128);
-		RobotMap.motorLeftTwo.setIZone(75);
+		RobotMap.motorLeftTwo.setI(0.256);
+		RobotMap.motorLeftTwo.setIZone(25);
 	
-		RobotMap.motorLeftTwo.setD(0.00009f);
-		RobotMap.motorLeftTwo.setF( 0.3426384);
+		RobotMap.motorLeftTwo.setD(0.00014f);
+		RobotMap.motorLeftTwo.setF( 0.3626384);
 	
 		RobotMap.motorRightTwo.setP(0.000008f);
-		RobotMap.motorRightTwo.setI(0.128);
-		RobotMap.motorRightTwo.setIZone(75);
+		RobotMap.motorRightTwo.setI(0.256);
+		RobotMap.motorRightTwo.setIZone(25);
 		RobotMap.motorRightTwo.setD(0.00008f);
-		RobotMap.motorRightTwo.setF( 0.3175706);
+		RobotMap.motorRightTwo.setF( 0.3375706);
 		//setting Acceleration and velocity for the left
 		RobotMap.motorLeftTwo.setMotionMagicAcceleration(125);
 		RobotMap.motorLeftTwo.setMotionMagicCruiseVelocity(cruiseVelocityLeft);
@@ -179,7 +180,12 @@ if(this.motionMagicEndPoint >0)   {
 		 System.out.println("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIi");
 	    			return true;
 	    		}
-	}*/
+	}*/if(this.motionMagicEndPoint >0) {
+    	if(Math.abs(RobotMap.motorLeftTwo.get() )< 0.09 && Math.abs(RobotMap.motorRightTwo.get() )> -0.09&& Timer.getFPGATimestamp()-starttime > 10) {
+    		return true;
+    	}
+	}
+	
         return false;
     }
 
