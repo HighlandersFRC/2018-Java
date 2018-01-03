@@ -30,8 +30,10 @@ public class DriveForward extends Command {
 	private float startingEncPositionL;
 	private float startingEncPositionR;
 	private double starttime;
-	private float cruiseVelocityLeft = 125;
-	private float cruiseVelocityRight = 125;
+	private float cruiseVelocityLeft = 250;
+	private float cruiseVelocityRight = 250;
+	private float DrivePowerLeft = (this.cruiseVelocityLeft)/RobotMap.maxLeftRPM;
+	private float DrivePowerRight = (this.cruiseVelocityRight)/RobotMap.maxRightRPM;
 	private float initCruiseVelocityLeft = cruiseVelocityLeft;
 	private float initCruiseVelocityRight = cruiseVelocityRight;
 	private double startAngle;
@@ -61,10 +63,10 @@ public class DriveForward extends Command {
     	
 		RobotMap.motorLeftTwo.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
     	RobotMap.motorRightTwo.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
-		nativeUnitsPerCycleLeft = (RobotMap.maxLeftRPM) * (1.0f / 60.0f) * (1.0f/10.0f) * (4096.0f)*(1.0f/(2.5f* 2.774f));
-		nativeUnitsPerCycleRight = (RobotMap.maxRightRPM) * (1.0f / 60.0f) * (1.0f/10.0f) * (4096.0f)*(1.0f/(2.5f*2.589f));
-    	fGainLeft =( autoDrivePower* 1023)/nativeUnitsPerCycleLeft;
-    	fGainRight = ( autoDrivePower* 1023)/nativeUnitsPerCycleRight;
+		nativeUnitsPerCycleLeft = (RobotMap.maxLeftRPM) * (1.0f / 60.0f) * (1.0f/10.0f) * (4096.0f)*(1.0f/(2.65f));
+		nativeUnitsPerCycleRight = (RobotMap.maxRightRPM) * (1.0f / 60.0f) * (1.0f/10.0f) * (4096.0f)*(1.0f/2.65f);
+    	fGainLeft =( DrivePowerLeft* 1023)/nativeUnitsPerCycleLeft;
+    	fGainRight = ( DrivePowerRight* 1023)/nativeUnitsPerCycleRight;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -94,19 +96,24 @@ public class DriveForward extends Command {
 		RobotMap.motorLeftOne.set(4);
 		RobotMap.motorRightOne.set(3);
 		//setting pid value for both sides
-	
-		RobotMap.motorLeftTwo.setP(0.000009f);
-		RobotMap.motorLeftTwo.setI(0.256);
-		RobotMap.motorLeftTwo.setIZone(25);
-	
-		RobotMap.motorLeftTwo.setD(0.00014f);
-		RobotMap.motorLeftTwo.setF( 0.3626384);
-	
-		RobotMap.motorRightTwo.setP(0.000008f);
-		RobotMap.motorRightTwo.setI(0.256);
-		RobotMap.motorRightTwo.setIZone(25);
-		RobotMap.motorRightTwo.setD(0.00008f);
-		RobotMap.motorRightTwo.setF( 0.3375706);
+	//	RobotMap.motorLeftTwo.setCloseLoopRampRate(1);
+		RobotMap.motorLeftTwo.setProfile(0);
+	//	RobotMap.motorLeftTwo.setP(0);//0.000009f);
+	//	RobotMap.motorLeftTwo.setI(0);//0.256);
+	//	RobotMap.motorLeftTwo.setIZone(0);//325);
+	//	RobotMap.motorLeftTwo.setD(0);//0.00014f);
+		RobotMap.motorLeftTwo.setF(this.fGainLeft+0.015);//0.3625884);
+		RobotMap.motorLeftTwo.setAllowableClosedLoopErr(0);//300);
+		
+	 //   RobotMap.motorRightTwo.setCloseLoopRampRate(1);
+	    RobotMap.motorRightTwo.setProfile(0);
+	//	RobotMap.motorRightTwo.setP(0);//.000008f);
+	//	RobotMap.motorRightTwo.setI(0);//.256);
+	//	RobotMap.motorRightTwo.setIZone(0);//325);
+	//	RobotMap.motorRightTwo.setD(0);//.00014f);
+		RobotMap.motorRightTwo.setF(this.fGainRight);// 0.3373206);
+		RobotMap.motorRightTwo.setAllowableClosedLoopErr(0);//300);
+		
 		//setting Acceleration and velocity for the left
 		RobotMap.motorLeftTwo.setMotionMagicAcceleration(125);
 		RobotMap.motorLeftTwo.setMotionMagicCruiseVelocity(cruiseVelocityLeft);
@@ -126,11 +133,14 @@ public class DriveForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println(this.fGainLeft);
-    	System.out.println(this.fGainRight);
+    	SmartDashboard.putNumber("LeftWheelVelocity", (RobotMap.motorLeftTwo.getEncVelocity()*600)/4096);
+        SmartDashboard.putNumber("RightWheelVelocity",(RobotMap.motorRightTwo.getEncVelocity()*600)/4096);
+    	
+    	  
+    	
        
-   //    System.out.println((Timer.getFPGATimestamp()- starttime ) + "," + (RobotMap.motorLeftTwo.getEncPosition()) + ","
-   //+ (RobotMap.motorLeftTwo.getEncVelocity()*600)/-4096 + "," + RobotMap.motorRightTwo.getEncPosition() + "," + (RobotMap.motorRightTwo.getEncVelocity()*600)/4096);
+      System.out.println((Timer.getFPGATimestamp()- starttime ) + "," + (RobotMap.motorLeftTwo.getEncPosition()) + ","
+   + (RobotMap.motorLeftTwo.getEncVelocity()*600)/-4096 + "," + RobotMap.motorRightTwo.getEncPosition() + "," + (RobotMap.motorRightTwo.getEncVelocity()*600)/4096);
     //   System.out.println(starttime- Timer.getFPGATimestamp() + ", " + RobotMap.motorRightTwo.getEncPosition() );
     /*if(endpoint > 0){
     	cruiseVelocityLeft = (float) (this.initCruiseVelocityLeft+ angleorientation.getResult());
@@ -140,8 +150,8 @@ public class DriveForward extends Command {
        	cruiseVelocityLeft = (float) (this.initCruiseVelocityLeft- angleorientation.getResult());
        	cruiseVelocityRight = (float) (this.initCruiseVelocityRight + angleorientation.getResult());
           }*/
-      System.out.println(this.motionMagicEndPoint*4096 + RobotMap.motorLeftTwo.getEncPosition() + "l");
-       System.out.println(this.motionMagicEndPoint*4096 - RobotMap.motorRightTwo.getEncPosition() + "r");
+  //    System.out.println(this.motionMagicEndPoint*4096 + RobotMap.motorLeftTwo.getEncPosition() + "l");
+  //     System.out.println(this.motionMagicEndPoint*4096 - RobotMap.motorRightTwo.getEncPosition() + "r");
     //   
    //     System.out.println(this.angleorientation.getResult());
   // 	System.out.println(cruiseVelocityLeft + "left" );
@@ -149,9 +159,7 @@ public class DriveForward extends Command {
     //	System.out.println(Timer.getFPGATimestamp() + "," + RobotMap.motorLeftTwo.get()+ "," + RobotMap.motorRightTwo.get());
     
     	//System.out.println(RobotMap.navx.getAngle());
-        
-    	SmartDashboard.putNumber("LeftWheelVelocity", (RobotMap.motorLeftTwo.getEncVelocity()*600)/4096);
-        SmartDashboard.putNumber("RightWheelVelocity",(RobotMap.motorRightTwo.getEncVelocity()*600)/4096);
+      
     //	SmartDashboard.putNumber("LeftWheelPos", (RobotMap.motorLeftTwo.getEncPosition()));
     //    SmartDashboard.putNumber("RightWheelPos",(RobotMap.motorRightTwo.getEncPosition()));
    

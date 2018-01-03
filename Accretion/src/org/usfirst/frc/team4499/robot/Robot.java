@@ -46,7 +46,8 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		drive = new DriveForward(48.0f, 0.2f, RobotMap.navx.getAngle());
+		
+		drive = new DriveForward(115.0f, 0.2f, RobotMap.navx.getAngle());
 		drive2 = new driveForwardAndBack();
 	
 		
@@ -135,6 +136,8 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
+		
+	
 	   RobotMap.motorLeftOne.set( 0.5*OI.controllerOne.getRawAxis(1));
     	RobotMap.motorLeftTwo.set(0.5*OI.controllerOne.getRawAxis(1));
     	RobotMap.motorRightTwo.set(-0.5*OI.controllerOne.getRawAxis(3));
