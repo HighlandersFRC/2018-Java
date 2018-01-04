@@ -38,6 +38,9 @@ public class DriveForward extends Command {
 	private float initCruiseVelocityRight = cruiseVelocityRight;
 	private double startAngle;
 	private double endpoint;
+	private int count;
+	double velocityLeft;
+	double velocityRight;
 	
 	
 
@@ -55,7 +58,6 @@ public class DriveForward extends Command {
     	angleorientation.setContinuous(true);
     	angleorientation.setPID(0.0f, 0, 0);
 
-    	
     	//setting up pid
     	autoDrivePower = power;//(-0.00055750f* distance + 0.2925f);
     	motionMagicEndPoint = (float) (2.5*((distance)/ ((RobotStats.driveDiameter * Math.PI))));
@@ -63,9 +65,9 @@ public class DriveForward extends Command {
     	
 		RobotMap.motorLeftTwo.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
     	RobotMap.motorRightTwo.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
-		nativeUnitsPerCycleLeft = (RobotMap.maxLeftRPM) * (1.0f / 60.0f) * (1.0f/10.0f) * (4096.0f)*(1.0f/(2.65f));
-		nativeUnitsPerCycleRight = (RobotMap.maxRightRPM) * (1.0f / 60.0f) * (1.0f/10.0f) * (4096.0f)*(1.0f/2.65f);
-    	fGainLeft =( DrivePowerLeft* 1023)/nativeUnitsPerCycleLeft;
+		nativeUnitsPerCycleLeft = (RobotMap.maxLeftRPM) * (1.0f / 60.0f) * (1.0f/10.0f) * (4096.0f)*(1.0f/(2.72f));
+		nativeUnitsPerCycleRight = (RobotMap.maxRightRPM) * (1.0f / 60.0f) * (1.0f/10.0f) * (4096.0f)*(1.0f/2.72f);
+    	fGainLeft =(DrivePowerLeft* 1023)/nativeUnitsPerCycleLeft;
     	fGainRight = ( DrivePowerRight* 1023)/nativeUnitsPerCycleRight;
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -98,97 +100,79 @@ public class DriveForward extends Command {
 		//setting pid value for both sides
 	//	RobotMap.motorLeftTwo.setCloseLoopRampRate(1);
 		RobotMap.motorLeftTwo.setProfile(0);
-	//	RobotMap.motorLeftTwo.setP(0);//0.000009f);
-	//	RobotMap.motorLeftTwo.setI(0);//0.256);
-	//	RobotMap.motorLeftTwo.setIZone(0);//325);
-	//	RobotMap.motorLeftTwo.setD(0);//0.00014f);
-		RobotMap.motorLeftTwo.setF(this.fGainLeft+0.015);//0.3625884);
+	    RobotMap.motorLeftTwo.setP(0.000014f);
+    	RobotMap.motorLeftTwo.setI(0.00000001);
+		RobotMap.motorLeftTwo.setIZone(0);//325);
+		RobotMap.motorLeftTwo.setD(1.0f);
+		RobotMap.motorLeftTwo.setF(this.fGainLeft+0.014);//0.3625884);
 		RobotMap.motorLeftTwo.setAllowableClosedLoopErr(0);//300);
 		
-	 //   RobotMap.motorRightTwo.setCloseLoopRampRate(1);
+	    RobotMap.motorRightTwo.setCloseLoopRampRate(1);
 	    RobotMap.motorRightTwo.setProfile(0);
-	//	RobotMap.motorRightTwo.setP(0);//.000008f);
-	//	RobotMap.motorRightTwo.setI(0);//.256);
-	//	RobotMap.motorRightTwo.setIZone(0);//325);
-	//	RobotMap.motorRightTwo.setD(0);//.00014f);
+		RobotMap.motorRightTwo.setP(0.000014f);
+		RobotMap.motorRightTwo.setI(0.00000001);
+		RobotMap.motorRightTwo.setIZone(0);//325);
+		RobotMap.motorRightTwo.setD(1.0f);
 		RobotMap.motorRightTwo.setF(this.fGainRight);// 0.3373206);
 		RobotMap.motorRightTwo.setAllowableClosedLoopErr(0);//300);
 		
 		//setting Acceleration and velocity for the left
 		RobotMap.motorLeftTwo.setMotionMagicAcceleration(125);
-		RobotMap.motorLeftTwo.setMotionMagicCruiseVelocity(cruiseVelocityLeft);
+		RobotMap.motorLeftTwo.setMotionMagicCruiseVelocity(250);
 		//setting Acceleration and velocity for the right
 		RobotMap.motorRightTwo.setMotionMagicAcceleration(125);
-		RobotMap.motorRightTwo.setMotionMagicCruiseVelocity(cruiseVelocityRight);
+		RobotMap.motorRightTwo.setMotionMagicCruiseVelocity(250);
 		//resets encoder position to 0		
 		RobotMap.motorLeftTwo.setEncPosition(0);
 		RobotMap.motorRightTwo.setEncPosition(0);
-		
+	    //Set Allowable error for the loop
+		RobotMap.motorLeftTwo.setAllowableClosedLoopErr(300);
+		RobotMap.motorRightTwo.setAllowableClosedLoopErr(300);
 		
 		//sets desired endpoint for the motors
-        RobotMap.motorLeftTwo.set(motionMagicEndPoint);
-        RobotMap.motorRightTwo.set(-motionMagicEndPoint );
+      RobotMap.motorLeftTwo.set(motionMagicEndPoint);
+       RobotMap.motorRightTwo.set(-motionMagicEndPoint );
     	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	SmartDashboard.putNumber("LeftWheelVelocity", (RobotMap.motorLeftTwo.getEncVelocity()*600)/4096);
-        SmartDashboard.putNumber("RightWheelVelocity",(RobotMap.motorRightTwo.getEncVelocity()*600)/4096);
+    
     	
     	  
     	
        
-      System.out.println((Timer.getFPGATimestamp()- starttime ) + "," + (RobotMap.motorLeftTwo.getEncPosition()) + ","
-   + (RobotMap.motorLeftTwo.getEncVelocity()*600)/-4096 + "," + RobotMap.motorRightTwo.getEncPosition() + "," + (RobotMap.motorRightTwo.getEncVelocity()*600)/4096);
-    //   System.out.println(starttime- Timer.getFPGATimestamp() + ", " + RobotMap.motorRightTwo.getEncPosition() );
-    /*if(endpoint > 0){
-    	cruiseVelocityLeft = (float) (this.initCruiseVelocityLeft+ angleorientation.getResult());
-    	cruiseVelocityRight = (float) (this.initCruiseVelocityRight - angleorientation.getResult());
-       }
+       System.out.println((Timer.getFPGATimestamp()- starttime ) + "," + (RobotMap.motorLeftTwo.getEncPosition()) + ","
+       + (RobotMap.motorLeftTwo.getEncVelocity()*600)/-4096 + "," + RobotMap.motorRightTwo.getEncPosition() + "," + (RobotMap.motorRightTwo.getEncVelocity()*600)/4096);
+  
+       /*if(endpoint > 0){
+       cruiseVelocityLeft = (float) (this.initCruiseVelocityLeft+ angleorientation.getResult());
+       cruiseVelocityRight = (float) (this.initCruiseVelocityRight - angleorientation.getResult());
+        }
        if(endpoint <= 0){
-       	cruiseVelocityLeft = (float) (this.initCruiseVelocityLeft- angleorientation.getResult());
-       	cruiseVelocityRight = (float) (this.initCruiseVelocityRight + angleorientation.getResult());
-          }*/
-  //    System.out.println(this.motionMagicEndPoint*4096 + RobotMap.motorLeftTwo.getEncPosition() + "l");
-  //     System.out.println(this.motionMagicEndPoint*4096 - RobotMap.motorRightTwo.getEncPosition() + "r");
-    //   
-   //     System.out.println(this.angleorientation.getResult());
-  // 	System.out.println(cruiseVelocityLeft + "left" );
- //  	System.out.println(cruiseVelocityRight + "right" );
-    //	System.out.println(Timer.getFPGATimestamp() + "," + RobotMap.motorLeftTwo.get()+ "," + RobotMap.motorRightTwo.get());
-    
-    	//System.out.println(RobotMap.navx.getAngle());
-      
-    //	SmartDashboard.putNumber("LeftWheelPos", (RobotMap.motorLeftTwo.getEncPosition()));
-    //    SmartDashboard.putNumber("RightWheelPos",(RobotMap.motorRightTwo.getEncPosition()));
+       cruiseVelocityLeft = (float) (this.initCruiseVelocityLeft- angleorientation.getResult());
+       cruiseVelocityRight = (float) (this.initCruiseVelocityRight + angleorientation.getResult());
+       }*/
+        System.out.println(this.motionMagicEndPoint*4096 + RobotMap.motorLeftTwo.getEncPosition() + "l");
+        System.out.println(this.motionMagicEndPoint*4096 - RobotMap.motorRightTwo.getEncPosition() + "r");
    
+       
+    	 if(RobotMap.motorLeftTwo.getEncVelocity()!= velocityLeft)
+        velocityLeft = RobotMap.motorLeftTwo.getEncVelocity();        
+        velocityRight = RobotMap.motorRightTwo.getEncVelocity();
+        SmartDashboard.putNumber("LeftWheelError", (this.motionMagicEndPoint*4096 + RobotMap.motorLeftTwo.getEncPosition()));
+        SmartDashboard.putNumber("RightWheelError",(this.motionMagicEndPoint*4096 - RobotMap.motorRightTwo.getEncPosition()));
+        SmartDashboard.putNumber("LeftWheelVelocity", (RobotMap.motorLeftTwo.getEncVelocity())*600/4096);
+        SmartDashboard.putNumber("RightWheelVelocity",(RobotMap.motorRightTwo.getEncVelocity()*600)/4096);
+       
+      
+       count++;
     	angleorientation.updatePID(RobotMap.navx.getAngle());
-    	RobotMap.motorLeftTwo.setMotionMagicCruiseVelocity(cruiseVelocityLeft);
-    	RobotMap.motorRightTwo.setMotionMagicCruiseVelocity(cruiseVelocityRight );
- 
-     
-
-    	
-    
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    
-    	
-//if(this.motionMagicEndPoint <0)   { 		
-/*if(RobotMap.motorLeftTwo.getEncPosition()+ motionMagicEndPoint* 4096 > -300 && RobotMap.motorRightTwo.getEncPosition()- motionMagicEndPoint* 4096 < 300)  	{
-	 System.out.println("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIi");
-    			return true;
-    		}
-}
-if(this.motionMagicEndPoint >0)   { 		
-	 if(RobotMap.motorLeftTwo.getEncPosition()+ motionMagicEndPoint* 4096 < 300 && (RobotMap.motorRightTwo.getEncPosition())- motionMagicEndPoint* 4096> -300)  	{
-		 System.out.println("HIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIi");
-	    			return true;
-	    		}
-	}*/if(this.motionMagicEndPoint >0) {
+	if(this.motionMagicEndPoint >0) {
     	if(Math.abs(RobotMap.motorLeftTwo.get() )< 0.09 && Math.abs(RobotMap.motorRightTwo.get() )> -0.09&& Timer.getFPGATimestamp()-starttime > 10) {
     		return true;
     	}

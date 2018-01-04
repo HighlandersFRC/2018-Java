@@ -1,6 +1,7 @@
 
 package org.usfirst.frc.team4499.robot;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 
 
@@ -46,8 +47,9 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void robotInit() {
-		
-		drive = new DriveForward(115.0f, 0.2f, RobotMap.navx.getAngle());
+		CameraServer server= CameraServer.getInstance();
+		server.startAutomaticCapture("cam4", 50);
+		drive = new DriveForward(230.0f,0.2f,RobotMap.navx.getAngle());
 		drive2 = new driveForwardAndBack();
 	
 		
@@ -87,7 +89,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		  drive.start();
+		  drive2.start();
 	
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -136,7 +138,6 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		
 	
 	   RobotMap.motorLeftOne.set( 0.5*OI.controllerOne.getRawAxis(1));
     	RobotMap.motorLeftTwo.set(0.5*OI.controllerOne.getRawAxis(1));
