@@ -4,6 +4,7 @@ import org.usfirt.frc.team4499.robot.tools.DCMotor;
 
 import com.kauailabs.navx.frc.AHRS;
 
+import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.SerialPort;
 
 import com.ctre.CANTalon;
@@ -21,7 +22,7 @@ public class RobotMap {
 	public static CANTalon motorRightTwo = new CANTalon(3);
 	public static float maxRightRPM =590.47f;
 	public static float maxLeftRPM = 590.63f;
-	public static AHRS navx = new AHRS(SerialPort.Port.kMXP);
+	public static AHRS navx = new AHRS(I2C.Port.kMXP);
 	
 	
 	// For example to map the left and right motors, you could define the

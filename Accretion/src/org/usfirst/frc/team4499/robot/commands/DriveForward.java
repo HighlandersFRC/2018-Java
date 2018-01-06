@@ -39,9 +39,9 @@ public class DriveForward extends Command {
 	private double startAngle;
 	private double endpoint;
 	private int count;
-	double velocityLeft;
-	double velocityRight;
-	
+	private double velocityLeft;
+	private double velocityRight;
+	private double desiredAngle;
 	
 
 	
@@ -52,21 +52,25 @@ public class DriveForward extends Command {
     	
     	endpoint = distance;
     	
-   
+        
     	
-    	angleorientation = new PID(0, 0, 0);
-    	angleorientation.setContinuous(true);
-    	angleorientation.setPID(0.0f, 0, 0);
+    	
 
     	//setting up pid
-    	autoDrivePower = power;//(-0.00055750f* distance + 0.2925f);
+    	autoDrivePower = power;
     	motionMagicEndPoint = (float) (2.5*((distance)/ ((RobotStats.driveDiameter * Math.PI))));
     	
     	
 		RobotMap.motorLeftTwo.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
     	RobotMap.motorRightTwo.setFeedbackDevice(CANTalon.FeedbackDevice.CtreMagEncoder_Relative);
-		nativeUnitsPerCycleLeft = (RobotMap.maxLeftRPM) * (1.0f / 60.0f) * (1.0f/10.0f) * (4096.0f)*(1.0f/(2.72f));
-		nativeUnitsPerCycleRight = (RobotMap.maxRightRPM) * (1.0f / 60.0f) * (1.0f/10.0f) * (4096.0f)*(1.0f/2.72f);
+        if(this.motionMagicEndPoint >0) {
+		nativeUnitsPerCycleLeft = (RobotMap.maxLeftRPM) * (1.0f / 60.0f) * (1.0f/10.0f) * (4096.0f)*(1.0f/(2.65f));
+		nativeUnitsPerCycleRight = (RobotMap.maxRightRPM) * (1.0f / 60.0f) * (1.0f/10.0f) * (4096.0f)*(1.0f/2.65f);
+        }
+        if(this.motionMagicEndPoint< 0) {
+        nativeUnitsPerCycleLeft = (RobotMap.maxLeftRPM) * (1.0f / 60.0f) * (1.0f/10.0f) * (4096.0f)*(1.0f/(2.65f));
+       nativeUnitsPerCycleRight = (RobotMap.maxRightRPM) * (1.0f / 60.0f) * (1.0f/10.0f) * (4096.0f)*(1.0f/2.65f);
+        }
     	fGainLeft =(DrivePowerLeft* 1023)/nativeUnitsPerCycleLeft;
     	fGainRight = ( DrivePowerRight* 1023)/nativeUnitsPerCycleRight;
         // Use requires() here to declare subsystem dependencies
@@ -75,9 +79,14 @@ public class DriveForward extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	angleorientation = new PID(0, 0, 0);
+    	angleorientation.setContinuous(true);
+    	angleorientation.setPID(7.5, 0.2, 45.0);
+    	
+    	desiredAngle= RobotMap.navx.getAngle();
     	 starttime = Timer.getFPGATimestamp();
     	this.startAngle = RobotMap.navx.getAngle();
-    	angleorientation.setSetPoint(RobotMap.navx.getAngle());
+    	angleorientation.setSetPoint(desiredAngle);
     	
     	RobotMap.motorLeftTwo.enableControl();
     	RobotMap.motorRightTwo.enableControl();
@@ -98,21 +107,21 @@ public class DriveForward extends Command {
 		RobotMap.motorLeftOne.set(4);
 		RobotMap.motorRightOne.set(3);
 		//setting pid value for both sides
-	//	RobotMap.motorLeftTwo.setCloseLoopRampRate(1);
+
 		RobotMap.motorLeftTwo.setProfile(0);
 	    RobotMap.motorLeftTwo.setP(0.000014f);
-    	RobotMap.motorLeftTwo.setI(0.00000001);
+    	RobotMap.motorLeftTwo.setI(0.00000004);
 		RobotMap.motorLeftTwo.setIZone(0);//325);
-		RobotMap.motorLeftTwo.setD(1.0f);
+		RobotMap.motorLeftTwo.setD(0.14f);
 		RobotMap.motorLeftTwo.setF(this.fGainLeft+0.014);//0.3625884);
 		RobotMap.motorLeftTwo.setAllowableClosedLoopErr(0);//300);
 		
 	    RobotMap.motorRightTwo.setCloseLoopRampRate(1);
 	    RobotMap.motorRightTwo.setProfile(0);
 		RobotMap.motorRightTwo.setP(0.000014f);
-		RobotMap.motorRightTwo.setI(0.00000001);
+		RobotMap.motorRightTwo.setI(0.00000004);
 		RobotMap.motorRightTwo.setIZone(0);//325);
-		RobotMap.motorRightTwo.setD(1.0f);
+		RobotMap.motorRightTwo.setD(0.14f);
 		RobotMap.motorRightTwo.setF(this.fGainRight);// 0.3373206);
 		RobotMap.motorRightTwo.setAllowableClosedLoopErr(0);//300);
 		
@@ -137,37 +146,29 @@ public class DriveForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    
-    	
-    	  
-    	
-       
-       System.out.println((Timer.getFPGATimestamp()- starttime ) + "," + (RobotMap.motorLeftTwo.getEncPosition()) + ","
-       + (RobotMap.motorLeftTwo.getEncVelocity()*600)/-4096 + "," + RobotMap.motorRightTwo.getEncPosition() + "," + (RobotMap.motorRightTwo.getEncVelocity()*600)/4096);
+    	angleorientation.updatePID(RobotMap.navx.getAngle());
+    	   System.out.println(startAngle- RobotMap.navx.getAngle() + "HIor");
+           System.out.println(this.angleorientation.getResult()+ "HIt");
   
-       /*if(endpoint > 0){
+       if(endpoint > 0){
        cruiseVelocityLeft = (float) (this.initCruiseVelocityLeft+ angleorientation.getResult());
        cruiseVelocityRight = (float) (this.initCruiseVelocityRight - angleorientation.getResult());
         }
        if(endpoint <= 0){
        cruiseVelocityLeft = (float) (this.initCruiseVelocityLeft- angleorientation.getResult());
        cruiseVelocityRight = (float) (this.initCruiseVelocityRight + angleorientation.getResult());
-       }*/
-        System.out.println(this.motionMagicEndPoint*4096 + RobotMap.motorLeftTwo.getEncPosition() + "l");
-        System.out.println(this.motionMagicEndPoint*4096 - RobotMap.motorRightTwo.getEncPosition() + "r");
-   
-       
-    	 if(RobotMap.motorLeftTwo.getEncVelocity()!= velocityLeft)
-        velocityLeft = RobotMap.motorLeftTwo.getEncVelocity();        
-        velocityRight = RobotMap.motorRightTwo.getEncVelocity();
-        SmartDashboard.putNumber("LeftWheelError", (this.motionMagicEndPoint*4096 + RobotMap.motorLeftTwo.getEncPosition()));
-        SmartDashboard.putNumber("RightWheelError",(this.motionMagicEndPoint*4096 - RobotMap.motorRightTwo.getEncPosition()));
-        SmartDashboard.putNumber("LeftWheelVelocity", (RobotMap.motorLeftTwo.getEncVelocity())*600/4096);
-        SmartDashboard.putNumber("RightWheelVelocity",(RobotMap.motorRightTwo.getEncVelocity()*600)/4096);
+       }
+      RobotMap.motorLeftTwo.setMotionMagicCruiseVelocity(cruiseVelocityLeft);
+      RobotMap.motorRightTwo.setMotionMagicCruiseVelocity(cruiseVelocityRight);
+    	 
+      
+        SmartDashboard.putNumber("AngleError", (this.startAngle-RobotMap.navx.getAngle()));
+        SmartDashboard.putNumber("AngleResult", this.angleorientation.getResult());
+        
        
       
        count++;
-    	angleorientation.updatePID(RobotMap.navx.getAngle());
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()

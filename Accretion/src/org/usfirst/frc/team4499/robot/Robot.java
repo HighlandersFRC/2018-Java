@@ -138,6 +138,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
+		System.out.println(RobotMap.navx.getAngle());
 	
 	   RobotMap.motorLeftOne.set( 0.5*OI.controllerOne.getRawAxis(1));
     	RobotMap.motorLeftTwo.set(0.5*OI.controllerOne.getRawAxis(1));

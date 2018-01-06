@@ -17,9 +17,9 @@ import edu.wpi.first.wpilibj.command.Command;
 public class NavXTurn extends Command {
 	private double speed = 0;
 	private double time;
-	private double startAngle;
-	private double kp = 0.015;
-	private double ki = 0;
+	private double desiredAngle;
+	private double kp = 0.025;
+	private double ki = 0.00350;
 	private double kd = 0;
 	private PID orientation; 
 	private double startTime;
@@ -30,13 +30,15 @@ public class NavXTurn extends Command {
 
     public NavXTurn( double time, double angle) {
     	this.time = time;
-    	startAngle= angle;
+        desiredAngle= angle;
     	this.speed = speed;
     
     	orientation = new PID(kp,ki,kd);
     	orientation.setContinuous(true);
     	orientation.setMaxInput(360);
     	orientation.setMinInput(0);
+    	orientation.setMaxOutput(0.5);
+    	orientation.setMinOutput(-0.5);
     }
 
     // Called just before this Command runs the first time
@@ -50,12 +52,13 @@ public class NavXTurn extends Command {
     	RobotMap.motorLeftTwo.setEncPosition(0);
     	RobotMap.motorRightTwo.setEncPosition(0);
     	
-    	orientation.setSetPoint(startAngle);
+    	orientation.setSetPoint(desiredAngle);
     	startTime = Timer.getFPGATimestamp();
     }
 
     // Csalled repeatedly when this Command is scheduled to run
     protected void execute() {
+  
  
     	orientation.updatePID(RobotMap.navx.getAngle());
     	RobotMap.motorLeftOne.set(0.5*(orientation.getResult() - speed));
@@ -63,6 +66,7 @@ public class NavXTurn extends Command {
     	
     	RobotMap.motorRightOne.set(0.5*(orientation.getResult() + speed));
     	RobotMap.motorRightTwo.set(0.5*(orientation.getResult() + speed));
+    	System.out.println(RobotMap.navx.getAngle()-desiredAngle);
    }
 
 
@@ -71,11 +75,10 @@ public class NavXTurn extends Command {
     // Make this return true whcccen this Command no longer needs to run execute()
     protected boolean isFinished() {
     
-    	if(startTime + time <= Timer.getFPGATimestamp()){
-    		System.out.println("overtime");
+    	if(Math.abs(RobotMap.navx.getAngle() - this.desiredAngle) <=2) {
+   
     		return true;
     	}
-    	
         return false;
     }
 
