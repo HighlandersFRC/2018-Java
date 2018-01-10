@@ -1,10 +1,9 @@
-/*package org.usfirst.frc.team4499.robot.commands;
+package org.usfirst.frc.team4499.robot.commands;
 
 import org.usfirst.frc.team4499.robot.OI;
 import org.usfirst.frc.team4499.robot.RobotMap;
 import org.usfirt.frc.team4499.robot.tools.PID;
 
-import com.ctre.CANTalon.TalonControlMode;
 
 import org.usfirst.frc.team4499.robot.Robot;
 
@@ -13,7 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
- 
+*/ 
 public class NavXTurn extends Command {
 	private double speed = 0;
 	private double time;
@@ -43,14 +42,11 @@ public class NavXTurn extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	RobotMap.motorRightOne.changeControlMode(TalonControlMode.PercentVbus);
-    	RobotMap.motorRightTwo.changeControlMode(TalonControlMode.PercentVbus);
-    	RobotMap.motorLeftOne.changeControlMode(TalonControlMode.PercentVbus);
-    	RobotMap.motorLeftTwo.changeControlMode(TalonControlMode.PercentVbus);
+    	
     
     	
-    	RobotMap.motorLeftTwo.setEncPosition(0);
-    	RobotMap.motorRightTwo.setEncPosition(0);
+    	RobotMap.motorLeftTwo.setSelectedSensorPosition(0,0,0);
+		RobotMap.motorRightTwo.setSelectedSensorPosition(0,0,0);
     	
     	orientation.setSetPoint(desiredAngle);
     	startTime = Timer.getFPGATimestamp();
@@ -61,11 +57,11 @@ public class NavXTurn extends Command {
   
  
     	orientation.updatePID(RobotMap.navx.getAngle());
-    	RobotMap.motorLeftOne.set(0.5*(orientation.getResult() - speed));
-    	RobotMap.motorLeftTwo.set(0.5*(orientation.getResult() - speed));
+    	RobotMap.motorLeftOne.set(com.ctre.phoenix.motorcontrol.ControlMode.PercentOutput, 0.5*(orientation.getResult() - speed));
+    	RobotMap.motorLeftTwo.set(com.ctre.phoenix.motorcontrol.ControlMode.PercentOutput, 0.5*(orientation.getResult() - speed));
     	
-    	RobotMap.motorRightOne.set(0.5*(orientation.getResult() + speed));
-    	RobotMap.motorRightTwo.set(0.5*(orientation.getResult() + speed));
+    	RobotMap.motorRightOne.set(com.ctre.phoenix.motorcontrol.ControlMode.PercentOutput, 0.5*(orientation.getResult() + speed));
+    	RobotMap.motorRightTwo.set(com.ctre.phoenix.motorcontrol.ControlMode.PercentOutput, 0.5*(orientation.getResult() + speed));
     	System.out.println(RobotMap.navx.getAngle()-desiredAngle);
    }
 
@@ -85,11 +81,11 @@ public class NavXTurn extends Command {
     // Called once after isFinished returns true
     protected void end() {
     
-    	RobotMap.motorLeftOne.set(0);
-    	RobotMap.motorLeftTwo.set(0);
+    	RobotMap.motorLeftOne.set(com.ctre.phoenix.motorcontrol.ControlMode.PercentOutput, 0);
+    	RobotMap.motorLeftTwo.set(com.ctre.phoenix.motorcontrol.ControlMode.PercentOutput, 0);
     	
-    	RobotMap.motorRightOne.set(0);
-    	RobotMap.motorRightTwo.set(0);
+    	RobotMap.motorRightOne.set(com.ctre.phoenix.motorcontrol.ControlMode.PercentOutput, 0);
+    	RobotMap.motorRightTwo.set(com.ctre.phoenix.motorcontrol.ControlMode.PercentOutput, 0);
   	
     }
 
@@ -97,4 +93,4 @@ public class NavXTurn extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
-}*/
+}
