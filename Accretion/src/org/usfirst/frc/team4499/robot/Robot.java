@@ -2,6 +2,9 @@
 package org.usfirst.frc.team4499.robot;
 
 import edu.wpi.first.wpilibj.CameraServer;
+
+
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.IterativeRobot;
 
 
@@ -13,13 +16,12 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.usfirst.frc.team4499.robot.commands.driveForwardAndBack;
+//import org.usfirst.frc.team4499.robot.commands.driveForwardAndBack;
 import org.usfirst.frc.team4499.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4499.robot.subsystems.ExampleSubsystem;
-import org.usfirst.frc.team4499.robot.commands.DriveForward;
+//import org.usfirst.frc.team4499.robot.commands.DriveForward;
 
-import com.ctre.CANTalon;
-import com.ctre.CANTalon.TalonControlMode;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -29,9 +31,9 @@ import com.ctre.CANTalon.TalonControlMode;
  * directory.
  */
 public class Robot extends IterativeRobot {
-	driveForwardAndBack drive2;
+//	driveForwardAndBack drive2;
 	
-	DriveForward drive;
+	//DriveForward drive;
 	
 
 
@@ -49,8 +51,8 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		CameraServer server= CameraServer.getInstance();
 		server.startAutomaticCapture("cam4", 50);
-		drive = new DriveForward(230.0f,0.2f,RobotMap.navx.getAngle());
-		drive2 = new driveForwardAndBack();
+		//drive = new DriveForward(230.0f,0.2f,RobotMap.navx.getAngle());
+		//drive2 = new driveForwardAndBack();
 	
 		
 		
@@ -89,7 +91,7 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		  drive2.start();
+		//  drive2.start();
 	
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -117,10 +119,10 @@ public class Robot extends IterativeRobot {
 	@Override
 	public void teleopInit() {
 		System.out.println("data");
-		RobotMap.motorLeftOne.changeControlMode(TalonControlMode.PercentVbus);
-		RobotMap.motorRightOne.changeControlMode(TalonControlMode.PercentVbus);
-		RobotMap.motorLeftTwo.changeControlMode(TalonControlMode.PercentVbus);
-		RobotMap.motorRightTwo.changeControlMode(TalonControlMode.PercentVbus);
+	
+	//	RobotMap.motorRightOne.changeControlMode(TalonControlMode.PercentVbus);
+	//	RobotMap.motorLeftTwo.changeControlMode(TalonControlMode.PercentVbus);
+	//	RobotMap.motorRightTwo.changeControlMode(TalonControlMode.PercentVbus);
 
 		//setting motor control modes
 		
@@ -138,21 +140,28 @@ public class Robot extends IterativeRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
+		if(OI.PistonXstart.get()) {
+			RobotMap.Solenoid1.set(DoubleSolenoid.Value.kReverse);
+		}
+		else {
+			RobotMap.Solenoid1.set(DoubleSolenoid.Value.kForward);
+
+			
+		}
 		System.out.println(RobotMap.navx.getAngle());
 	
-	   RobotMap.motorLeftOne.set( 0.5*OI.controllerOne.getRawAxis(1));
-    	RobotMap.motorLeftTwo.set(0.5*OI.controllerOne.getRawAxis(1));
-    	RobotMap.motorRightTwo.set(-0.5*OI.controllerOne.getRawAxis(3));
-    	RobotMap.motorRightOne.set(-0.5*OI.controllerOne.getRawAxis(3));
+	   RobotMap.motorLeftOne.set( com.ctre.phoenix.motorcontrol.ControlMode.PercentOutput, 0.5*OI.controllerOne.getRawAxis(1));
+    	RobotMap.motorLeftTwo.set(com.ctre.phoenix.motorcontrol.ControlMode.PercentOutput, 0.5*OI.controllerOne.getRawAxis(1));
+    	RobotMap.motorRightTwo.set(com.ctre.phoenix.motorcontrol.ControlMode.PercentOutput, -0.5*OI.controllerOne.getRawAxis(3));
+    	RobotMap.motorRightOne.set(com.ctre.phoenix.motorcontrol.ControlMode.PercentOutput, -0.5*OI.controllerOne.getRawAxis(3));
 
     	
-    
+		
     	
     
     //	System.out.println(RobotMap.motorLeftOne.getEncVelocity());
     
 	
-    	
     
        
     

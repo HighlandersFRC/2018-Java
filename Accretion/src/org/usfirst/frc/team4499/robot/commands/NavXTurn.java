@@ -1,4 +1,4 @@
-package org.usfirst.frc.team4499.robot.commands;
+/*package org.usfirst.frc.team4499.robot.commands;
 
 import org.usfirst.frc.team4499.robot.OI;
 import org.usfirst.frc.team4499.robot.RobotMap;
@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
- */
+ 
 public class NavXTurn extends Command {
 	private double speed = 0;
 	private double time;
@@ -97,4 +97,4 @@ public class NavXTurn extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
-}
+}*/

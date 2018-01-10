@@ -1,4 +1,4 @@
-package org.usfirst.frc.team4499.robot.commands;
+/*package org.usfirst.frc.team4499.robot.commands;
 
 import org.usfirst.frc.team4499.robot.OI;
 
@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
- */
+ 
 public class DriveForward extends Command {
 	private PID angleorientation;
 	private float nativeUnitsPerCycleLeft; 
@@ -94,50 +94,45 @@ public class DriveForward extends Command {
     	RobotMap.motorRightTwo.enableControl();
  
         //settting talon control mode
-    	RobotMap.motorLeftTwo.changeControlMode(TalonControlMode.MotionMagic);		
-		RobotMap.motorLeftOne.changeControlMode(TalonControlMode.Follower);	
-		RobotMap.motorRightTwo.changeControlMode(TalonControlMode.MotionMagic);	
-		RobotMap.motorRightOne.changeControlMode(TalonControlMode.Follower);
+    	RobotMap.motorLeftTwo.set(com.ctre.phoenix.motorcontrol.ControlMode.MotionMagic, this.motionMagicEndPoint);		
+    	RobotMap.motorLeftOne.set(com.ctre.phoenix.motorcontrol.ControlMode.Follower, 4);	
+    	RobotMap.motorRightTwo.set(com.ctre.phoenix.motorcontrol.ControlMode.MotionMagic, this.motionMagicEndPoint);	
+    	RobotMap.motorLeftTwo.set(com.ctre.phoenix.motorcontrol.ControlMode.Follower, 3);	
+		
 		//setting peak and nominal output voltage for the motors
-		RobotMap.motorLeftTwo.configPeakOutputVoltage(+12.0f, -12.0f);
-		RobotMap.motorLeftTwo.configNominalOutputVoltage(0.00f, 0.0f);
-		RobotMap.motorRightTwo.configPeakOutputVoltage(+12.0f, -12.0f);
-		RobotMap.motorRightTwo.configNominalOutputVoltage(0.0f, 0.0f);
+		RobotMap.motorLeftTwo.configNominalOutputForward(-1.0, +1);
+		RobotMap.motorLeftTwo.configNominalOutputForward(0.00, 0);
+		RobotMap.motorRightTwo.configPeakOutputReverse(+1.0, -1);
+		RobotMap.motorRightTwo.configNominalOutputForward(0, 0);
 		//setting who is following whom
-		RobotMap.motorLeftOne.set(4);
-		RobotMap.motorRightOne.set(3);
+		
 		//setting pid value for both sides
+		
 
-		RobotMap.motorLeftTwo.setProfile(0);
-	    RobotMap.motorLeftTwo.setP(0.000014f);
-    	RobotMap.motorLeftTwo.setI(0.00000004);
-		RobotMap.motorLeftTwo.setIZone(0);//325);
-		RobotMap.motorLeftTwo.setD(0.14f);
-		RobotMap.motorLeftTwo.setF(this.fGainLeft+0.014);//0.3625884);
-		RobotMap.motorLeftTwo.setAllowableClosedLoopErr(0);//300);
-		
-	    RobotMap.motorRightTwo.setCloseLoopRampRate(1);
-	    RobotMap.motorRightTwo.setProfile(0);
-		RobotMap.motorRightTwo.setP(0.000014f);
-		RobotMap.motorRightTwo.setI(0.00000004);
-		RobotMap.motorRightTwo.setIZone(0);//325);
-		RobotMap.motorRightTwo.setD(0.14f);
-		RobotMap.motorRightTwo.setF(this.fGainRight);// 0.3373206);
-		RobotMap.motorRightTwo.setAllowableClosedLoopErr(0);//300);
-		
+	
+	    RobotMap.motorLeftTwo.config_kP(0, 0.000014, 0);
+    	RobotMap.motorLeftTwo.config_kI(0, 0.000000008, 0);	
+		RobotMap.motorLeftTwo.config_kD(0, 0.14, 0);
+		RobotMap.motorLeftTwo.config_kF(0, this.fGainLeft+ 0.014, 0);//0.3625884);
+		RobotMap.motorLeftTwo.configAllowableClosedloopError(0, 300, 0);//300);
+		RobotMap.motorRightTwo.config_kP(0, 0.000014, 0);
+	    RobotMap.motorRightTwo.config_kI(0, 0.000000004, 0);	
+		RobotMap.motorRightTwo.config_kD(0, 0.14, 0);
+		RobotMap.motorRightTwo.config_kF(0, this.fGainLeft+ 0.014, 0);//0.3625884);
+		RobotMap.motorRightTwo.configAllowableClosedloopError(0, 300, 0);
+	    
 		//setting Acceleration and velocity for the left
-		RobotMap.motorLeftTwo.setMotionMagicAcceleration(125);
-		RobotMap.motorLeftTwo.setMotionMagicCruiseVelocity(250);
-		//setting Acceleration and velocity for the right
-		RobotMap.motorRightTwo.setMotionMagicAcceleration(125);
-		RobotMap.motorRightTwo.setMotionMagicCruiseVelocity(250);
-		//resets encoder position to 0		
-		RobotMap.motorLeftTwo.setEncPosition(0);
-		RobotMap.motorRightTwo.setEncPosition(0);
-	    //Set Allowable error for the loop
-		RobotMap.motorLeftTwo.setAllowableClosedLoopErr(300);
-		RobotMap.motorRightTwo.setAllowableClosedLoopErr(300);
+		RobotMap.motorRightTwo.configMotionCruiseVelocity((250*4096)/600, 0);
+		RobotMap.motorLeftTwo.configMotionCruiseVelocity((250*4096)/600, 0);
 		
+		//setting Acceleration and velocity for the right
+		RobotMap.motorRightTwo.configMotionAcceleration((125*4096)/600, 0);
+		RobotMap.motorLeftTwo.configMotionCruiseVelocity((125*4096)/600, 0);
+		//resets encoder position to 0		
+		RobotMap.motorLeftTwo.setSelectedSensorPosition(0, 0, 0)
+		RobotMap.motorRightTwo.setSelectedSensorPosition(0,0,0);
+	    //Set Allowable error for the loop
+				
 		//sets desired endpoint for the motors
       RobotMap.motorLeftTwo.set(motionMagicEndPoint);
        RobotMap.motorRightTwo.set(-motionMagicEndPoint );
@@ -202,4 +197,4 @@ public class DriveForward extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
-}
+}*/

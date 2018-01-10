@@ -17,8 +17,8 @@ public class OI {
 	public static JoystickButton RPMdown = new JoystickButton(controllerOne, 6);
 	public static JoystickButton pistonin = new JoystickButton(controllerOne,1);
 	public static JoystickButton pistonout = new JoystickButton(controllerOne,2);
-	public static JoystickButton moveXstart = new JoystickButton(controllerOne,5);
-	public static JoystickButton moveXstop = new JoystickButton(controllerOne,6);
+	public static JoystickButton PistonXstart = new JoystickButton(controllerOne,6);
+	public static JoystickButton PistonXstop = new JoystickButton(controllerOne,5);
 	
 	
 	

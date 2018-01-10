@@ -1,13 +1,16 @@
 package org.usfirst.frc.team4499.robot;
 
-import org.usfirt.frc.team4499.robot.tools.DCMotor;
 
+
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
+import com.ctre.CANTalon;
 import com.kauailabs.navx.frc.AHRS;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.SerialPort;
 
-import com.ctre.CANTalon;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -23,6 +26,7 @@ public class RobotMap {
 	public static float maxRightRPM =590.47f;
 	public static float maxLeftRPM = 590.63f;
 	public static AHRS navx = new AHRS(I2C.Port.kMXP);
+	public static DoubleSolenoid Solenoid1= new DoubleSolenoid(0,1);
 	
 	
 	// For example to map the left and right motors, you could define the

@@ -1,4 +1,4 @@
-package org.usfirt.frc.team4499.robot.tools;
+/*package org.usfirt.frc.team4499.robot.tools;
 
 import org.usfirst.frc.team4499.robot.RobotMap;
 
@@ -15,7 +15,7 @@ public class DCMotor extends CANTalon {
 	 * Voltage Referencing
 	 * Resetting encoder ticks
 	 * 
-	 */
+	 
 	PowerDistributionPanel panel;
 	int encoderZeroAdjust;
 	double percentStall=.90;
@@ -42,7 +42,7 @@ public class DCMotor extends CANTalon {
 		}
 		if(outputValue <=-1){
 			outputValue = -1;
-		}*/
+		}
 		
 		double voltage = panel.getVoltage();
 		double reference = RobotStats.referenceVoltage / voltage;
@@ -88,4 +88,4 @@ public class DCMotor extends CANTalon {
     	}
 	}
 
-}
+*/
