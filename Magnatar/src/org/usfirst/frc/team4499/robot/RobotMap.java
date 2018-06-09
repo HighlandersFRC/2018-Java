@@ -6,7 +6,10 @@
 /*----------------------------------------------------------------------------*/
 
 package org.usfirst.frc.team4499.robot;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
  * to a variable name. This provides flexibility changing wiring, makes checking
@@ -14,7 +17,14 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
  * floating around.
  */
 public class RobotMap {
-
-public static DoubleSolenoid Shifters =new DoubleSolenoid (0,6,7);
-public static DoubleSolenoid Intake =new DoubleSolenoid (0,0,1);
+	public static int leftMasterTalonID = 1;
+	public static int leftFollowerTalonID = 2;
+	public static int rightMasterTalonID = 3;
+	public static int rightFollowerTalonID = 4;
+	public static DoubleSolenoid Shifters =new DoubleSolenoid (0,6,7);
+	public static DoubleSolenoid Intake =new DoubleSolenoid (0,0,1);
+	public static TalonSRX leftMasterTalon = new TalonSRX(leftMasterTalonID); //blue encoder
+	public static TalonSRX leftFollowerTalon = new TalonSRX(leftFollowerTalonID); //yellow
+	public static TalonSRX rightMasterTalon = new TalonSRX(rightMasterTalonID); //red
+	public static TalonSRX rightFollowerTalon = new TalonSRX(rightFollowerTalonID);//green encoder
 }

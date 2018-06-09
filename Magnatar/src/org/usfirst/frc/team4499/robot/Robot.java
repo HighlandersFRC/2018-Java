@@ -13,6 +13,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
+import org.usfirst.frc.team4499.robot.commands.DriveTrain;
 import org.usfirst.frc.team4499.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4499.robot.subsystems.ExampleSubsystem;
 
@@ -26,6 +28,8 @@ import org.usfirst.frc.team4499.robot.subsystems.ExampleSubsystem;
 public class Robot extends TimedRobot {
 	public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
 	public static OI m_oi;
+	private RobotConfig config;
+	private DriveTrain drive;
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -38,6 +42,8 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		m_oi = new OI();
 		m_chooser.addDefault("Default Auto", new ExampleCommand());
+		config = new RobotConfig();
+		config.setup();
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 	}
@@ -95,6 +101,8 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
+		drive = new DriveTrain();
+		drive.start();
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -121,6 +129,7 @@ public class Robot extends TimedRobot {
 		else {
 		RobotMap.Intake.set(DoubleSolenoid.Value.kReverse);
 		}
+		
 			Scheduler.getInstance().run();
 	}
 
