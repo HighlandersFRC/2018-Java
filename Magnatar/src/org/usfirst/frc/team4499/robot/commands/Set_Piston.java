@@ -1,19 +1,24 @@
 package org.usfirst.frc.team4499.robot.commands;
 
+import org.usfirst.frc.team4499.robot.RobotMap;
+
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
 public class Set_Piston extends Command {
-
-    public Set_Piston() {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
+DoubleSolenoid piston;
+DoubleSolenoid.Value position;
+    public Set_Piston(DoubleSolenoid piston,Value position) {
+    	this.piston= piston;
+    	this.position = position;
     }
-
-    // Called just before this Command runs the first time
     protected void initialize() {
+    	this.piston.set(position);
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -22,7 +27,7 @@ public class Set_Piston extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true

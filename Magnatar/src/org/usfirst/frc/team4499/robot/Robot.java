@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team4499.robot.commands.ExampleCommand;
+import org.usfirst.frc.team4499.robot.commands.Set_Piston;
 import org.usfirst.frc.team4499.robot.subsystems.ExampleSubsystem;
 
 /**
@@ -110,16 +111,21 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		if (OI.leftshiftButton.get()) {
-		RobotMap.Shifters.set(DoubleSolenoid.Value.kForward);
+			RobotMap.shifters.set(DoubleSolenoid.Value.kForward);
 		}
 		else if (OI.rightshiftButton.get()) {
-		RobotMap.Shifters.set(DoubleSolenoid.Value.kReverse);
+		RobotMap.shifters.set(DoubleSolenoid.Value.kReverse);
 		}
-		if (OI.controllerZero.getRawAxis(3)>0.5) {
-		RobotMap.Intake.set(DoubleSolenoid.Value.kForward);
+		
+		if (OI.controllerZero.getRawAxis(3)> 0.5)
+		{
+			Set_Piston move = new Set_Piston(RobotMap.intake, RobotMap.intakeIn);
+			move.start();
 		}
-		else {
-		RobotMap.Intake.set(DoubleSolenoid.Value.kReverse);
+		else if (OI.controllerZero.getRawAxis(3)<0.5)
+		{
+			Set_Piston move = new Set_Piston(RobotMap.intake, RobotMap.intakeOut);
+			move.start();
 		}
 			Scheduler.getInstance().run();
 	}

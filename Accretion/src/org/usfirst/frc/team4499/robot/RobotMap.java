@@ -27,8 +27,10 @@ public class RobotMap {
 	public static float maxLeftRPM = 590.63f;
 	public static AHRS navx = new AHRS(I2C.Port.kMXP);
 	public static DoubleSolenoid Solenoid1= new DoubleSolenoid(0,1);
+	public static DoubleSolenoid intake= new DoubleSolenoid(0,6,7);
 	
 	
+	public static DoubleSolenoid.Value intakeIn= DoubleSolenoid.Value.kForward;
 	// For example to map the left and right motors, you could define the
 	// following variables to use with your drivetrain subsystem.
 	// public static int leftMotor = 1;

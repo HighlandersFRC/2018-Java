@@ -11,3 +11,5 @@ sysProps.xml
 *.dSYM/
 out/
 *.pyc
+/.metadata/
+/.recommenders/
