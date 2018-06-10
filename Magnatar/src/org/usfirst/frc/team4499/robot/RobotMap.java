@@ -23,8 +23,18 @@ public class RobotMap {
 
 	public static DoubleSolenoid shifters = new DoubleSolenoid(0, 6, 7);
 	public static DoubleSolenoid intake = new DoubleSolenoid(0, 0, 1);
+	public static DoubleSolenoid catapult = new DoubleSolenoid(1,0,1);
+	public static DoubleSolenoid catapultRelease = new DoubleSolenoid(1,4,5);
+	
 	public static Value intakeIn = DoubleSolenoid.Value.kForward;
 	public static Value intakeOut = DoubleSolenoid.Value.kReverse;
+	
+	public static Value releaseClosed = DoubleSolenoid.Value.kForward;
+	public static Value releasedOpen = DoubleSolenoid.Value.kReverse;
+	
+	public static Value catapultResting = DoubleSolenoid.Value.kReverse;
+	public static Value catapultSet = DoubleSolenoid.Value.kForward;
+	
 	public static int leftMasterTalonID = 1;
 	public static int leftFollowerTalonID = 2;
 	public static int rightMasterTalonID = 3;

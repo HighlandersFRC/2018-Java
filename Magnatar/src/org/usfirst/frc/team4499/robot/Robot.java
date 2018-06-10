@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4499.robot.commands.DriveTrain;
 import org.usfirst.frc.team4499.robot.commands.ExampleCommand;
+import org.usfirst.frc.team4499.robot.commands.Fire;
 import org.usfirst.frc.team4499.robot.commands.Set_Piston;
 import org.usfirst.frc.team4499.robot.subsystems.ExampleSubsystem;
 
@@ -31,6 +32,7 @@ public class Robot extends TimedRobot {
 	public static OI m_oi;
 	private RobotConfig config;
 	private DriveTrain drive;
+	private Fire fire;
 
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -56,6 +58,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void disabledInit() {
+		
 
 	}
 
@@ -102,6 +105,11 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
+		Set_Piston piston1 = new Set_Piston(RobotMap.catapult,RobotMap.catapultResting);
+		piston1.start();
+		Set_Piston piston2 = new Set_Piston(RobotMap.catapultRelease, RobotMap.releasedOpen);
+		piston2.start();
+		fire = new Fire();
 		drive = new DriveTrain();
 		drive.start();
 		// This makes sure that the autonomous stops running when
@@ -124,16 +132,21 @@ public class Robot extends TimedRobot {
 		else if (OI.rightshiftButton.get()) {
 		RobotMap.shifters.set(DoubleSolenoid.Value.kReverse);
 		}
-		
-		if (OI.controllerZero.getRawAxis(3)> 0.5)
-		{
-			Set_Piston move = new Set_Piston(RobotMap.intake, RobotMap.intakeIn);
-			move.start();
+		if(!(fire.isRunning())){
+			if (OI.controllerZero.getRawAxis(3)> 0.5)
+			{
+				Set_Piston move = new Set_Piston(RobotMap.intake, RobotMap.intakeOut);
+				move.start();
+			}
+			else if (OI.controllerZero.getRawAxis(3)<0.5)
+			{
+				Set_Piston move = new Set_Piston(RobotMap.intake, RobotMap.intakeIn);
+				move.start();
+			}
 		}
-		else if (OI.controllerZero.getRawAxis(3)<0.5)
-		{
-			Set_Piston move = new Set_Piston(RobotMap.intake, RobotMap.intakeOut);
-			move.start();
+		if(OI.fireButton.get()) {
+			fire.start();
+			
 		}
 		
 			Scheduler.getInstance().run();
