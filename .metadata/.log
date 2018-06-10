@@ -689,3 +689,27 @@ org.eclipse.core.internal.resources.ResourceException: Project 'Blitzar' is not 
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
 !SUBENTRY 1 org.eclipse.core.resources 4 372 2018-06-10 11:58:03.651
 !MESSAGE Project 'Blitzar' is not open.
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-06-10 12:29:26.749
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-06-10 12:29:26.765
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-06-10 12:29:26.779
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-10 12:29:31.807
+!MESSAGE Running ant file: C:\Users\Owner\Documents\Robotics\Magnatar\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-10 12:29:31.824
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-06-10 12:30:04.459
+!MESSAGE Connected to robot at 10.44.99.28
+
+!ENTRY riolog 1 0 2018-06-10 12:32:18.562
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-06-10 12:32:20.556
+!MESSAGE failed to send keep alive, reconnecting
