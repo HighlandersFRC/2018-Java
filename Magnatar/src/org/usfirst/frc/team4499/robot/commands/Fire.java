@@ -12,10 +12,16 @@ public class Fire extends CommandGroup {
 
     public Fire() {
     	addSequential(new Set_Piston(RobotMap.intake, RobotMap.intakeOut));
-    	addSequential(new Wait(3.0));
+    	addSequential(new Wait(0.5));
     	addSequential(new Set_Piston(RobotMap.catapult, RobotMap.catapultSet));
-    	addSequential(new Wait(1.0));
+    	addSequential(new Wait(0.5));
+    	addSequential(new Set_Piston(RobotMap.catapultRelease, RobotMap.releasedOpen));
+    	addSequential(new Wait(0.5));
     	addSequential(new Set_Piston(RobotMap.catapult, RobotMap.catapultResting));
+    	addSequential(new Wait(0.5));
+    	addSequential(new Set_Piston(RobotMap.catapultRelease, RobotMap.releaseClosed));
+    	addSequential(new Wait(0.2));
+    	addSequential(new Set_Piston(RobotMap.catapult, RobotMap.catapultSet));
     	addSequential(new Wait(4.0));
         // Add Commands here:
         // e.g. addSequential(new Command1());

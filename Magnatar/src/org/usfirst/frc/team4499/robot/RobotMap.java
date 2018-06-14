@@ -26,6 +26,7 @@ public class RobotMap {
 	public static DoubleSolenoid catapult = new DoubleSolenoid(1,0,1);
 	public static DoubleSolenoid catapultRelease = new DoubleSolenoid(1,4,5);
 	
+	
 	public static Value intakeIn = DoubleSolenoid.Value.kForward;
 	public static Value intakeOut = DoubleSolenoid.Value.kReverse;
 	
@@ -39,9 +40,12 @@ public class RobotMap {
 	public static int leftFollowerTalonID = 2;
 	public static int rightMasterTalonID = 3;
 	public static int rightFollowerTalonID = 4;
+	public static int intakeMotorID = 5;
+	public static int pincherTalonID = 6;
 	public static TalonSRX leftMasterTalon = new TalonSRX(leftMasterTalonID); // blue encoder
 	public static TalonSRX leftFollowerTalon = new TalonSRX(leftFollowerTalonID); // yellow
 	public static TalonSRX rightMasterTalon = new TalonSRX(rightMasterTalonID); // red
 	public static TalonSRX rightFollowerTalon = new TalonSRX(rightFollowerTalonID);// green encoder
-
+	public static TalonSRX intakeMotor = new TalonSRX(intakeMotorID);
+	public static TalonSRX pincher = new TalonSRX(pincherTalonID);
 }

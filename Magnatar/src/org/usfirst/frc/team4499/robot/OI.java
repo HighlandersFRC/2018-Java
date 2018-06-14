@@ -17,10 +17,12 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {
 
 	public static Joystick controllerZero=new Joystick (0);
-	public static JoystickButton fireButton =new JoystickButton (controllerZero,4);
+	public static JoystickButton fireButton =new JoystickButton (controllerZero,8);
 	public static JoystickButton rightshiftButton =new JoystickButton (controllerZero,6);
 	public static JoystickButton leftshiftButton =new JoystickButton (controllerZero,5);
-}
+	public static JoystickButton waverUpButton =new JoystickButton (controllerZero,4);
+	public static JoystickButton waverDownButton = new JoystickButton(controllerZero, 1);
+	}
 
 
 
