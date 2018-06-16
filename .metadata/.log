@@ -3511,3 +3511,418 @@ org.eclipse.core.internal.resources.ResourceException: Project 'Blitzar' is not 
 
 !ENTRY riolog 1 0 2018-06-13 20:26:04.353
 !MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-06-14 13:49:57.568
+!MESSAGE exiting listener
+!SESSION 2018-06-15 16:30:58.888 -----------------------------------------------
+eclipse.buildId=4.7.3.M20180330-0640
+java.version=1.8.0_172
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.e4.ui.workbench 4 0 2018-06-15 16:31:25.513
+!MESSAGE Unable to retrieve the bundle from the URI: bundleclass://org.eclipse.launchbar.ui.controls/org.eclipse.launchbar.ui.controls.internal.LaunchBarControl
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-06-15 16:31:34.999
+!MESSAGE Installing tools if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-06-15 16:31:35.060
+!MESSAGE Installedtools
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-06-15 16:31:35.100
+!MESSAGE Installing common if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-06-15 16:31:35.184
+!MESSAGE Installedcommon
+
+!ENTRY org.eclipse.egit.ui 2 0 2018-06-15 16:31:35.717
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Owner'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-06-15 16:31:42.659
+!MESSAGE Installing cpp if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-06-15 16:31:42.678
+!MESSAGE Installedcpp
+
+!ENTRY WPILib_CPP_Robot_Development 1 0 2018-06-15 16:31:42.686
+!MESSAGE Updating projects
+
+!ENTRY WPILib_CPP_Robot_Development 4 0 2018-06-15 16:31:42.696
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project '2017-Blitzar-Dev' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.updateProjects(WPILibCPPPlugin.java:126)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.earlyStartup(WPILibCPPPlugin.java:112)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-06-15 16:31:42.698
+!MESSAGE Project '2017-Blitzar-Dev' is not open.
+
+!ENTRY WPILib_CPP_Robot_Development 4 0 2018-06-15 16:31:42.730
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'Blitzar' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.updateProjects(WPILibCPPPlugin.java:126)
+	at edu.wpi.first.wpilib.plugins.cpp.WPILibCPPPlugin.earlyStartup(WPILibCPPPlugin.java:112)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-06-15 16:31:42.731
+!MESSAGE Project 'Blitzar' is not open.
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-06-15 16:31:42.763
+!MESSAGE Installing java if necessary
+
+!ENTRY edu.wpi.first.wpilib.plugins.core 1 0 2018-06-15 16:31:42.773
+!MESSAGE Installedjava
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 16:31:42.787
+!MESSAGE Updating projects
+
+!ENTRY WPILib_Java_Robot_Development 4 0 2018-06-15 16:31:42.795
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project '2017-Blitzar-Dev' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.updateProjects(WPILibJavaPlugin.java:127)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.earlyStartup(WPILibJavaPlugin.java:252)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-06-15 16:31:42.795
+!MESSAGE Project '2017-Blitzar-Dev' is not open.
+
+!ENTRY WPILib_Java_Robot_Development 4 0 2018-06-15 16:31:42.927
+!MESSAGE Error updating projects.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'Blitzar' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.updateProjects(WPILibJavaPlugin.java:127)
+	at edu.wpi.first.wpilib.plugins.java.WPILibJavaPlugin.earlyStartup(WPILibJavaPlugin.java:252)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.runEarlyStartup(EarlyStartupRunnable.java:77)
+	at org.eclipse.ui.internal.EarlyStartupRunnable.run(EarlyStartupRunnable.java:53)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.ui.internal.Workbench$40.run(Workbench.java:2747)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-06-15 16:31:42.928
+!MESSAGE Project 'Blitzar' is not open.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2018-06-15 16:31:55.516
+!MESSAGE No repository found at http://first.wpi.edu/FRC/roborio/release/.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2018-06-15 16:32:06.445
+!MESSAGE No repository found at file:/C:/Users/Owner/Downloads/eclipse-jee-oxygen-3a-win32/eclipse/.eclipseextension.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2018-06-15 16:32:06.512
+!MESSAGE No repository found at file:/C:/Users/Owner/Downloads/eclipse-jee-oxygen-3a-win32/eclipse/configuration/org.eclipse.osgi/372/data/listener_1925729951/.
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-06-15 17:04:17.549
+!MESSAGE Enablement expression is missing for descriptor type org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-06-15 17:04:17.564
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY org.eclipse.launchbar.core 2 0 2018-06-15 17:04:17.576
+!MESSAGE Enablement expression is missing for config provider for org.eclipse.cdt.debug.core.coreBuildDescriptorType
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 17:04:20.543
+!MESSAGE Running ant file: C:\Users\Owner\Documents\Robotics\Magnatar\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 17:04:20.558
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 17:06:53.386
+!MESSAGE Running ant file: C:\Users\Owner\Documents\Robotics\Magnatar\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 17:06:53.401
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-06-15 17:07:24.416
+!MESSAGE Connected to robot at 10.44.99.28
+
+!ENTRY org.eclipse.jface.text 2 0 2018-06-15 17:11:44.625
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.number'
+
+!ENTRY org.eclipse.jface.text 2 0 2018-06-15 17:11:44.633
+!MESSAGE Duplicate template id: 'org.eclipse.wst.xslt.templates.xpath.round'
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 17:12:27.612
+!MESSAGE Running ant file: C:\Users\Owner\Documents\Robotics\Magnatar\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 17:12:27.622
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 17:23:59.958
+!MESSAGE Running ant file: C:\Users\Owner\Documents\Robotics\Magnatar\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 17:23:59.994
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 17:25:23.004
+!MESSAGE Running ant file: C:\Users\Owner\Documents\Robotics\Magnatar\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 17:25:23.030
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 17:27:57.116
+!MESSAGE Running ant file: C:\Users\Owner\Documents\Robotics\Magnatar\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 17:27:57.151
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 17:29:58.363
+!MESSAGE Running ant file: C:\Users\Owner\Documents\Robotics\Magnatar\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 17:29:58.398
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 17:31:39.882
+!MESSAGE Running ant file: C:\Users\Owner\Documents\Robotics\Magnatar\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 17:31:39.894
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 17:39:37.271
+!MESSAGE Running ant file: C:\Users\Owner\Documents\Robotics\Magnatar\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 17:39:37.285
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-06-15 17:57:42.601
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-06-15 17:57:43.672
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 19:13:25.367
+!MESSAGE [org.usfirst.frc.team4499.robot.commands [in src [in Magnatar]]
+  [Working copy] Fire.java
+    package org.usfirst.frc.team4499.robot.commands
+    import org.usfirst.frc.team4499.robot.RobotMap
+    import edu.wpi.first.wpilibj.command.CommandGroup
+    class Fire
+      Fire()
+  ExampleCommand.java
+    package org.usfirst.frc.team4499.robot.commands
+    import edu.wpi.first.wpilibj.command.Command
+    import org.usfirst.frc.team4499.robot.Robot
+    class ExampleCommand
+      ExampleCommand()
+      void initialize()
+      void execute()
+      boolean isFinished()
+      void end()
+      void interrupted()
+  Wait.java
+    package org.usfirst.frc.team4499.robot.commands
+    import edu.wpi.first.wpilibj.Timer
+    import edu.wpi.first.wpilibj.command.Command
+    class Wait
+      double waitTime
+      double startTime
+      Wait(double)
+      void initialize()
+      void execute()
+      boolean isFinished()
+      void end()
+      void interrupted()
+  [Working copy] Set_Piston.java
+    package org.usfirst.frc.team4499.robot.commands
+    import org.usfirst.frc.team4499.robot.RobotMap
+    import edu.wpi.first.wpilibj.DoubleSolenoid
+    import edu.wpi.first.wpilibj.DoubleSolenoid.Value
+    import edu.wpi.first.wpilibj.command.Command
+    class Set_Piston
+      DoubleSolenoid piston
+      DoubleSolenoid.Value position
+      Set_Piston(DoubleSolenoid, Value)
+      void initialize()
+      void execute()
+      boolean isFinished()
+      void end()
+      void interrupted()]
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 19:13:25.376
+!MESSAGE class org.eclipse.jdt.internal.core.PackageFragment
+
+!ENTRY WPILib_Java_Robot_Development 4 0 2018-06-15 19:13:25.397
+!MESSAGE Error looking for FRCJava project.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project '2017-Blitzar-Dev' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage$1.accept(FileTemplateWizardMainPage.java:71)
+	at edu.wpi.first.wpilib.plugins.core.wizards.ProjectComboField.<init>(ProjectComboField.java:25)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.createControl(FileTemplateWizardMainPage.java:68)
+	at org.eclipse.jface.wizard.Wizard.createPageControls(Wizard.java:176)
+	at org.eclipse.jface.wizard.WizardDialog.createPageControls(WizardDialog.java:688)
+	at org.eclipse.jface.wizard.WizardDialog.setWizard(WizardDialog.java:1128)
+	at org.eclipse.jface.wizard.WizardDialog.updateForPage(WizardDialog.java:1181)
+	at org.eclipse.jface.wizard.WizardDialog.lambda$3(WizardDialog.java:1169)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.jface.wizard.WizardDialog.showPage(WizardDialog.java:1169)
+	at org.eclipse.jface.wizard.WizardDialog.nextPressed(WizardDialog.java:864)
+	at org.eclipse.jface.wizard.WizardDialog.buttonPressed(WizardDialog.java:413)
+	at org.eclipse.jface.dialogs.Dialog.lambda$0(Dialog.java:619)
+	at org.eclipse.swt.events.SelectionListener$1.widgetSelected(SelectionListener.java:81)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:249)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4428)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4238)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3817)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:818)
+	at org.eclipse.jface.window.Window.open(Window.java:794)
+	at org.eclipse.ui.internal.handlers.WizardHandler$New.executeHandler(WizardHandler.java:269)
+	at org.eclipse.ui.internal.handlers.WizardHandler.execute(WizardHandler.java:290)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:291)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:92)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:305)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:239)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:152)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:494)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:487)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:390)
+	at org.eclipse.ui.internal.actions.CommandAction.runWithEvent(CommandAction.java:151)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:565)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$4(ActionContributionItem.java:397)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4428)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4238)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3817)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-06-15 19:13:25.398
+!MESSAGE Project '2017-Blitzar-Dev' is not open.
+
+!ENTRY WPILib_Java_Robot_Development 4 0 2018-06-15 19:13:25.426
+!MESSAGE Error looking for FRCJava project.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Project 'Blitzar' is not open.
+	at org.eclipse.core.internal.resources.Project.checkAccessible(Project.java:144)
+	at org.eclipse.core.internal.resources.Project.hasNature(Project.java:531)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage$1.accept(FileTemplateWizardMainPage.java:71)
+	at edu.wpi.first.wpilib.plugins.core.wizards.ProjectComboField.<init>(ProjectComboField.java:25)
+	at edu.wpi.first.wpilib.plugins.java.wizards.file_template.FileTemplateWizardMainPage.createControl(FileTemplateWizardMainPage.java:68)
+	at org.eclipse.jface.wizard.Wizard.createPageControls(Wizard.java:176)
+	at org.eclipse.jface.wizard.WizardDialog.createPageControls(WizardDialog.java:688)
+	at org.eclipse.jface.wizard.WizardDialog.setWizard(WizardDialog.java:1128)
+	at org.eclipse.jface.wizard.WizardDialog.updateForPage(WizardDialog.java:1181)
+	at org.eclipse.jface.wizard.WizardDialog.lambda$3(WizardDialog.java:1169)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:70)
+	at org.eclipse.jface.wizard.WizardDialog.showPage(WizardDialog.java:1169)
+	at org.eclipse.jface.wizard.WizardDialog.nextPressed(WizardDialog.java:864)
+	at org.eclipse.jface.wizard.WizardDialog.buttonPressed(WizardDialog.java:413)
+	at org.eclipse.jface.dialogs.Dialog.lambda$0(Dialog.java:619)
+	at org.eclipse.swt.events.SelectionListener$1.widgetSelected(SelectionListener.java:81)
+	at org.eclipse.swt.widgets.TypedListener.handleEvent(TypedListener.java:249)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4428)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4238)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3817)
+	at org.eclipse.jface.window.Window.runEventLoop(Window.java:818)
+	at org.eclipse.jface.window.Window.open(Window.java:794)
+	at org.eclipse.ui.internal.handlers.WizardHandler$New.executeHandler(WizardHandler.java:269)
+	at org.eclipse.ui.internal.handlers.WizardHandler.execute(WizardHandler.java:290)
+	at org.eclipse.ui.internal.handlers.HandlerProxy.execute(HandlerProxy.java:291)
+	at org.eclipse.ui.internal.handlers.E4HandlerProxy.execute(E4HandlerProxy.java:92)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.e4.core.internal.di.MethodRequestor.execute(MethodRequestor.java:55)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invokeUsingClass(InjectorImpl.java:305)
+	at org.eclipse.e4.core.internal.di.InjectorImpl.invoke(InjectorImpl.java:239)
+	at org.eclipse.e4.core.contexts.ContextInjectionFactory.invoke(ContextInjectionFactory.java:132)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceHandler.execute(HandlerServiceHandler.java:152)
+	at org.eclipse.core.commands.Command.executeWithChecks(Command.java:494)
+	at org.eclipse.core.commands.ParameterizedCommand.executeWithChecks(ParameterizedCommand.java:487)
+	at org.eclipse.e4.core.commands.internal.HandlerServiceImpl.executeHandler(HandlerServiceImpl.java:210)
+	at org.eclipse.ui.internal.handlers.LegacyHandlerService.executeCommand(LegacyHandlerService.java:390)
+	at org.eclipse.ui.internal.actions.CommandAction.runWithEvent(CommandAction.java:151)
+	at org.eclipse.jface.action.ActionContributionItem.handleWidgetSelection(ActionContributionItem.java:565)
+	at org.eclipse.jface.action.ActionContributionItem.lambda$4(ActionContributionItem.java:397)
+	at org.eclipse.swt.widgets.EventTable.sendEvent(EventTable.java:86)
+	at org.eclipse.swt.widgets.Display.sendEvent(Display.java:4428)
+	at org.eclipse.swt.widgets.Widget.sendEvent(Widget.java:1079)
+	at org.eclipse.swt.widgets.Display.runDeferredEvents(Display.java:4238)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:3817)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1150)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1039)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:153)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:680)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:336)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:594)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:148)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:151)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
+!SUBENTRY 1 org.eclipse.core.resources 4 372 2018-06-15 19:13:25.427
+!MESSAGE Project 'Blitzar' is not open.
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 19:13:25.444
+!MESSAGE initialize
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 19:13:25.454
+!MESSAGE Project: P/Magnatar
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-15 19:13:54.898
+!MESSAGE Class: DriveTrain Package: org.usfirst.frc.team4499.robot.commands

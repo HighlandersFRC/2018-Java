@@ -113,8 +113,6 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
-		Set_Piston piston1 = new Set_Piston(RobotMap.catapult, RobotMap.catapultResting);
-		piston1.start();
 		Set_Piston piston2 = new Set_Piston(RobotMap.catapultRelease, RobotMap.releaseClosed);
 		piston2.start();
 		fire = new Fire();
@@ -176,12 +174,12 @@ public class Robot extends TimedRobot {
 		else {
 			RobotMap.pincher.set(ControlMode.PercentOutput, 0);	
 		}
-		enableCurrentLimit
+		//enableCurrentLimit
 		RobotMap.leftMasterTalon.set(ControlMode.PercentOutput, leftJoystickVal);
 		RobotMap.rightMasterTalon.set(ControlMode.PercentOutput, rightJoystickVal);
 		Scheduler.getInstance().run();
 	}
-//stalldetection or current limiting
+//add stall detection/current limiting
 
 	/**
 	 * This function is called periodically during test mode.

@@ -11,8 +11,10 @@
 <fullyQualifiedTypeName name="org.usfirst.frc.team4499.robot.commands.NavXTurn"/>
 <fullyQualifiedTypeName name="com.ctre.CANTalon.TalonControlMode"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.smartdashboard.SmartDashboard"/>
-<fullyQualifiedTypeName name="org.usfirst.frc.team4499.robot.RobotMap"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.DoubleSolenoid"/>
 <fullyQualifiedTypeName name="org.usfirst.frc.team4499.robot.commands.Set_Piston"/>
+<fullyQualifiedTypeName name="com.ctre.phoenix.motorcontrol.ControlMode"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team4499.robot.OI"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team4499.robot.RobotMap"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.DoubleSolenoid.Value"/>
 </qualifiedTypeNameHistroy>
