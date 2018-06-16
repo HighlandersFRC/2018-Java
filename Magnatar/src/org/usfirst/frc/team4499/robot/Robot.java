@@ -49,12 +49,6 @@ public class Robot extends TimedRobot {
 		m_chooser.addDefault("Default Auto", new ExampleCommand());
 		config = new RobotConfig();
 		config.setup();
-		RobotMap.leftFollowerTalon.set(ControlMode.Follower,  RobotMap.leftMasterTalonID);
-		RobotMap.rightMasterTalon.set(ControlMode.Follower,  RobotMap.rightMasterTalonID);
-		RobotMap.leftMasterTalon.setInverted(false);
-		RobotMap.leftFollowerTalon.setInverted(false);
-		RobotMap.rightMasterTalon.setInverted(true);
-		RobotMap.rightFollowerTalon.setInverted(true);
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 	}
@@ -133,10 +127,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 
-		double leftJoystickVal = OI.controllerZero.getRawAxis(0);
-		double rightJoystickVal = OI.controllerZero.getRawAxis(1);
-		leftJoystickVal = leftJoystickVal <= 0.075 ? 0 : leftJoystickVal;
-		rightJoystickVal = rightJoystickVal <= 0.075 ? 0 : rightJoystickVal;
+
 		if (OI.rightshiftButton.get()) {
 			RobotMap.shifters.set(DoubleSolenoid.Value.kForward);
 		} else if (OI.leftshiftButton.get()) {
@@ -175,8 +166,6 @@ public class Robot extends TimedRobot {
 			RobotMap.pincher.set(ControlMode.PercentOutput, 0);	
 		}
 		//enableCurrentLimit
-		RobotMap.leftMasterTalon.set(ControlMode.PercentOutput, leftJoystickVal);
-		RobotMap.rightMasterTalon.set(ControlMode.PercentOutput, rightJoystickVal);
 		Scheduler.getInstance().run();
 	}
 //add stall detection/current limiting

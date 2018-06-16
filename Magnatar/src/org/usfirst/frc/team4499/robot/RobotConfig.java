@@ -6,5 +6,9 @@ public class RobotConfig {
 	public void setup() {
 		RobotMap.leftFollowerTalon.set(ControlMode.Follower, RobotMap.leftMasterTalonID);
 		RobotMap.rightFollowerTalon.set(ControlMode.Follower, RobotMap.rightMasterTalonID);
+		RobotMap.leftMasterTalon.setInverted(false);
+		RobotMap.leftFollowerTalon.setInverted(false);
+		RobotMap.rightMasterTalon.setInverted(true);
+		RobotMap.rightFollowerTalon.setInverted(true);
 	}
 }
