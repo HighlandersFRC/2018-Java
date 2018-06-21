@@ -33,7 +33,7 @@ public class DriveTrain extends Command {
 			RobotMap.leftMasterTalon.set(ControlMode.PercentOutput,0);
 		}
 		if (Math.abs(rightJoystickVal) > 0.10) {
-			RobotMap.rightMasterTalon.set(ControlMode.PercentOutput,rightJoystickVal);
+			RobotMap.rightMasterTalon.set(ControlMode.PercentOutput, -rightJoystickVal);
 		}
 		
 		else {

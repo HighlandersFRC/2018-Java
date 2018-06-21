@@ -8441,3 +8441,87 @@ Java Model Exception: Java Model Status [No Project does not exist]
 
 !ENTRY riolog 1 0 2018-06-20 17:58:09.448
 !MESSAGE Connected to robot at 10.44.99.28
+
+!ENTRY riolog 1 0 2018-06-20 18:02:29.809
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-06-20 18:02:31.542
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-06-20 19:35:19.790
+!MESSAGE Connected to robot at 127.0.0.1
+
+!ENTRY riolog 1 0 2018-06-20 19:35:42.673
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-06-20 19:35:42.740
+!MESSAGE Connected to robot at 10.44.99.28
+
+!ENTRY riolog 1 0 2018-06-20 19:35:43.936
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-06-20 19:35:43.958
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-06-20 19:35:44.002
+!MESSAGE Connected to robot at 10.44.99.28
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-20 19:41:32.768
+!MESSAGE Running ant file: C:\Users\Owner\Documents\Robotics\Magnatar\build.xml
+
+!ENTRY WPILib_Java_Robot_Development 1 0 2018-06-20 19:41:32.788
+!MESSAGE Targets: deploy, Mode: run
+
+!ENTRY riolog 1 0 2018-06-20 19:41:49.240
+!MESSAGE Connected to robot at 10.44.99.28
+
+!ENTRY riolog 1 0 2018-06-20 19:41:50.182
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-06-20 19:41:50.203
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-06-20 19:41:50.240
+!MESSAGE Connected to robot at 10.44.99.28
+
+!ENTRY riolog 1 0 2018-06-20 19:41:51.735
+!MESSAGE Connected to robot at 10.44.99.28
+
+!ENTRY riolog 1 0 2018-06-20 19:41:52.263
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-06-20 19:41:52.326
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-06-20 19:41:52.389
+!MESSAGE Connected to robot at 10.44.99.28
+
+!ENTRY riolog 1 0 2018-06-20 19:41:52.549
+!MESSAGE Connected to robot at 10.44.99.28
+
+!ENTRY riolog 1 0 2018-06-20 19:41:54.407
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-06-20 19:41:54.470
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-06-20 19:41:54.509
+!MESSAGE Connected to robot at 10.44.99.28
+
+!ENTRY riolog 1 0 2018-06-20 19:41:55.628
+!MESSAGE Connected to robot at 10.44.99.28
+
+!ENTRY riolog 1 0 2018-06-20 19:41:56.529
+!MESSAGE failed to send keep alive, reconnecting
+
+!ENTRY riolog 1 0 2018-06-20 19:41:56.587
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-06-20 19:41:56.632
+!MESSAGE Connected to robot at 10.44.99.28
+
+!ENTRY riolog 1 0 2018-06-20 19:42:28.669
+!MESSAGE socket disconnected during read
+
+!ENTRY riolog 1 0 2018-06-20 19:42:30.664
+!MESSAGE failed to send keep alive, reconnecting
