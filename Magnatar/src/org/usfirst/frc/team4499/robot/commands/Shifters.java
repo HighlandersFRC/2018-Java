@@ -1,34 +1,37 @@
 package org.usfirst.frc.team4499.robot.commands;
 
+import org.usfirst.frc.team4499.robot.OI;
 import org.usfirst.frc.team4499.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.command.Subsystem;
 
-public class Set_Piston extends Command {
-DoubleSolenoid piston;
-DoubleSolenoid.Value position;
-    public Set_Piston(DoubleSolenoid piston,Value position) {
-    	this.piston= piston;
-    	this.position = position;
+/**
+ *
+ */
+public class Shifters extends Command {
+
+    public Shifters() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
     }
-    public Set_Piston(DoubleSolenoid piston,Value position,Subsystem subsystem) {
-    	this.piston= piston;
-    	this.position = position;
-    	requires(subsystem);
-    }
+
+    // Called just before this Command runs the first time
     protected void initialize() {
-    	this.piston.set(position);
     }
+
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	if (OI.rightshiftButton.get()) {
+			RobotMap.shifters.set(DoubleSolenoid.Value.kForward);
+		} else if (OI.leftshiftButton.get()) {
+			RobotMap.shifters.set(DoubleSolenoid.Value.kReverse);
+		}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true

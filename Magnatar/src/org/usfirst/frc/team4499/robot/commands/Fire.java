@@ -1,41 +1,25 @@
 package org.usfirst.frc.team4499.robot.commands;
 
+import org.usfirst.frc.team4499.robot.OI;
+import org.usfirst.frc.team4499.robot.Robot;
 import org.usfirst.frc.team4499.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-/**
- *
- */
 public class Fire extends CommandGroup {
-		
 
     public Fire() {
-    	addSequential(new Set_Piston(RobotMap.intake, RobotMap.intakeOut));
+    	requires(Robot.catapultSubsystem);
+    	requires(Robot.subsystem);
+    	addSequential(new Set_Piston(RobotMap.intake, RobotMap.intakeOut, Robot.subsystem));
     	addSequential(new Wait(2.0));
-    	addSequential(new Set_Piston(RobotMap.catapultRelease, RobotMap.releasedOpen));
+    	addSequential(new Set_Piston(RobotMap.catapultRelease, RobotMap.releaseOpen, Robot.catapultSubsystem));
     	addSequential(new Wait(1.0));
-    	addSequential(new Set_Piston(RobotMap.catapult, RobotMap.catapultResting));
+    	addSequential(new Set_Piston(RobotMap.catapult, RobotMap.catapultResting, Robot.catapultSubsystem));
     	addSequential(new Wait(0.8));
-    	addParallel(new Set_Piston(RobotMap.catapultRelease, RobotMap.releaseClosed));
-    	addParallel(new Set_Piston(RobotMap.intake, RobotMap.intakeIn));
+    	addParallel(new Set_Piston(RobotMap.catapultRelease, RobotMap.releaseClosed, Robot.catapultSubsystem));
+    	addParallel(new Set_Piston(RobotMap.intake, RobotMap.intakeIn, Robot.subsystem));
     	addSequential(new Wait(0.5));
-    	addSequential(new Set_Piston(RobotMap.catapult, RobotMap.catapultSet));
-        // Add Commands here:
-        // e.g. addSequential(new Command1());
-        //      addSequential(new Command2());
-        // these will run in order.
-
-        // To run multiple commands at the same time,
-        // use addParallel()
-        // e.g. addParallel(new Command1());
-        //      addSequential(new Command2());
-        // Command1 and Command2 will run in parallel.
-
-        // A command group will require all of the subsystems that each member
-        // would require.
-        // e.g. if Command1 requires chassis, and Command2 requires arm,
-        // a CommandGroup containing them would require both the chassis and the
-        // arm.
-    }
+    	addSequential(new Set_Piston(RobotMap.catapult, RobotMap.catapultSet, Robot.catapultSubsystem));
+}
 }

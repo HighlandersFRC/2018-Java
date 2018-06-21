@@ -13,12 +13,6 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
-/**
- * The RobotMap is a mapping from the ports sensors and actuators are wired into
- * to a variable name. This provides flexibility changing wiring, makes checking
- * the wiring easier and significantly reduces the number of magic numbers
- * floating around.
- */
 public class RobotMap {
 
 	public static DoubleSolenoid shifters = new DoubleSolenoid(0, 6, 7);
@@ -26,12 +20,11 @@ public class RobotMap {
 	public static DoubleSolenoid catapult = new DoubleSolenoid(1,0,1);
 	public static DoubleSolenoid catapultRelease = new DoubleSolenoid(1,4,5);
 	
-	
 	public static Value intakeIn = DoubleSolenoid.Value.kForward;
 	public static Value intakeOut = DoubleSolenoid.Value.kReverse;
 	
 	public static Value releaseClosed = DoubleSolenoid.Value.kForward;
-	public static Value releasedOpen = DoubleSolenoid.Value.kReverse;
+	public static Value releaseOpen = DoubleSolenoid.Value.kReverse;
 	
 	public static Value catapultResting = DoubleSolenoid.Value.kReverse;
 	public static Value catapultSet = DoubleSolenoid.Value.kForward;
