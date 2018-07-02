@@ -7,27 +7,24 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team4499.robot.OI;
 
-/**
- *
- */
 public class DoorOpen extends Command {
-	
+
 	public static TalonSRX doorOpenMotor;
 	private static final double CURRENT_LIMIT = 2.0;
 	private double power;
+	private double waitTime;
 
     public DoorOpen(TalonSRX doorOpen) {
         doorOpenMotor = doorOpen;
     }
     
-    private void setCurrentProtection() {
-    	double minCurrentPercentage = 1;
-    	if (calcCurrentPercent() < minCurrentPercentage) {
-    		minCurrentPercentage = calcCurrentPercent();
-    	}
-    	limitMotorPower(power, minCurrentPercentage);
+    private void setStallProtection() {
     	if (shouldTurnMotorOff()) {
-    		doorOpenMotor.set(ControlMode.PercentOutput, 0);
+    		double waitTime = 1.5 + Timer.getFPGATimestamp();
+    		if (Timer.getFPGATimestamp() < waitTime) {
+        		doorOpenMotor.set(ControlMode.PercentOutput, 0);
+    		}
+    		
     	}
     }
     
@@ -46,32 +43,32 @@ public class DoorOpen extends Command {
     }
     
     private boolean shouldTurnMotorOff() {
-    	if (OI.waveDownButton.get() || OI.waveUpButton.get()) {
-    		new Wait(2).start();
-    	}
-    	return true;
+    	System.out.println(doorOpenMotor.getOutputCurrent());
+    	return doorOpenMotor.getOutputCurrent() > 2.1;
     }
-    
     // Called just before this Command runs the first time
     protected void initialize() {
+    	waitTime = 1.5 + Timer.getFPGATimestamp();
     }
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (OI.waveDownButton.get()) {
+    	if (OI.waveDownButton.get() && Timer.getFPGATimestamp() < waitTime) {
     		power = -0.25;
     		doorOpenMotor.set(ControlMode.PercentOutput, power);
-    		setCurrentProtection();
+    	//	setStallProtection();
+    		limitMotorPower(power, calcCurrentPercent());
     	}
-    	else if (OI.waveUpButton.get()) {
+    	else if (OI.waveUpButton.get() && Timer.getFPGATimestamp() < waitTime) {
     		power = 0.25;
     		doorOpenMotor.set(ControlMode.PercentOutput, power);
-    		setCurrentProtection();
+    	//	setStallProtection();
+    		limitMotorPower(power, calcCurrentPercent());
     	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	return false;
+    	return Timer.getFPGATimestamp() > waitTime;
     }
 
     // Called once after isFinished returns true

@@ -31,6 +31,7 @@ public class Robot extends TimedRobot {
 	private Intake intake;
 	public static FiringSequence sequence;
 	private GearShift shift;
+	private NavXTurn turn = new NavXTurn(80);
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 
@@ -98,6 +99,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
+		turn.start();
 		Scheduler.getInstance().run();
 	}
 
@@ -113,7 +115,6 @@ public class Robot extends TimedRobot {
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
 		}
-		openSesame.start();
 		intake.start();
 		shift.start();
 		sequence = new FiringSequence();
@@ -129,7 +130,6 @@ public class Robot extends TimedRobot {
 		
 		leftJoystickY = Math.abs(leftJoystickY) <= 0.05 ? 0 : leftJoystickY;
 		rightJoystickY = Math.abs(rightJoystickY) <= 0.05 ? 0 : rightJoystickY;
-		
 		RobotMap.leftDriveMaster.set(ControlMode.PercentOutput, leftJoystickY);
 		RobotMap.rightDriveMaster.set(ControlMode.PercentOutput, rightJoystickY);
 		
@@ -137,6 +137,9 @@ public class Robot extends TimedRobot {
 		if (OI.fireButton.get() && !sequence.isRunning()) {
 			sequence.start();
     	}
+		if (OI.waveUpButton.get() || OI.waveDownButton.get()) {
+			openSesame.start();
+		}
 	}
 
 	/**

@@ -8,8 +8,10 @@
 package org.usfirst.frc.team4499.robot;
 
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-
+import com.kauailabs.navx.frc.AHRS;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.I2C;
+
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -26,6 +28,8 @@ public class RobotMap {
 	public static int rightDriveMasterID = 4;
 	public static int intakeMotorID = 5;
 	public static int waveMotorID = 6;
+	
+	public static AHRS navX = new AHRS(I2C.Port.kMXP);
 	
 	//Talon SRX
 	public static TalonSRX leftDriveMaster = new TalonSRX(leftDriveMasterID);
