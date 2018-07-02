@@ -1,9 +1,6 @@
 package org.usfirst.frc.team4499.robot.commands;
 
-import java.awt.Robot;
-
-import org.usfirst.frc.team4499.robot.OI;
-import org.usfirst.frc.team4499.robot.RobotMap;
+import org.usfirst.frc.team4499.robot.*;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -34,7 +31,7 @@ public class Intake extends Command {
     	if (Math.abs(OI.controllerZero.getRawAxis(3)) > 0.5) {
     		intakePiston.set(RobotMap.intakeOut);
     		intakeMotor.set(ControlMode.PercentOutput, power);
-    	} else if (OI.controllerZero.getRawAxis(3) < 0.5) {
+    	} else if (OI.controllerZero.getRawAxis(3) < 0.5 && !Robot.sequence.isRunning()) {
     		intakePiston.set(RobotMap.intakeIn);
     		intakeMotor.set(ControlMode.PercentOutput, 0);
     	}

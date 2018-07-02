@@ -27,9 +27,9 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 public class Robot extends TimedRobot {
 	public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
 	public static OI m_oi;
-	private DoorOpen wave;
+	private DoorOpen openSesame;
 	private Intake intake;
-	private FiringSequence sequence;
+	public static FiringSequence sequence;
 	private GearShift shift;
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -107,13 +107,13 @@ public class Robot extends TimedRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		wave = new DoorOpen(RobotMap.doorOpenMotor);
+		openSesame = new DoorOpen(RobotMap.doorOpenMotor);
 		intake = new Intake(RobotMap.intakePiston, RobotMap.intakeMotor);
 		shift = new GearShift(RobotMap.shifters);
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
 		}
-		wave.start();
+		openSesame.start();
 		intake.start();
 		shift.start();
 		sequence = new FiringSequence();
