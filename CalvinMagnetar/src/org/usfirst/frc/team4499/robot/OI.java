@@ -21,4 +21,5 @@ public class OI {
 	public static JoystickButton fireButton = new JoystickButton(controllerZero, 8);
 	public static JoystickButton shiftUpButton = new JoystickButton(controllerZero, 6);
 	public static JoystickButton shiftDownButton = new JoystickButton(controllerZero, 5);
+	public static JoystickButton toggleOuttakeButton = new JoystickButton(controllerZero, 2);
 }

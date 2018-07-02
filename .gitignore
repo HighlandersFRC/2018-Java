@@ -12,3 +12,4 @@ sysProps.xml
 out/
 *.pyc
 /.metadata/
+/.recommenders/
