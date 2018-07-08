@@ -27,12 +27,12 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 public class Robot extends TimedRobot {
 	public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
 	public static OI m_oi;
-	private DoorOpen openSesame;
+	private DoorOpen waveInFront;
 	private Intake intake;
-	public static FiringSequence sequence;
-	private GearShift shift;
-	private NavXTurn turn = new NavXTurn(80);
+	public static FiringSequence firingSequence;
+	private GearShift gearShifters;
 	Command m_autonomousCommand;
+	private SquareSequence autonomouslyMoveInASquare;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 
 	/**
@@ -92,6 +92,7 @@ public class Robot extends TimedRobot {
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.start();
 		}
+		autonomouslyMoveInASquare = new SquareSequence();
 	}
 
 	/**
@@ -99,7 +100,7 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
-		turn.start();
+		autonomouslyMoveInASquare.start();
 		Scheduler.getInstance().run();
 	}
 
@@ -109,15 +110,15 @@ public class Robot extends TimedRobot {
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		openSesame = new DoorOpen(RobotMap.doorOpenMotor);
+		waveInFront = new DoorOpen(RobotMap.doorOpenMotor);
 		intake = new Intake(RobotMap.intakePiston, RobotMap.intakeMotor);
-		shift = new GearShift(RobotMap.shifters);
+		gearShifters = new GearShift(RobotMap.shifters);
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
 		}
 		intake.start();
-		shift.start();
-		sequence = new FiringSequence();
+		gearShifters.start();
+		firingSequence = new FiringSequence();
 	}
 
 	/**
@@ -134,11 +135,11 @@ public class Robot extends TimedRobot {
 		RobotMap.rightDriveMaster.set(ControlMode.PercentOutput, rightJoystickY);
 		
 		Scheduler.getInstance().run();
-		if (OI.fireButton.get() && !sequence.isRunning()) {
-			sequence.start();
+		if (OI.fireButton.get() && !firingSequence.isRunning()) {
+			firingSequence.start();
     	}
 		if (OI.waveUpButton.get() || OI.waveDownButton.get()) {
-			openSesame.start();
+			waveInFront.start();
 		}
 	}
 

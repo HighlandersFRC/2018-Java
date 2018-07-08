@@ -32,7 +32,7 @@ public class Intake extends Command {
     	if (OI.toggleOuttakeButton.get()) {
     		if (Math.abs(OI.controllerZero.getRawAxis(3)) > 0.5) {
     			intakeMotor.set(ControlMode.PercentOutput, outtakePower);
-    		} else if (OI.controllerZero.getRawAxis(3) < 0.5 && !Robot.sequence.isRunning()) {
+    		} else if (OI.controllerZero.getRawAxis(3) < 0.5 && !Robot.firingSequence.isRunning()) {
     			intakePiston.set(RobotMap.intakeIn);
     			intakeMotor.set(ControlMode.PercentOutput, 0);
     		}
@@ -44,7 +44,7 @@ public class Intake extends Command {
     		if (Math.abs(OI.controllerZero.getRawAxis(3)) > 0.5) {
     			intakePiston.set(RobotMap.intakeOut);
     			intakeMotor.set(ControlMode.PercentOutput, intakePower);
-    		} else if (OI.controllerZero.getRawAxis(3) < 0.5 && !Robot.sequence.isRunning()) {
+    		} else if (OI.controllerZero.getRawAxis(3) < 0.5 && !Robot.firingSequence.isRunning()) {
     			intakePiston.set(RobotMap.intakeIn);
     			intakeMotor.set(ControlMode.PercentOutput, 0);
     		}
