@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class Wait extends Command {
 	
 	private double waitTime;
-	private double ogTime;
+	private double howLongToWait;
 
     public Wait(double time) {
     	waitTime = time;
@@ -17,7 +17,7 @@ public class Wait extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	ogTime = Timer.getFPGATimestamp() + waitTime;
+    	howLongToWait = Timer.getFPGATimestamp() + waitTime;
     }
     
 
@@ -28,7 +28,7 @@ public class Wait extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Timer.getFPGATimestamp() > ogTime;
+        return Timer.getFPGATimestamp() > howLongToWait;
     }
 
     // Called once after isFinished returns true
