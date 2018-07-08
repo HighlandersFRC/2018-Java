@@ -25,6 +25,5 @@ public class SquareSequence extends CommandGroup {
         addSequential(new MoveForward(RobotMap.leftDriveMaster, RobotMap.rightDriveMaster, 1));
         addSequential(new Wait(0.5));
         addSequential(new NavXTurn(360));
-        addSequential(new Wait(0.5));
     }
 }
