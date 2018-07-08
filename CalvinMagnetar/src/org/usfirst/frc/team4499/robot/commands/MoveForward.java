@@ -27,17 +27,23 @@ public class MoveForward extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	leftDriveMaster.set(ControlMode.PercentOutput, 0.75);
-    	rightDriveMaster.set(ControlMode.PercentOutput, 0.75);
+    	if (Timer.getFPGATimestamp() < totalTime) {
+    		leftDriveMaster.set(ControlMode.PercentOutput, 0.75);
+        	rightDriveMaster.set(ControlMode.PercentOutput, 0.75);
+    	}
+    	leftDriveMaster.set(ControlMode.PercentOutput, 0);
+    	rightDriveMaster.set(ControlMode.PercentOutput, 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return Timer.getFPGATimestamp() > totalTime;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	leftDriveMaster.set(ControlMode.PercentOutput, 0);
+    	rightDriveMaster.set(ControlMode.PercentOutput, 0);
     }
 
     // Called when another command which requires one or more of the same
@@ -45,3 +51,4 @@ public class MoveForward extends Command {
     protected void interrupted() {
     }
 }
+
