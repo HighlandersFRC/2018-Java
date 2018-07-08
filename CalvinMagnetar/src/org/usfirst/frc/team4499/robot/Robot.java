@@ -113,12 +113,12 @@ public class Robot extends TimedRobot {
 		waveInFront = new DoorOpen(RobotMap.doorOpenMotor);
 		intake = new Intake(RobotMap.intakePiston, RobotMap.intakeMotor);
 		gearShifters = new GearShift(RobotMap.shifters);
+		firingSequence = new FiringSequence();
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.cancel();
 		}
 		intake.start();
 		gearShifters.start();
-		firingSequence = new FiringSequence();
 	}
 
 	/**
