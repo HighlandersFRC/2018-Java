@@ -31,7 +31,7 @@ public class RobotMap {
 	
 	public static AHRS navX = new AHRS(I2C.Port.kMXP);
 	
-	//Talon SRX
+	// Talon SRX
 	public static TalonSRX leftDriveMaster = new TalonSRX(leftDriveMasterID);
 	public static TalonSRX leftDriveFollower = new TalonSRX(leftDriveFollowerID);
 	public static TalonSRX rightDriveMaster = new TalonSRX(rightDriveMasterID);
@@ -39,18 +39,18 @@ public class RobotMap {
 	public static TalonSRX intakeMotor = new TalonSRX(intakeMotorID);
 	public static TalonSRX doorOpenMotor = new TalonSRX(waveMotorID);
 		
-	//Pistons
+	// Pistons
 	public static DoubleSolenoid intakePiston = new DoubleSolenoid(0, 0, 1);
 	public static DoubleSolenoid shifters = new DoubleSolenoid(0, 6, 7);
 	public static DoubleSolenoid catapult = new DoubleSolenoid(1, 0, 1);
 	public static DoubleSolenoid catapultRelease = new DoubleSolenoid(1, 4, 5);
 	
-	//Basic piston states
+	// Basic piston states
 	public static DoubleSolenoid.Value off = DoubleSolenoid.Value.kOff;
 	public static DoubleSolenoid.Value forward = DoubleSolenoid.Value.kForward;
 	public static DoubleSolenoid.Value reverse = DoubleSolenoid.Value.kReverse;
 	
-	//Advanced piston states
+	// Advanced piston states
 	public static DoubleSolenoid.Value intakeIn = forward;
 	public static DoubleSolenoid.Value intakeOut = reverse;
 	public static DoubleSolenoid.Value catapultUp = forward;
