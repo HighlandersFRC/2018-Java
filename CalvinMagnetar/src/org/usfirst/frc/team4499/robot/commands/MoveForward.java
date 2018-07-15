@@ -1,5 +1,7 @@
 package org.usfirst.frc.team4499.robot.commands;
 
+import org.usfirst.frc.team4499.robot.RobotMap;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
@@ -13,16 +15,24 @@ public class MoveForward extends Command {
 	
 	private TalonSRX leftDriveMaster;
 	private TalonSRX rightDriveMaster;
+	private TalonSRX leftDriveFollower;
+	private TalonSRX rightDriveFollower;
 	private double moveTime;
 	private double totalTime;
 
-    public MoveForward(TalonSRX left, TalonSRX right, double time) {
-        leftDriveMaster = left; rightDriveMaster = right; moveTime = time;
+    public MoveForward(TalonSRX leftMaster, TalonSRX rightMaster, TalonSRX leftSlave, TalonSRX rightSlave, double time) {
+    	RobotMap.leftDriveFollower.set(ControlMode.Follower,  RobotMap.leftDriveMasterID);
+		RobotMap.rightDriveFollower.set(ControlMode.Follower,  RobotMap.rightDriveMasterID);
+		RobotMap.rightDriveMaster.setInverted(true);
+		RobotMap.rightDriveFollower.setInverted(true);
+        moveTime = time;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
     	totalTime = Timer.getFPGATimestamp() + moveTime;
+    	leftDriveFollower.set(ControlMode.Follower, RobotMap.leftDriveMasterID);
+    	rightDriveFollower.set(ControlMode.Follower, RobotMap.rightDriveMasterID);
     	leftDriveMaster.setInverted(true);
     	rightDriveMaster.setInverted(true);
     }
@@ -32,9 +42,10 @@ public class MoveForward extends Command {
     	if (Timer.getFPGATimestamp() < totalTime) {
     		leftDriveMaster.set(ControlMode.PercentOutput, 0.75);
         	rightDriveMaster.set(ControlMode.PercentOutput, 0.75);
+    	} else {
+    		leftDriveMaster.set(ControlMode.PercentOutput, 0);
+        	rightDriveMaster.set(ControlMode.PercentOutput, 0);
     	}
-    	leftDriveMaster.set(ControlMode.PercentOutput, 0);
-    	rightDriveMaster.set(ControlMode.PercentOutput, 0);
     }
 
     // Make this return true when this Command no longer needs to run execute()
