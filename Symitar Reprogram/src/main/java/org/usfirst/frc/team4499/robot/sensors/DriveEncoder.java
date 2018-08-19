@@ -11,7 +11,7 @@ public class DriveEncoder {
 		startingValue = masterTalon.getSelectedSensorPosition(0);
 	}
 	public double getEncoderValue() {
-		return masterTalon.getSelectedSensorPosition(0)-startingValue;
+	return masterTalon.getSelectedSensorPosition(0)-startingValue;
 	}
 	
 	

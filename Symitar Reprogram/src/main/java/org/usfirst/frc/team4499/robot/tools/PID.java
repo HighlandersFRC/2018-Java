@@ -20,7 +20,6 @@ public class PID {
 	private double setPoint; // this will be set continuously
 	private double output;
 	private double result;
-	
 	public PID(double kp, double ki, double kd){
 		PValue = kp;
 		IValue = ki;

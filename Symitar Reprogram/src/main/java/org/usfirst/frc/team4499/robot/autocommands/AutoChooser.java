@@ -8,6 +8,6 @@ public class AutoChooser {
 	}
 	/*public Command returnAuto() {
 		
-		return Command;
+		//return Command;
 	}*/
 }
