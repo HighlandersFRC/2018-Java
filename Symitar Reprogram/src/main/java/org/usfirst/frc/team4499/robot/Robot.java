@@ -30,8 +30,8 @@ public class Robot extends TimedRobot {
 	Command m_autonomousCommand;
 	SendableChooser<Command> m_chooser = new SendableChooser<>();
 	private RobotConfig config;
-	private AutoSuite auto;
-	private TeleopSuite teleop;
+	private AutoSuite autoS;
+	private TeleopSuite teleopS;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -77,7 +77,8 @@ public class Robot extends TimedRobot {
 	public void autonomousInit() {
 		m_autonomousCommand = m_chooser.getSelected();
 		config.autoConfig();
-		auto.startAutos();
+		autoS = new AutoSuite();
+		autoS.startAutos();
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
@@ -102,8 +103,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopInit() {
 		config.teleopConfig();
-		teleop = new TeleopSuite();
-		teleop.startTeleopCommands();
+		teleopS = new TeleopSuite();
+		teleopS.startTeleopCommands();
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
