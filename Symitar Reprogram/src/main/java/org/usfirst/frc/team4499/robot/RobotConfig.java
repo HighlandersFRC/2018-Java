@@ -97,7 +97,8 @@ public class RobotConfig {
     	for(TalonSRX talon:RobotMap.driveMotors) {
     		talon.configContinuousCurrentLimit(RobotConfig.driveMotorContinuousCurrentLowGear, RobotConfig.timeOut);
     	}
-    	this.setAllMotorsBreak();
+		this.setAllMotorsBreak();
+		RobotMap.navx.resetDisplacement();
 	}
 	public void teleopConfig() {
 		RobotMap.leftDriveLead.enableVoltageCompensation(false);
@@ -111,7 +112,8 @@ public class RobotConfig {
     	for(TalonSRX talon:RobotMap.driveMotors) {
     		talon.configContinuousCurrentLimit(RobotConfig.driveMotorContinuousCurrentHighGear, RobotConfig.timeOut);
     	}
-    	this.setAllMotorsBreak();
+		this.setAllMotorsBreak();
+		RobotMap.navx.resetDisplacement();
 	}
 	public void disabledConfig() {
 	}

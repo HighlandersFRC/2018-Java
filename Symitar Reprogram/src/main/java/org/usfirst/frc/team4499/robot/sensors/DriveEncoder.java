@@ -6,9 +6,9 @@ public class DriveEncoder {
 	private TalonSRX masterTalon;
 	private int startingValue;
 	
-	public DriveEncoder(TalonSRX talon) {
+	public DriveEncoder(TalonSRX talon, int startingValue) {
 		masterTalon = talon;
-		startingValue = masterTalon.getSelectedSensorPosition(0);
+		
 	}
 	public double getEncoderValue() {
 	return masterTalon.getSelectedSensorPosition(0)-startingValue;

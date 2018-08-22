@@ -17,9 +17,12 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.Solenoid;
 
+import org.usfirst.frc.team4499.robot.sensors.DriveEncoder;
+import org.usfirst.frc.team4499.robot.sensors.Navx;
 import org.usfirst.frc.team4499.robot.subsystems.Arm;
 import org.usfirst.frc.team4499.robot.subsystems.Clapper;
 import org.usfirst.frc.team4499.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4499.robot.sensors.ArmEncoder;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -87,7 +90,10 @@ public class RobotMap {
 		public static DoubleSolenoid.Value openLeftIntake = DoubleSolenoid.Value.kReverse;//TODO On comp botDoubleSolenoid.Value.kReverse;
 		public static DoubleSolenoid.Value closeLeftIntake = DoubleSolenoid.Value.kForward;//TODO On Comp BotDoubleSolenoid.Value.kForward;
 		
-        	
+		public static DriveEncoder leftMainDrive = new DriveEncoder(leftDriveLead,this.leftdrivelead.getSelectedSensorPosition());
+		public static DriveEncoder rightMaindrive = new DriveEncoder(rightDriveLead);
+		public static ArmEncoder mainArm = new ArmEncoder();
+		public static Navx mainNavx = new Navx(0);	
         	
 		//Array of drive motors to simplify configuration
 		public static TalonSRX driveMotors[] = {

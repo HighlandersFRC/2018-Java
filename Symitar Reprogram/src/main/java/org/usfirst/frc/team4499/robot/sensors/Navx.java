@@ -15,6 +15,10 @@ public class Navx {
 	public boolean isMoving() {
 		return RobotMap.navx.isMoving();
 	}
+	public void softReset(double angle){
+		originalAngle = angle;
+
+	}
 	
 	
 
