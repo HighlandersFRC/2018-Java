@@ -43,7 +43,10 @@ public class ManualClapperControl extends Command {
     	}
     	else if(OI.softOuttake.get()) {
     		RobotMap.clapper.outtake();
-    	}
+        }
+        else{
+            RobotMap.clapper.restingState();
+        }
     	
     }
 

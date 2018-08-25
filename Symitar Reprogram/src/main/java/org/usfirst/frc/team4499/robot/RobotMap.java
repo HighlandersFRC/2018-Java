@@ -49,7 +49,7 @@ public class RobotMap {
 		
 		public static int rampActuatorMotorID = 11;
 		
-		public static int armStartingPositionTicks=-722;
+		public static double armStartingPositionTicks=-722.0;
 		public static int maxArmPositionTicks=-2013;
 		
 		public static AnalogInput analog = new AnalogInput(0);
@@ -90,9 +90,9 @@ public class RobotMap {
 		public static DoubleSolenoid.Value openLeftIntake = DoubleSolenoid.Value.kReverse;//TODO On comp botDoubleSolenoid.Value.kReverse;
 		public static DoubleSolenoid.Value closeLeftIntake = DoubleSolenoid.Value.kForward;//TODO On Comp BotDoubleSolenoid.Value.kForward;
 		
-		public static DriveEncoder leftMainDrive = new DriveEncoder(leftDriveLead,this.leftdrivelead.getSelectedSensorPosition());
-		public static DriveEncoder rightMaindrive = new DriveEncoder(rightDriveLead);
-		public static ArmEncoder mainArm = new ArmEncoder();
+		public static DriveEncoder leftMainDrive = new DriveEncoder(leftDriveLead,RobotMap.leftDriveLead.getSelectedSensorPosition(0));
+		public static DriveEncoder rightMaindrive = new DriveEncoder(rightDriveLead,RobotMap.rightDriveLead.getSelectedSensorPosition(0));
+		public static ArmEncoder mainArm = new ArmEncoder(RobotMap.armStartingPositionTicks);
 		public static Navx mainNavx = new Navx(0);	
         	
 		//Array of drive motors to simplify configuration
