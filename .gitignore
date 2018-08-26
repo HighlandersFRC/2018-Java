@@ -13,3 +13,12 @@ out/
 *.pyc
 /.metadata/
 /.recommenders/
+CalvinMagnetar/src/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/org/usfirst/frc/team4499/robot/subsystems/ExampleSubsystem.java
+CalvinMagnetar/src/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/org/usfirst/frc/team4499/robot/subsystems/DriveTrain.java
+CalvinMagnetar/src/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/org/usfirst/frc/team4499/robot/commands/SquareSequence.java
+CalvinMagnetar/src/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/org/usfirst/frc/team4499/robot/commands/SetPiston.java
+CalvinMagnetar/src/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/org/usfirst/frc/team4499/robot/commands/NavXTurn.java
+CalvinMagnetar/src/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/org/usfirst/frc/team4499/robot/commands/MoveForward.java
+CalvinMagnetar/src/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/org/usfirst/frc/team4499/robot/commands/GearShift.java
+CalvinMagnetar/src/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/org/usfirst/frc/team4499/robot/commands/FiringSequence.java
+CalvinMagnetar/src/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/CalvinMagnetar/src/main/java/org/usfirst/frc/team4499/robot/commands/DoorOpen.java
