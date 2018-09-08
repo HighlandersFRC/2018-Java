@@ -15,6 +15,16 @@
 <fullyQualifiedTypeName name="org.usfirst.frc.team4499.robot.commands.Set_Piston"/>
 <fullyQualifiedTypeName name="com.ctre.phoenix.motorcontrol.ControlMode"/>
 <fullyQualifiedTypeName name="org.usfirst.frc.team4499.robot.OI"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team4499.robot.commands.Waver"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team4499.robot.commands.Shifters"/>
+<fullyQualifiedTypeName name="java.awt.Robot"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team4499.robot.subsystems.IntakeSubsystem"/>
 <fullyQualifiedTypeName name="org.usfirst.frc.team4499.robot.RobotMap"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team4499.robot.Robot"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team4499.robot.subsystems.CatapultSubsystem"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.command.Subsystem"/>
+<fullyQualifiedTypeName name="org.usfirst.frc.team4499.robot.commands.Intake"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Relay"/>
+<fullyQualifiedTypeName name="edu.wpi.first.wpilibj.Relay.Value"/>
 <fullyQualifiedTypeName name="edu.wpi.first.wpilibj.DoubleSolenoid.Value"/>
 </qualifiedTypeNameHistroy>

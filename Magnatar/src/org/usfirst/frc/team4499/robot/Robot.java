@@ -101,6 +101,7 @@ public class Robot extends TimedRobot {
 		if (OI.fireButton.get()) {
 			fire.start();
 		}
+		System.out.println(RobotMap.pincher.getOutputCurrent());
 		Scheduler.getInstance().run();
 	}
 

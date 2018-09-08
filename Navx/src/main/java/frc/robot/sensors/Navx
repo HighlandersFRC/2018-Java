@@ -1,0 +1,21 @@
+package org.usfirst.frc.team4499.robot.sensors;
+
+import org.usfirst.frc.team4499.robot.RobotMap;
+
+public class Navx {
+	private double NavxAngle = 0;
+	private double originalAngle;
+
+	public Navx(double angle) {
+		originalAngle = angle;
+	}
+	public double currentAngle() {
+		return originalAngle -RobotMap.navx.getAngle();	
+	}
+	public boolean isMoving() {
+		return RobotMap.navx.isMoving();
+	}
+	
+	
+
+}
