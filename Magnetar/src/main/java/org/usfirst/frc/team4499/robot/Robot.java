@@ -104,6 +104,8 @@ public class Robot extends TimedRobot {
 		if (OI.fireButton.get()) {
 			fire.start();
 		}
+		//RobotMap.
+		System.out.println(RobotMap.navx.getAngle());
 		Scheduler.getInstance().run();
 	}
 

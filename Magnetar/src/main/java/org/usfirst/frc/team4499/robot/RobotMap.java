@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team4499.robot;
 
+import com.kauailabs.navx.frc.AHRS;
+
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -19,6 +21,7 @@ public class RobotMap {
 	public static DoubleSolenoid intake = new DoubleSolenoid(2, 5);
 	public static DoubleSolenoid catapult = new DoubleSolenoid(1, 6);
 	public static DoubleSolenoid catapultRelease = new DoubleSolenoid(3, 4);
+	public static AHRS navx = new AHRS(SerialPort.Port.kMXP);
 	
 	public static Value intakeIn = DoubleSolenoid.Value.kForward;
 	public static Value intakeOut = DoubleSolenoid.Value.kReverse;
