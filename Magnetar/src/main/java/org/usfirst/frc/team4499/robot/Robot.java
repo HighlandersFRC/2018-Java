@@ -14,18 +14,9 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
-import org.usfirst.frc.team4499.robot.commands.DriveTrain;
-import org.usfirst.frc.team4499.robot.commands.ExampleCommand;
-import org.usfirst.frc.team4499.robot.commands.Fire;
-import org.usfirst.frc.team4499.robot.commands.Intake;
-import org.usfirst.frc.team4499.robot.commands.Set_Piston;
-import org.usfirst.frc.team4499.robot.commands.Shifters;
-import org.usfirst.frc.team4499.robot.commands.Waver;
-import org.usfirst.frc.team4499.robot.subsystems.CatapultSubsystem;
-import org.usfirst.frc.team4499.robot.subsystems.ExampleSubsystem;
-import org.usfirst.frc.team4499.robot.subsystems.IntakeSubsystem;
-import org.usfirst.frc.team4499.robot.RobotMap;
+import org.usfirst.frc.team4499.robot.commands.*;
+import org.usfirst.frc.team4499.robot.subsystems.*;
+import org.usfirst.frc.team4499.robot.autocommands.AutoDriveForward;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
@@ -39,6 +30,7 @@ public class Robot extends TimedRobot {
 	private Waver waver;
 	private Shifters shifter;
 	private Intake intake;
+	private AutoDriveForward autoDriveForward;
 	
 	Command m_autonomousCommand;
 	
@@ -71,17 +63,20 @@ public class Robot extends TimedRobot {
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.start();
 		}
+		autoDriveForward = new AutoDriveForward();
 	}
 
 
 	@Override
 	public void autonomousPeriodic() {
 		Scheduler.getInstance().run();
+		autoDriveForward.start();
 	}
 
 	@Override
 	public void teleopInit() {
 		//System.out.println(get) pneumatics thing
+
 		Set_Piston piston1 = new Set_Piston(RobotMap.catapultRelease, RobotMap.releaseClosed);
 		piston1.start();
 		Set_Piston piston2 = new Set_Piston(RobotMap.catapult, RobotMap.catapultSet);
@@ -105,7 +100,7 @@ public class Robot extends TimedRobot {
 			fire.start();
 		}
 		//RobotMap.
-		System.out.println(RobotMap.navx.getAngle());
+		//System.out.println(RobotMap.navx.getAngle());
 		Scheduler.getInstance().run();
 	}
 
