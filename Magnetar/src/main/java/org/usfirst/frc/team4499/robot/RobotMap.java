@@ -8,11 +8,9 @@
 package org.usfirst.frc.team4499.robot;
 
 import com.kauailabs.navx.frc.AHRS;
-
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-
 import edu.wpi.first.wpilibj.DoubleSolenoid;
-
+import edu.wpi.first.wpilibj.I2C.Port;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
 public class RobotMap {
