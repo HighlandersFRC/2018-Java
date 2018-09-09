@@ -26,21 +26,20 @@ public class DriveTrain extends Command {
     protected void execute() {
 		double leftJoystickVal = OI.controllerZero.getRawAxis(1);
 		double rightJoystickVal = OI.controllerZero.getRawAxis(5);
-		if (Math.abs(leftJoystickVal) > 0.40) {
+		if (Math.abs(leftJoystickVal) > 0.10) {
             RobotMap.leftMasterTalon.set(ControlMode.PercentOutput,leftJoystickVal);
 		}
 		else {
             RobotMap.leftMasterTalon.set(ControlMode.PercentOutput,0);
 		}
-		if (Math.abs(rightJoystickVal) > 0.40) {
-			RobotMap.rightMasterTalon.set(ControlMode.PercentOutput, -rightJoystickVal);
+		if (Math.abs(rightJoystickVal) > 0.10) {
+			RobotMap.rightMasterTalon.set(ControlMode.PercentOutput, rightJoystickVal);
 		}
 		
 		else {
 			RobotMap.rightMasterTalon.set(ControlMode.PercentOutput,0);
 		}
-		RobotMap.leftMasterTalon.set(ControlMode.PercentOutput, leftJoystickVal);
-		RobotMap.rightMasterTalon.set(ControlMode.PercentOutput, rightJoystickVal);
+
     }
 
     // Make this return true when this Command no longer needs to run execute()

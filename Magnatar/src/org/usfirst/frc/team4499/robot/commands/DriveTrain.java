@@ -39,8 +39,6 @@ public class DriveTrain extends Command {
 		else {
 			RobotMap.rightMasterTalon.set(ControlMode.PercentOutput,0);
 		}
-		RobotMap.leftMasterTalon.set(ControlMode.PercentOutput, leftJoystickVal);
-		RobotMap.rightMasterTalon.set(ControlMode.PercentOutput, rightJoystickVal);
     }
 
     // Make this return true when this Command no longer needs to run execute()
