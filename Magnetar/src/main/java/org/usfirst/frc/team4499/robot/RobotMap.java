@@ -15,13 +15,15 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 
+import edu.wpi.first.wpilibj.I2C.Port;
+
 public class RobotMap {
 
 	public static DoubleSolenoid shifters = new DoubleSolenoid(0, 7);
 	public static DoubleSolenoid intake = new DoubleSolenoid(2, 5);
 	public static DoubleSolenoid catapult = new DoubleSolenoid(1, 6);
 	public static DoubleSolenoid catapultRelease = new DoubleSolenoid(3, 4);
-	public static AHRS navx = new AHRS(SerialPort.Port.kMXP);
+	public static AHRS navx = new AHRS(Port.kMXP);
 	
 	public static Value intakeIn = DoubleSolenoid.Value.kForward;
 	public static Value intakeOut = DoubleSolenoid.Value.kReverse;

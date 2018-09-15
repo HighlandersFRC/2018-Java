@@ -6,7 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 package org.usfirst.frc.team4499.robot;
-
+import org.usfirst.frc.team4499.robot.commands.BothSides;
 import org.usfirst.frc.team4499.robot.RobotMap;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -14,7 +14,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
+import com.ctre.phoenix.motorcontrol.ControlMode;
 import org.usfirst.frc.team4499.robot.commands.DriveTrain;
 import org.usfirst.frc.team4499.robot.commands.ExampleCommand;
 import org.usfirst.frc.team4499.robot.commands.Fire;
@@ -39,6 +39,7 @@ public class Robot extends TimedRobot {
 	private Waver waver;
 	private Shifters shifter;
 	private Intake intake;
+	private BothSides both;
 	
 	Command m_autonomousCommand;
 	
@@ -67,7 +68,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 		m_autonomousCommand = m_chooser.getSelected();
-
+		both = new BothSides();
 		if (m_autonomousCommand != null) {
 			m_autonomousCommand.start();
 		}
@@ -76,6 +77,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void autonomousPeriodic() {
+		both.start();
 		Scheduler.getInstance().run();
 	}
 
@@ -104,7 +106,6 @@ public class Robot extends TimedRobot {
 		if (OI.fireButton.get()) {
 			fire.start();
 		}
-		//RobotMap.
 		System.out.println(RobotMap.navx.getAngle());
 		Scheduler.getInstance().run();
 	}
