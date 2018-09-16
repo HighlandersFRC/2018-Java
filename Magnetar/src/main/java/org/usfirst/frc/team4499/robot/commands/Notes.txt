@@ -1,3 +1,4 @@
 team number: 4499
 wpi api me chanum drive pulsar
 talon src ctre
+first tune p then i, mostly set i and d to 0, i should be a tenth of p, d should be a tenth of i
