@@ -84,7 +84,7 @@ public class BothSides extends Command {
 		if (RobotMap.navx.getAngle()!=desiredAngle){
 		return true;
 	}
-		return false;
+		return false;s
 	}
 
 	// Called once after isFinished returns true
