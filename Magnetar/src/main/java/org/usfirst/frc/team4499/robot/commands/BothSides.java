@@ -77,14 +77,10 @@ public class BothSides extends Command {
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		if (Math.abs(time) >= 0.2) {
-			RobotMap.leftMasterTalon.set(ControlMode.PercentOutput, 0);
-			RobotMap.rightMasterTalon.set(ControlMode.PercentOutput, 0);
-		} 
-		if (RobotMap.navx.getAngle()!=desiredAngle){
+		if (Timer.getFPGATimestamp() - (time) >= (10)) {
 		return true;
-	}
-		return false;s
+		} 
+		else return false;
 	}
 
 	// Called once after isFinished returns true
