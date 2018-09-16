@@ -11,6 +11,7 @@ import org.usfirst.frc.team4499.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
 import org.usfirst.frc.team4499.robot.Robot;
 import org.usfirst.frc.team4499.robot.tools.PID;
+import edu.wpi.first.wpilibj.Timer;
 
 /**
  * An example command.  You can replace me with your own command.
@@ -25,10 +26,6 @@ public class BothSides extends Command {
 	private double ki = 0.00025;
 	private double kd = 0.000025;
 
-	private double kp = 0.01;
-	private double ki = 0.001;
-	private double kd = 0.0005;
-
 	private PID orientation;
 	private int zeroed;
 	private float turnPower;
@@ -39,7 +36,11 @@ public class BothSides extends Command {
 
 
 
+
+
 	public BothSides() {
+		RobotMap.leftMasterTalon.set(ControlMode.PercentOutput,-forwardSpeed-orientation.getResult());
+		RobotMap.rightMasterTalon.set(ControlMode.PercentOutput,-forwardSpeed+orientation.getResult());
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.subsystem);
 		desiredAngle = RobotMap.navx.getAngle();
@@ -53,6 +54,8 @@ public class BothSides extends Command {
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
+		time = Timer.getFPGATimestamp();
+
 		startAngle = RobotMap.navx.getAngle();
 		orientation.setSetPoint(desiredAngle);
 	}
@@ -66,12 +69,18 @@ public class BothSides extends Command {
 	orientation.updatePID(RobotMap.navx.getAngle());
 	RobotMap.leftMasterTalon.set(ControlMode.PercentOutput,-forwardSpeed-orientation.getResult());
     RobotMap.rightMasterTalon.set(ControlMode.PercentOutput,-forwardSpeed+orientation.getResult());
-	}
+
+	
+}
 
   
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
+		if (Math.abs(time) >= 0.2) {
+			RobotMap.leftMasterTalon.set(ControlMode.PercentOutput, 0);
+			RobotMap.rightMasterTalon.set(ControlMode.PercentOutput, 0);
+		} 
 		if (RobotMap.navx.getAngle()!=desiredAngle){
 		return true;
 	}
@@ -82,6 +91,8 @@ public class BothSides extends Command {
 	@Override
 	protected void end() {
 		orientation.setSetPoint(RobotMap.navx.getAngle());
+		RobotMap.leftMasterTalon.set(ControlMode.PercentOutput,0);
+    	RobotMap.rightMasterTalon.set(ControlMode.PercentOutput,0);
 	}
 
 	// Called when another command which requires one or more of the same
