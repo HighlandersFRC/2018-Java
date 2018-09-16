@@ -22,7 +22,10 @@ public class RobotMap {
 	public static DoubleSolenoid catapult = new DoubleSolenoid(1, 6);
 	public static DoubleSolenoid catapultRelease = new DoubleSolenoid(3, 4);
 	public static AHRS navx = new AHRS(Port.kMXP);
+<<<<<<< HEAD
+=======
 	//public static AHRS navx = new AHRS(SerialPort.Port.kMXP);
+>>>>>>> e9227f4879e22ff7f07611fd63627321d0e09c05
 	
 	public static Value intakeIn = DoubleSolenoid.Value.kForward;
 	public static Value intakeOut = DoubleSolenoid.Value.kReverse;
