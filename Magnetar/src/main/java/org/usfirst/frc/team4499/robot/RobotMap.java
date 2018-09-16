@@ -9,6 +9,8 @@ package org.usfirst.frc.team4499.robot;
 
 import com.kauailabs.navx.frc.AHRS;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.I2C.Port;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
@@ -31,6 +33,8 @@ public class RobotMap {
 
 	public static Value catapultResting = DoubleSolenoid.Value.kReverse;
 	public static Value catapultSet = DoubleSolenoid.Value.kForward;
+
+	public static AnalogInput pressureSensor = new AnalogInput(0);
 
 	public static int leftMasterTalonID = 1;
 	public static int leftFollowerTalonID = 2;

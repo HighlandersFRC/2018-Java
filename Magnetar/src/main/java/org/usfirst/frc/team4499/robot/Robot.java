@@ -85,8 +85,6 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopInit() {
-		//System.out.println(get) pneumatics thing
-
 		Set_Piston piston1 = new Set_Piston(RobotMap.catapultRelease, RobotMap.releaseClosed);
 		piston1.start();
 		Set_Piston piston2 = new Set_Piston(RobotMap.catapult, RobotMap.catapultSet);
@@ -106,6 +104,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopPeriodic() {
+		System.out.println(RobotMap.pressureSensor.getValue());
 		if (OI.fireButton.get()) {
 			fire.start();
 		}
