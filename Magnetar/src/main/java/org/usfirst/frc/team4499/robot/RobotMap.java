@@ -25,13 +25,13 @@ public class RobotMap {
 
 	public static Value intakeIn = DoubleSolenoid.Value.kForward;
 	public static Value intakeOut = DoubleSolenoid.Value.kReverse;
-	
+
 	public static Value releaseClosed = DoubleSolenoid.Value.kForward;
 	public static Value releaseOpen = DoubleSolenoid.Value.kReverse;
-	
+
 	public static Value catapultResting = DoubleSolenoid.Value.kReverse;
-	public static Value catapultSet= DoubleSolenoid.Value.kForward;
-	
+	public static Value catapultSet = DoubleSolenoid.Value.kForward;
+
 	public static int leftMasterTalonID = 1;
 	public static int leftFollowerTalonID = 2;
 	public static int rightMasterTalonID = 3;
