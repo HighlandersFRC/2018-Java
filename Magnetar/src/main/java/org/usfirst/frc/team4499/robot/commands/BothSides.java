@@ -6,6 +6,7 @@
 /*----------------------------------------------------------------------------*/
 
 package org.usfirst.frc.team4499.robot.commands;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import org.usfirst.frc.team4499.robot.RobotMap;
 import edu.wpi.first.wpilibj.command.Command;
@@ -13,7 +14,7 @@ import org.usfirst.frc.team4499.robot.Robot;
 import org.usfirst.frc.team4499.robot.tools.PID;
 
 /**
- * An example command.  You can replace me with your own command.
+ * An example command. You can replace me with your own command.
  */
 public class BothSides extends Command {
 	PID turnController = new PID(0, 0, 0);
@@ -25,10 +26,6 @@ public class BothSides extends Command {
 	private double ki = 0.00025;
 	private double kd = 0.000025;
 
-	private double kp = 0.01;
-	private double ki = 0.001;
-	private double kd = 0.0005;
-
 	private PID orientation;
 	private int zeroed;
 	private float turnPower;
@@ -37,14 +34,12 @@ public class BothSides extends Command {
 	private int run;
 	private double startAngle;
 
-
-
 	public BothSides() {
 		// Use requires() here to declare subsystem dependencies
 		requires(Robot.subsystem);
 		desiredAngle = RobotMap.navx.getAngle();
 		forwardSpeed = 0.30;
-		orientation = new PID(kp,ki,kd);
+		orientation = new PID(kp, ki, kd);
 		orientation.setMaxOutput(0.50);
 		orientation.setMinOutput(-.50);
 
@@ -60,21 +55,20 @@ public class BothSides extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	@Override
 	protected void execute() {
-	orientation.getResult();
+		orientation.getResult();
 
-	double forwardSpeed = 0.40;
-	orientation.updatePID(RobotMap.navx.getAngle());
-	RobotMap.leftMasterTalon.set(ControlMode.PercentOutput,-forwardSpeed-orientation.getResult());
-    RobotMap.rightMasterTalon.set(ControlMode.PercentOutput,-forwardSpeed+orientation.getResult());
+		double forwardSpeed = 0.40;
+		orientation.updatePID(RobotMap.navx.getAngle());
+		RobotMap.leftMasterTalon.set(ControlMode.PercentOutput, -forwardSpeed - orientation.getResult());
+		RobotMap.rightMasterTalon.set(ControlMode.PercentOutput, -forwardSpeed + orientation.getResult());
 	}
 
-  
 	// Make this return true when this Command no longer needs to run execute()
 	@Override
 	protected boolean isFinished() {
-		if (RobotMap.navx.getAngle()!=desiredAngle){
-		return true;
-	}
+		if (RobotMap.navx.getAngle() != desiredAngle) {
+			return true;
+		}
 		return false;
 	}
 
