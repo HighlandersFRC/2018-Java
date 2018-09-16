@@ -21,7 +21,8 @@ public class ManualArmControl extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	mpArm =new MPArm(60);
+		mpArm =new MPArm(60);
+		
     }
 
     // Called repeatedly when this Command is scheduled to run

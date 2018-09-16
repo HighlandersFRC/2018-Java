@@ -17,10 +17,11 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team4499.robot.autocommands.AutoSuite;
 import org.usfirst.frc.team4499.robot.teleopcommands.TeleopSuite;
 import org.usfirst.frc.team4499.robot.subsystems.ExampleSubsystem;
+import com.ctre.phoenix.motorcontrol.ControlMode;
 
 /**
  * The VM is configured to automatically run this class, and to call the
- * functions corresponding to each mode, as described in the TimedRobot
+ * functions corresponding to each mode as described in the TimedRobot
  * documentation. If you change the name of this class or the package after
  * creating this project, you must also update the build.properties file in the
  * project.
@@ -104,7 +105,8 @@ public class Robot extends TimedRobot {
 	public void teleopInit() {
 		config.teleopConfig();
 		teleopS = new TeleopSuite();
-		teleopS.startTeleopCommands();
+		//teleopS.startTeleopCommands();
+		System.out.println(RobotMap.shifters.get());
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -119,6 +121,10 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
+
+		RobotMap.leftDriveLead.set(ControlMode.PercentOutput,1.0);
+		RobotMap.rightDriveLead.set(ControlMode.PercentOutput,1.0);
+		System.out.println(RobotMap.leftDriveLead.getSelectedSensorVelocity(0));
 		Scheduler.getInstance().run();
 	}
 

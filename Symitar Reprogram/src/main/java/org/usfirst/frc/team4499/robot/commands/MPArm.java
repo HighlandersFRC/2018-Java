@@ -57,10 +57,7 @@ public class MPArm extends Command {
     protected void execute() {
         RobotMap.armMaster.set(ControlMode.PercentOutput, -armPid.getResult());
         currentPosition = -(RobotMap.armMaster.getSensorCollection().getQuadraturePosition()/2048.0)*180;
-        armPid.updatePID(currentPosition);
-        
-        System.out.println(Math.abs(currentPosition-endpoint));
-        
+        armPid.updatePID(currentPosition);        
       /*  else{
             RobotMap.armMaster.set(ControlMode.PercentOutput, armCratePid.getResult());
             armCratePid.updatePID(currentPosition);

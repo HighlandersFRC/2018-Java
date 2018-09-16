@@ -1,2 +1,3 @@
 Projects can't have names with a space in them, if you wan't a project with a space you can just edit into the settings.gradel file through this command
 rootProject.name='SymitarReprogram'
+srx.setStatusFrameRateMs(CANTalon.StatusFrameRate.QuadEncoder, 20)
