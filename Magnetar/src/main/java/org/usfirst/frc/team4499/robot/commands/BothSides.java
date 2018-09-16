@@ -20,9 +20,15 @@ public class BothSides extends Command {
 	private double speed = 0.30;
 	private double time;
 	private double desiredAngle;
+
 	private double kp = 0.025;
 	private double ki = 0.00025;
 	private double kd = 0.000025;
+
+	private double kp = 0.01;
+	private double ki = 0.001;
+	private double kd = 0.0005;
+
 	private PID orientation;
 	private int zeroed;
 	private float turnPower;
@@ -39,16 +45,16 @@ public class BothSides extends Command {
 		desiredAngle = RobotMap.navx.getAngle();
 		forwardSpeed = 0.30;
 		orientation = new PID(kp,ki,kd);
-		orientation.setMaxOutput(0.30);
-		orientation.setMinOutput(-.30);
+		orientation.setMaxOutput(0.50);
+		orientation.setMinOutput(-.50);
 
 	}
 
 	// Called just before this Command runs the first time
 	@Override
 	protected void initialize() {
-		startAngle=RobotMap.navx.getAngle();
-	orientation.setSetPoint(desiredAngle);
+		startAngle = RobotMap.navx.getAngle();
+		orientation.setSetPoint(desiredAngle);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
