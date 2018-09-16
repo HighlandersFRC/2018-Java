@@ -20,9 +20,9 @@ public class BothSides extends Command {
 	private double speed = 0.30;
 	private double time;
 	private double desiredAngle;
-	private double kp = 0.000021875;
-	private double ki = 0;
-	private double kd = 0;
+	private double kp = 0.025;
+	private double ki = 0.00025;
+	private double kd = 0.000025;
 	private PID orientation;
 	private int zeroed;
 	private float turnPower;
