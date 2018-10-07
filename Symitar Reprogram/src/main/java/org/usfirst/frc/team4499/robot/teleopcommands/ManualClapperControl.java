@@ -3,6 +3,7 @@ package org.usfirst.frc.team4499.robot.teleopcommands;
 import org.usfirst.frc.team4499.robot.OI;
 import org.usfirst.frc.team4499.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.RobotState;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -52,11 +53,12 @@ public class ManualClapperControl extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return (!(RobotState.isOperatorControl()));
     }
 
     // Called once after isFinished returns true
     protected void end() {
+        
     }
 
     // Called when another command which requires one or more of the same

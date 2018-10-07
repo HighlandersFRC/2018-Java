@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team4499.robot;
 
+import edu.wpi.first.wpilibj.RobotState;
 import edu.wpi.first.wpilibj.TimedRobot;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -15,6 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4499.robot.autocommands.AutoSuite;
+import org.usfirst.frc.team4499.robot.autocommands.PathSetup;
 import org.usfirst.frc.team4499.robot.teleopcommands.TeleopSuite;
 import org.usfirst.frc.team4499.robot.subsystems.ExampleSubsystem;
 import com.ctre.phoenix.motorcontrol.ControlMode;
@@ -33,6 +35,7 @@ public class Robot extends TimedRobot {
 	private RobotConfig config;
 	private AutoSuite autoS;
 	private TeleopSuite teleopS;
+	private PathSetup pathSetup;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -40,7 +43,10 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void robotInit() {
-	
+		pathSetup = new PathSetup();
+		pathSetup.generateMainPath();
+		RobotConfig.leftAutoPath = pathSetup.generateLeftPathFollower();
+		RobotConfig.rightAutoPath = pathSetup.generateRightPathFollower();
 		
 	
 		// chooser.addObject("My Auto", new MyAutoCommand());
@@ -55,11 +61,14 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void disabledInit() {
+		RobotConfig.leftAutoPath = pathSetup.generateLeftPathFollower();
+		RobotConfig.rightAutoPath = pathSetup.generateRightPathFollower();
 
 	}
 
 	@Override
 	public void disabledPeriodic() {
+		SmartDashboard.putNumber("distance", RobotMap.rightMainDrive.getDistance());
 		Scheduler.getInstance().run();
 	}
 
@@ -80,6 +89,7 @@ public class Robot extends TimedRobot {
 		config.autoConfig();
 		autoS = new AutoSuite();
 		autoS.startAutos();
+		
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
@@ -98,6 +108,8 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousPeriodic() {
+		SmartDashboard.putNumber("speed", RobotMap.rightMainDrive.getVelocity());
+
 		Scheduler.getInstance().run();
 	}
 
@@ -105,8 +117,8 @@ public class Robot extends TimedRobot {
 	public void teleopInit() {
 		config.teleopConfig();
 		teleopS = new TeleopSuite();
-		//teleopS.startTeleopCommands();
-		System.out.println(RobotMap.shifters.get());
+		teleopS.startTeleopCommands();
+
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -121,10 +133,17 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
+		SmartDashboard.putBoolean("navxconnection",RobotMap.mainNavx.isOn());
 
-		RobotMap.leftDriveLead.set(ControlMode.PercentOutput,1.0);
-		RobotMap.rightDriveLead.set(ControlMode.PercentOutput,1.0);
-		System.out.println(RobotMap.leftDriveLead.getSelectedSensorVelocity(0));
+		if(RobotMap.mainNavx.isOn()){
+			SmartDashboard.putBoolean("navxCallibration",RobotMap.mainNavx.isCalibrated());
+
+		}
+		SmartDashboard.putNumber("navx", RobotMap.mainNavx.currentAngle());
+
+		SmartDashboard.putNumber("speedr", RobotMap.rightMainDrive.getVelocity());
+		SmartDashboard.putNumber("speedl",RobotMap.leftMainDrive.getVelocity());
+		
 		Scheduler.getInstance().run();
 	}
 

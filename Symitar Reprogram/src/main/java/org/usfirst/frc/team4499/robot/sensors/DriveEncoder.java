@@ -15,8 +15,14 @@ public class DriveEncoder {
 	public double getEncoderValue() {
 		return masterTalon.getSelectedSensorPosition(0)-startingValue;
 	}
+	public double getEncoderVelocity(){
+		return masterTalon.getSelectedSensorVelocity(0);
+	}
 	public double getDistance(){
-		return (((getEncoderValue()-startingValue)/(4096*7.5))*RobotConfig.wheelCircum);
+		return ((((getEncoderValue())/RobotConfig.encoderTicsPerWheelRotation)*RobotConfig.wheelCircum)/12);
+	}
+	public double getVelocity(){
+		return (((((getEncoderVelocity()*10))/RobotConfig.encoderTicsPerWheelRotation)*RobotConfig.wheelCircum)/12);
 	}
 	public void softReset(){
 		startingValue = masterTalon.getSelectedSensorPosition(0);

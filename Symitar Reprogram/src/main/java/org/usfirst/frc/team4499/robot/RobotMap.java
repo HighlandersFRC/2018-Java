@@ -91,9 +91,9 @@ public class RobotMap {
 		public static DoubleSolenoid.Value closeLeftIntake = DoubleSolenoid.Value.kForward;//TODO On Comp BotDoubleSolenoid.Value.kForward;
 		
 		public static DriveEncoder leftMainDrive = new DriveEncoder(leftDriveLead,RobotMap.leftDriveLead.getSelectedSensorPosition(0));
-		public static DriveEncoder rightMaindrive = new DriveEncoder(rightDriveLead,RobotMap.rightDriveLead.getSelectedSensorPosition(0));
+		public static DriveEncoder rightMainDrive = new DriveEncoder(rightDriveLead,RobotMap.rightDriveLead.getSelectedSensorPosition(0));
 		public static ArmEncoder mainArm = new ArmEncoder(RobotMap.armStartingPositionTicks);
-		public static Navx mainNavx = new Navx(0);	
+		public static Navx mainNavx = new Navx( navx);
         	
 		//Array of drive motors to simplify configuration
 		public static TalonSRX driveMotors[] = {

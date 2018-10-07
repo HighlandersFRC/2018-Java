@@ -4,10 +4,13 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
+import jaci.pathfinder.Trajectory;
+import jaci.pathfinder.followers.DistanceFollower;
+
 public class RobotConfig {
 	public static double gearRatio = 7.5;
     public static double encoderTicsPerShaftRotation = 4096;
-    public static int encoderTicsPerWheelRotation = 30720;//gearRation *encoderTicksPerShaftRotation
+    public static double encoderTicsPerWheelRotation = gearRatio*encoderTicsPerShaftRotation;//gearRation *encoderTicksPerShaftRotation
     public static double wheelDiam = 6.0;
     public static double wheelCircum = Math.PI * wheelDiam;
     public static double openLoopRampRate = 0.095;
@@ -28,6 +31,10 @@ public class RobotConfig {
 	public static String fieldPositions="";
 	public static double driverDeadZone = 0.15;
 	public static int ultraSoundFailValue = 245;
+	public static DistanceFollower leftAutoPath;
+	public static DistanceFollower rightAutoPath;
+	public static double maxVelocity = 12.9;
+	public static double maxAcceleration = 12.3;
 	public static int timeOut = 4;//Milliseconds
 	public RobotConfig() {
 		setStartingConfig();
@@ -94,8 +101,9 @@ public class RobotConfig {
 	public void autoConfig() {
 		RobotMap.leftDriveLead.enableVoltageCompensation(true);
 		RobotMap.rightDriveLead.enableVoltageCompensation(true);
-		RobotMap.rightDriveLead.configOpenloopRamp(0, 0);
-    	RobotMap.leftDriveLead.configOpenloopRamp(0, 0);
+		for(TalonSRX talon:RobotMap.driveMotors){
+			talon.configOpenloopRamp(0, 0);
+		}
     	for(TalonSRX talon:RobotMap.driveMotors) {
     		talon.configContinuousCurrentLimit(RobotConfig.driveMotorContinuousCurrentLowGear, RobotConfig.timeOut);
     	}
@@ -106,12 +114,9 @@ public class RobotConfig {
 		RobotMap.shifters.set(RobotMap.highGear);
 		RobotMap.leftDriveLead.enableVoltageCompensation(false);
 		RobotMap.rightDriveLead.enableVoltageCompensation(false);
-		RobotMap.rightDriveLead.configOpenloopRamp(openLoopRampRate, 0);
-    	RobotMap.leftDriveLead.configOpenloopRamp(openLoopRampRate, 0);
-    	RobotMap.rightDriveFollowerOne.configOpenloopRamp(openLoopRampRate, 0);
-    	RobotMap.leftDriveFollowerOne.configOpenloopRamp(openLoopRampRate, 0);
-    	RobotMap.rightDriveFollowerTwo.configOpenloopRamp(openLoopRampRate, 0);
-    	RobotMap.leftDriveFollowerTwo.configOpenloopRamp(openLoopRampRate, 0);
+		for(TalonSRX talon:RobotMap.driveMotors){
+			talon.configOpenloopRamp(openLoopRampRate, 0);
+		}
     	for(TalonSRX talon:RobotMap.driveMotors) {
     		talon.configContinuousCurrentLimit(RobotConfig.driveMotorContinuousCurrentLowGear, RobotConfig.timeOut);
     	}

@@ -12,5 +12,6 @@ public class ArmEncoder {
 	public double getAngle() {
 		return (RobotMap.armMaster.getSensorCollection().getQuadraturePosition()/2048.0)*180.0;
 	}
+	
 
 }

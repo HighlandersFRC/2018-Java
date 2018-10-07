@@ -2,25 +2,14 @@ package org.usfirst.frc.team4499.robot.autocommands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-
-
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.FeedbackDevice;
-import com.ctre.phoenix.motorcontrol.StatusFrame;
-import com.ctre.phoenix.motorcontrol.StatusFrameEnhanced;
 import org.usfirst.frc.team4499.robot.RobotMap;
 
 import org.usfirst.frc.team4499.robot.tools.PID;
 
-import javax.print.attribute.standard.OrientationRequested;
-
-import org.usfirst.frc.team4499.robot.Robot;
 import org.usfirst.frc.team4499.robot.RobotConfig;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.RobotState;
 import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.command.Command;
+
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
