@@ -68,7 +68,9 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void disabledPeriodic() {
-		SmartDashboard.putNumber("distance", RobotMap.rightMainDrive.getDistance());
+		SmartDashboard.putNumber("distancer", RobotMap.rightMainDrive.getDistance());
+		SmartDashboard.putNumber("distancel", RobotMap.leftMainDrive.getDistance());
+
 		Scheduler.getInstance().run();
 	}
 
@@ -141,8 +143,8 @@ public class Robot extends TimedRobot {
 		}
 		SmartDashboard.putNumber("navx", RobotMap.mainNavx.currentAngle());
 
-		SmartDashboard.putNumber("speedr", RobotMap.rightMainDrive.getVelocity());
-		SmartDashboard.putNumber("speedl",RobotMap.leftMainDrive.getVelocity());
+		//SmartDashboard.putNumber("speedr", RobotMap.rightMainDrive.getVelocity());
+	    //SmartDashboard.putNumber("speedl",RobotMap.leftMainDrive.getVelocity());
 		
 		Scheduler.getInstance().run();
 	}

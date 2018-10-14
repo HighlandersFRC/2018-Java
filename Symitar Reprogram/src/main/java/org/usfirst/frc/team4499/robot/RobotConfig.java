@@ -33,8 +33,8 @@ public class RobotConfig {
 	public static int ultraSoundFailValue = 245;
 	public static DistanceFollower leftAutoPath;
 	public static DistanceFollower rightAutoPath;
-	public static double maxVelocity = 12.9;
-	public static double maxAcceleration = 12.3;
+	public static double maxVelocity = 13.9;
+	public static double maxAcceleration = 9;
 	public static int timeOut = 4;//Milliseconds
 	public RobotConfig() {
 		setStartingConfig();

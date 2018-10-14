@@ -16,10 +16,11 @@ public class PathSetup {
 
     }
     public Trajectory generateMainPath(){
-        Trajectory.Config config = new Trajectory.Config(Trajectory.FitMethod.HERMITE_CUBIC, Trajectory.Config.SAMPLES_LOW, 0.05, RobotConfig.maxVelocity, RobotConfig.maxAcceleration, 60.0);
+        Trajectory.Config config = new Trajectory.Config(Trajectory.FitMethod.HERMITE_CUBIC, Trajectory.Config.SAMPLES_LOW, 0.05, 6,9, 75.0);
         Waypoint[] points = new Waypoint[] {
-                new Waypoint(0, 0,0),
-                new Waypoint(8*2.8, 0, 0),
+            new Waypoint(-6, -2, 0),
+            new Waypoint(-4, -4, 0),
+            new Waypoint(0, 0, 0)
                 //new Waypoint(20, 0, 0)
         };
     
@@ -28,13 +29,13 @@ public class PathSetup {
 
     }
     public DistanceFollower generateLeftPathFollower(){
-        TankModifier modifier = new TankModifier(generateMainPath()).modify(2.2);
+        TankModifier modifier = new TankModifier(generateMainPath()).modify(2.52);
         Trajectory left= modifier.getLeftTrajectory();
         DistanceFollower leftFollower = new DistanceFollower(left);
         return leftFollower;
     }
     public DistanceFollower generateRightPathFollower(){
-        TankModifier modifier = new TankModifier(generateMainPath()).modify(2.2);
+        TankModifier modifier = new TankModifier(generateMainPath()).modify(2.52);
         Trajectory right= modifier.getRightTrajectory();
         DistanceFollower rightfollower = new DistanceFollower(right);
        /* for(int i = 0; i< right.length();i++){
