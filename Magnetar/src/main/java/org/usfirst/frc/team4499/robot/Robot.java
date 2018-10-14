@@ -40,6 +40,7 @@ public class Robot extends TimedRobot {
 	private Shifters shifter;
 	private Intake intake;
 	private BothSides both;
+	double supplyVoltage = 4.53;
 	
 	Command m_autonomousCommand;
 	
@@ -104,8 +105,22 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopPeriodic() {
-		System.out.println(RobotMap.pressureSensor.getValue());
-		if (OI.fireButton.get()) {
+		if (OI.catapultUp.get()) {
+			RobotMap.catapult.set(RobotMap.catapultSet);
+			System.out.println("test");
+		}
+		if (OI.catapultDown.get()) {
+			RobotMap.catapult.set(RobotMap.catapultResting);
+		}
+		if (OI.releaseOpen.get()) {
+			RobotMap.catapultRelease.set(RobotMap.releaseOpen);
+		}
+		if (OI.releaseClosed.get()) {
+			RobotMap.catapultRelease.set(RobotMap.releaseClosed);
+		}
+		System.out.println((250*(RobotMap.pressureSensor.getAverageVoltage())/supplyVoltage)-25);
+	
+	if (OI.fireButton.get()) {
 			fire.start();
 		}
 		Scheduler.getInstance().run();

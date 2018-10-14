@@ -11,17 +11,20 @@ public class Fire extends CommandGroup {
     public Fire() {
     	requires(Robot.catapultSubsystem);
 		requires(Robot.subsystem);
-    	addSequential(new Set_Piston(RobotMap.intake, RobotMap.intakeOut, Robot.subsystem));
-		addSequential(new Wait(1.0));
-		//addSequential(new Set_Piston(RobotMap.catapult, RobotMap.catapultSet, Robot.catapultSubsystem));
-    	addSequential(new Set_Piston(RobotMap.catapultRelease, RobotMap.releaseOpen, Robot.catapultSubsystem));
-    	addSequential(new Wait(1.0));
-		addSequential(new Set_Piston(RobotMap.catapult, RobotMap.catapultResting, Robot.catapultSubsystem));
-    	addSequential(new Wait(0.8));
-    	addParallel(new Set_Piston(RobotMap.catapultRelease, RobotMap.releaseClosed, Robot.catapultSubsystem));
-    	addParallel(new Set_Piston(RobotMap.intake, RobotMap.intakeIn, Robot.subsystem));
-    	addSequential(new Wait(0.5));
+    	addSequential(new Set_Piston(RobotMap.intake, RobotMap.intakeOut, Robot.subsystem)); //intake out
+		addSequential(new Wait(2.0));
 		addSequential(new Set_Piston(RobotMap.catapult, RobotMap.catapultSet, Robot.catapultSubsystem));
-		
+		addSequential(new Set_Piston(RobotMap.catapultRelease, RobotMap.releaseOpen, Robot.catapultSubsystem));
+		addParallel(new Wait(10.0));
+	
+    	/*addSequential(new Set_Piston(RobotMap.catapultRelease, RobotMap.releaseOpen, Robot.catapultSubsystem)); //fire
+    	addSequential(new Wait(0.2));
+		addSequential(new Set_Piston(RobotMap.catapult, RobotMap.catapultResting, Robot.catapultSubsystem)); //catapult back to rest
+    	addSequential(new Wait(0.4));
+    	addSequential(new Set_Piston(RobotMap.catapultRelease, RobotMap.releaseClosed, Robot.catapultSubsystem)); //locks it
+    	addSequential(new Set_Piston(RobotMap.intake, RobotMap.intakeIn, Robot.subsystem)); //moves intake in
+    	addSequential(new Wait(0.5));
+		addSequential(new Set_Piston(RobotMap.catapult, RobotMap.catapultSet, Robot.catapultSubsystem)); //setting up catapult for next fire
+	}*/
 }
 }

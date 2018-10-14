@@ -18,6 +18,10 @@ public class OI {
 	public static JoystickButton leftshiftButton =new JoystickButton (controllerZero,5);
 	public static JoystickButton waverUpButton =new JoystickButton (controllerZero,4);
 	public static JoystickButton waverDownButton = new JoystickButton(controllerZero, 1);
+	public static JoystickButton catapultDown = new JoystickButton(controllerZero, 2);
+	public static JoystickButton releaseOpen = new JoystickButton(controllerZero, 3);
+	public static JoystickButton releaseClosed = new JoystickButton(controllerZero, 7);
+	public static JoystickButton catapultUp = new JoystickButton(controllerZero, 9);
 	}
 
 

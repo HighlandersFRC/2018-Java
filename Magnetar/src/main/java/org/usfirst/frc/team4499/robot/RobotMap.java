@@ -31,8 +31,8 @@ public class RobotMap {
 	public static Value releaseClosed = DoubleSolenoid.Value.kForward;
 	public static Value releaseOpen = DoubleSolenoid.Value.kReverse;
 
-	public static Value catapultResting = DoubleSolenoid.Value.kReverse;
-	public static Value catapultSet = DoubleSolenoid.Value.kForward;
+	public static Value catapultResting = DoubleSolenoid.Value.kForward;
+	public static Value catapultSet = DoubleSolenoid.Value.kReverse;
 
 	public static AnalogInput pressureSensor = new AnalogInput(0);
 
