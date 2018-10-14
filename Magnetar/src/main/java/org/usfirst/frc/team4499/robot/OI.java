@@ -8,7 +8,8 @@
 package org.usfirst.frc.team4499.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.button
+s.JoystickButton;
 
 public class OI {
 

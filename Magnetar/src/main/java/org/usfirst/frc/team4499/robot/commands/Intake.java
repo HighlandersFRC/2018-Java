@@ -22,10 +22,16 @@ public class Intake extends Command {
 			} else if (OI.controllerZero.getRawAxis(2) > 0.5) {
 				Robot.subsystem.setIntakein();
 				Robot.subsystem.setWheelsForward();
-			} else {
+            } 
+            /*else {
 				Robot.subsystem.setIntakein();
 				Robot.subsystem.setWheelsStop();
-			}
+            }
+            */
+            else {
+				Robot.subsystem.setIntakeout();
+				Robot.subsystem.setWheelsStop();
+            }
 		}
 
     protected boolean isFinished() {
