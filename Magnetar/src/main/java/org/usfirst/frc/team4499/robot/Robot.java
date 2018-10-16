@@ -105,7 +105,7 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopPeriodic() {
-		if (OI.catapultUp.get()) {
+/*		if (OI.catapultUp.get()) {
 			RobotMap.catapult.set(RobotMap.catapultSet);
 			System.out.println("test");
 		}
@@ -118,6 +118,7 @@ public class Robot extends TimedRobot {
 		if (OI.releaseClosed.get()) {
 			RobotMap.catapultRelease.set(RobotMap.releaseClosed);
 		}
+		*/
 		System.out.println((250*(RobotMap.pressureSensor.getAverageVoltage())/supplyVoltage)-25);
 	
 	if (OI.fireButton.get()) {
