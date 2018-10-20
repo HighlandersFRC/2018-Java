@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team4499.robot;
 
+import com.ctre.phoenix.CANifier;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import com.kauailabs.navx.frc.AHRS;
@@ -43,6 +44,7 @@ public class RobotMap {
 		public static int armMasterID = 5;
 		public static int armFollowerID = 4;
 		
+		public static CANifier canifier = new CANifier(0);
 		
 		public static int intakeLeftID = 9;
 		public static int intakeRightID = 10;

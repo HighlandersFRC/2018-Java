@@ -53,8 +53,10 @@ public class PathRunner extends Command {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
   }
+  //FYI A large portion of the explanation can be found by looking at the descriptions on the pathfinder methods
   private class PathRunnable implements Runnable{
-   
+   //this is a sperate section of code that runs at a different update rate than the rest, this is necessary to match the dt in this
+   //instance 0.05 seconds specified when the path is created
     public void run(){
       leftOutput = lFollower.calculate(RobotMap.leftMainDrive.getDistance());
       rightOutput = rFollower.calculate(RobotMap.rightMainDrive.getDistance());
@@ -65,6 +67,7 @@ public class PathRunner extends Command {
       rightTurnError = Pathfinder.boundHalfDegrees(rightDesiredAngle - actualAngle);
       rightTurn = kt*rightTurnError;
       leftTurn = kt*leftTurnError;
+      //all of the above lines are to calculate your navx input which is scaled and then the velocities are modified accordingly
       RobotMap.leftDriveLead.set(ControlMode.PercentOutput, (leftOutput-leftTurn));
       RobotMap.rightDriveLead.set(ControlMode.PercentOutput,(rightOutput+rightTurn));
       System.out.println("leftTurn"+ leftTurnError);
@@ -77,14 +80,17 @@ public class PathRunner extends Command {
   @Override
   protected void initialize() {
     path.pathdata();
-    lFollower.configurePIDVA(1.3, 0, 0.02, 1/RobotConfig.maxVelocity, 0);
-    rFollower.configurePIDVA(1.3, 0, 0.02, 1/RobotConfig.maxVelocity, 0);
+    //configuring the PIDVA according to jacis specifications, the 1/max velocity is to convert to percent output motor speeds
+    lFollower.configurePIDVA(1.10, 0, 0.05, 1/RobotConfig.maxVelocity, 0);
+    rFollower.configurePIDVA(1.10, 0, 0.05, 1/RobotConfig.maxVelocity, 0);
+    //this is to zero my encoders
     RobotMap.leftDriveLead.setSelectedSensorPosition(0,0,0);
     RobotMap.rightDriveLead.setSelectedSensorPosition(0,0,0);
+    //this is to have a seperate navx for just the path and make sure that that is zereod
     pathNavx.softResetYaw(RobotMap.mainNavx.currentYaw());
+    //below is where the runnable seen above is implemented and setup
     pathNotifier = new Notifier(new PathRunnable());
     pathNotifier.startPeriodic(0.05);
-   // System.out.println("HIGH");
   }
 
   // Called repeatedly when this Command is scheduled to run

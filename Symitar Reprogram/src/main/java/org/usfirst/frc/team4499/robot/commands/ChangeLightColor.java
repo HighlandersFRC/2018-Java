@@ -1,23 +1,46 @@
 package org.usfirst.frc.team4499.robot.commands;
 
+import org.usfirst.frc.team4499.robot.RobotMap;
+
+import com.ctre.phoenix.CANifier;
+
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
 public class ChangeLightColor extends Command {
+	private double red;
+	private double green;
+	private double blue;
 
-    public ChangeLightColor() {
+    public ChangeLightColor(double R, double G, double B) {
+    	red=R;
+    	green = G;
+    	blue = B;
+    	RobotMap.canifier.setLEDOutput(green,CANifier.LEDChannel.LEDChannelA);
+		RobotMap.canifier.setLEDOutput(blue,CANifier.LEDChannel.LEDChannelB);
+		RobotMap.canifier.setLEDOutput(red,CANifier.LEDChannel.LEDChannelC);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
-
+    public void changeLedColor(double R,double G,double B) {
+    	red=R;
+    	green = G;
+    	blue = B;
+    	RobotMap.canifier.setLEDOutput(green,CANifier.LEDChannel.LEDChannelA);
+		RobotMap.canifier.setLEDOutput(blue,CANifier.LEDChannel.LEDChannelB);
+		RobotMap.canifier.setLEDOutput(red,CANifier.LEDChannel.LEDChannelC);
+    	
+    }
     // Called just before this Command runs the first time
     protected void initialize() {
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	
     }
 
     // Make this return true when this Command no longer needs to run execute()
