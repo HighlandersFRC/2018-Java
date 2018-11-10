@@ -4,7 +4,7 @@ import org.usfirst.frc.team4499.robot.RobotMap;
 
 import com.ctre.phoenix.CANifier;
 
-import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.command.Command; //Do these lights work like we want them to? I have a feeling they don't.
 
 /**
  *

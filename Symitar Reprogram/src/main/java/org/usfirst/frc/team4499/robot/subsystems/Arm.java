@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team4499.robot.teleopcommands.ManualArmControl;
 
 /**
- *
+ * Lyndsey: why is there nothing here and why does this work anyway? you need to walk me through the entire arm stuff.
  */
 public class Arm extends Subsystem {
 

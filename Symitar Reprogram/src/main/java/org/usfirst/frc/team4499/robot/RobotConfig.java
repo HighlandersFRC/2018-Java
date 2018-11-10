@@ -16,9 +16,9 @@ public class RobotConfig {
     public static double openLoopRampRate = 0.095;
 	public static double voltageControlMax = 11.0;
 	public static int driveMotorContinuousCurrentHighGear = 16;
-	public static int driveMotorContinuousCurrentLowGear = 40;//25;     //Amps
+	public static int driveMotorContinuousCurrentLowGear = 40;//25;   =  Amps
 	public static int driveMotorPeakCurrentLowGear = 60;
-	public static int driveMotorPeakCurrentHighGear= 16;//50;			//Amps
+	public static int driveMotorPeakCurrentHighGear= 16;//50;		=	Amps
 	public static int driveMotorPeakCurrentDurationLowGear = 100;
 	public static int driveMotorPeakCurrentDurationHighGear = 0;
 	public static int armMotorContinuousCurrent = 16;     //Amps

@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import org.usfirst.frc.team4499.robot.teleopcommands.ManualArmControl;
 import org.usfirst.frc.team4499.robot.teleopcommands.ManualDriveControl;
 
-/**
+/** Lyndsey: what is the purpose of this subsystem? It doesn't seem to do anything.
  *
  */
 public class DriveTrain extends Subsystem {

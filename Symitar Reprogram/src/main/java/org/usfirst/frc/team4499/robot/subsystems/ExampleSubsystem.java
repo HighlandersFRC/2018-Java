@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc.team4499.robot.subsystems;
+package org.usfirst.frc.team4499.robot.subsystems; //Why didn't you delete this entire thing?? Or, why didn't you keep the other example?
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 

@@ -44,7 +44,7 @@ public class Robot extends TimedRobot {
 	 * used for any initialization code.
 	 */
 	@Override
-	public void robotInit() {
+	public void robotInit() { 
 		//paths require math to generate and math is hard, so always generate your paths upon robot initialization, to save time,
 		//the RIO generally uses 40%-50% cpu but this spikes to 80%-95% when paths are generated, you know that they are generated with this 
 		//implementation when the robot code line is green

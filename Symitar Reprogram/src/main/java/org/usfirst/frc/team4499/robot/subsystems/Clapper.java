@@ -8,8 +8,8 @@ import org.usfirst.frc.team4499.robot.teleopcommands.ManualArmControl;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-/**
- * @param <restingState>
+/** 
+ * @param <restingState>    //Lyndsey: Did you want to comment this out?
  *
  */
 public class Clapper extends Subsystem {

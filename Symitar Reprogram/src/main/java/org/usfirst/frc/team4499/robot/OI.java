@@ -5,7 +5,7 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 
-package org.usfirst.frc.team4499.robot;
+package org.usfirst.frc.team4499.robot; //Lyndsey: okay, so you've got a bunch of buttons you've commented out-- you need to explain your thought process to me on why you did this
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -31,7 +31,7 @@ public class OI {
 	//public static JoystickButton intake = new JoystickButton(joyStickTwo,9);
 	
 	public static Joystick dial = new Joystick(2);
-	public static JoystickButton dialOne = new JoystickButton(dial,1);
+	public static JoystickButton dialOne = new JoystickButton(dial,1); //Lyndsey: wtf is dial
 	public static JoystickButton dialTwo = new JoystickButton(dial,2);
 	public static JoystickButton dialThree = new JoystickButton(dial,3);
 	public static JoystickButton dialFour = new JoystickButton(dial,4);

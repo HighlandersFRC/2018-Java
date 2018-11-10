@@ -37,7 +37,7 @@ public class ManualClapperControl extends Command {
     		RobotMap.clapper.intake();
     	}
     	/*else if(OI.hardOuttake.get()) {
-    		RobotMap.clapper.shootOut();
+    		RobotMap.clapper.shootOut();  Lyndsey: Why is this commented out?
     	}*/
     	else if(OI.softOuttake.get()) {
     		RobotMap.clapper.outtake();
