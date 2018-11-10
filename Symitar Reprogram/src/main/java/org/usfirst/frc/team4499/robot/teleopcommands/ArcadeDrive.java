@@ -14,6 +14,7 @@ import org.usfirst.frc.team4499.robot.OI;
 import org.usfirst.frc.team4499.robot.RobotConfig;
 import org.usfirst.frc.team4499.robot.RobotMap;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.RobotState;
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -25,6 +26,8 @@ public class ArcadeDrive extends Command {
   private double sensitivity = 0.75;
   private double leftPower;
   private double rightPower;
+  private DoubleSolenoid.Value currentValue;
+  private int run;
   public ArcadeDrive() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -38,6 +41,10 @@ public class ArcadeDrive extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    if(run%20==0){
+      currentValue = RobotMap.shifters.get();
+    }
+     run++;
 	  ratio = Math.abs(throttel);
     throttel = OI.joyStickOne.getRawAxis(1);  
     if(Math.abs(OI.joyStickOne.getRawAxis(4))>deadZone) {	
@@ -54,10 +61,10 @@ public class ArcadeDrive extends Command {
     	leftPower = (-turn);
     	rightPower = (turn); 
     }
-    if(OI.joyStickOne.getRawAxis(3)>0.5) {
+   /* if(OI.joyStickOne.getRawAxis(3)>0.5) {
     	leftPower = (-turn);
     	rightPower= (turn);
-    }
+    }*/
     if(Math.abs(leftPower)>1) {
       leftPower = (leftPower/Math.abs(leftPower));
       rightPower = Math.abs(rightPower/leftPower)*(rightPower/Math.abs(rightPower));
@@ -70,10 +77,10 @@ public class ArcadeDrive extends Command {
     RobotMap.rightDriveLead.set(ControlMode.PercentOutput, rightPower);
     
    
-    if(OI.shiftUp.get()) {
+    if(OI.shiftDown.get()&& currentValue==RobotMap.lowGear) {
   		RobotMap.shifters.set(RobotMap.highGear);
   	}
-  	else if(OI.shiftDown.get()) {
+  	else if(OI.shiftDown.get()&&currentValue==RobotMap.highGear) {
   		RobotMap.shifters.set(RobotMap.lowGear);
   	}
   	if(RobotMap.shifters.get() == RobotMap.highGear) {

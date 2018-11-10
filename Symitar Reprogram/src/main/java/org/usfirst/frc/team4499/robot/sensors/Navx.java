@@ -2,7 +2,6 @@ package org.usfirst.frc.team4499.robot.sensors;
 
 import com.kauailabs.navx.frc.AHRS;
 
-import org.usfirst.frc.team4499.robot.RobotMap;
 
 public class Navx {
 	private double NavxAngle = 0;
@@ -14,7 +13,6 @@ public class Navx {
 		imu = navx;
 		originalAngle = navx.getAngle();
 		originalYaw = navx.getYaw();
-
 	}
 	public double currentAngle() {
 		return imu.getAngle()-originalAngle;	
@@ -29,13 +27,13 @@ public class Navx {
 	public boolean isOn(){
 		return imu.isConnected();
 	}
-	public boolean isCalibrated(){
+	public boolean isMagCalibrated(){
 		return imu.isMagnetometerCalibrated();
 	}
 	public boolean isAutoCalibrating(){
 		return imu.isCalibrating();
 	}
-	public boolean isInerference(){
+	public boolean isMagInerference(){
 		return imu.isMagneticDisturbance();
 	}
 	public void softResetAngle(double angle){
@@ -45,7 +43,4 @@ public class Navx {
 	public void softResetYaw(double yaw){
 		originalYaw = yaw;
 	}
-	
-	
-
 }
