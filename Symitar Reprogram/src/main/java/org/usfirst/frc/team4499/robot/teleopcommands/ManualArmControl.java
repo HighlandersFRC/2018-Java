@@ -56,7 +56,7 @@ public class ManualArmControl extends Command {
             mpArm.start();
     	}
     	
-    	if(Math.abs(OI.joyStickTwo.getRawAxis(5))>0.15) {
+    	/*if(Math.abs(OI.joyStickTwo.getRawAxis(5))>0.15) {
         	RobotMap.brake.set(RobotMap.releaseBrake);
         	RobotMap.armMaster.set(ControlMode.PercentOutput, 0.35*OI.joyStickTwo.getRawAxis(5));
         }
@@ -64,7 +64,7 @@ public class ManualArmControl extends Command {
     		RobotMap.armMaster.set(ControlMode.PercentOutput, 0);
         	RobotMap.brake.set(RobotMap.setBrake);
 
-    	}
+    	}*/
     }
     	
     

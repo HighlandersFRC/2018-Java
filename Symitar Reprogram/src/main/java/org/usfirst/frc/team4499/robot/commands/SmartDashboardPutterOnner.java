@@ -28,7 +28,7 @@ public class SmartDashboardPutterOnner extends Command {
     SmartDashboard.putBoolean("navxconnection",RobotMap.mainNavx.isOn());
 
 		if(RobotMap.mainNavx.isOn()){
-			SmartDashboard.putBoolean("navxCallibration",RobotMap.mainNavx.isCalibrated());
+			SmartDashboard.putBoolean("navxCallibration",RobotMap.mainNavx.isMagCalibrated());
 
 		}
 		SmartDashboard.putNumber("navx", RobotMap.mainNavx.currentAngle());

@@ -8,7 +8,7 @@ public class AutoSuite {
 	}
 	public void startAutos() {
 	//	chooser.returnAuto().start();
-	pathRunner.start();
+	//pathRunner.start();
 
 	}
 

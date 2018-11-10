@@ -24,24 +24,21 @@ public class ManualClapperControl extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(OI.joyStickTwo.getRawAxis(2)>=0.15) {
-    		 RobotMap.clapper.openLeftClaw();
+    	if(OI.joyStickOne.getRawAxis(2)>=0.15) {
+             RobotMap.clapper.openLeftClaw();
+             RobotMap.clapper.openRightClaw();
      	}
      	else{   		
-     		 RobotMap.clapper.closeLeftClaw();
-     	}
-        if(OI.joyStickTwo.getRawAxis(3)>=0.15) {
-        	RobotMap.clapper.openRightClaw();
-     	}
-        else{
-        	RobotMap.clapper.closeRightClaw();
-        }
-    	if(OI.intake.get()) {
+              RobotMap.clapper.closeLeftClaw();
+              RobotMap.clapper.closeRightClaw();
+         }
+        
+    	if(OI.joyStickOne.getRawAxis(3) > 0.5) {
     		RobotMap.clapper.intake();
     	}
-    	else if(OI.hardOuttake.get()) {
+    	/*else if(OI.hardOuttake.get()) {
     		RobotMap.clapper.shootOut();
-    	}
+    	}*/
     	else if(OI.softOuttake.get()) {
     		RobotMap.clapper.outtake();
         }

@@ -27,8 +27,8 @@ public class MPArm extends Command {
         endpoint = angle;
     	this.setInterruptible(true);
         requires(RobotMap.arm);
-        armPid.setMaxOutput(0.5);
-        armPid.setMinOutput(-0.5);
+        armPid.setMaxOutput(0.3);
+        armPid.setMinOutput(-0.3);
         setInterruptible(true);
     
         
@@ -74,9 +74,9 @@ public class MPArm extends Command {
         if(Timer.getFPGATimestamp()-startTime>5){
             return true;
         }
-        if(Math.abs(OI.joyStickTwo.getRawAxis(5))>0.15) {
+    /*    if(Math.abs(OI.joyStickTwo.getRawAxis(5))>0.15) {
             return true;
-        }
+        }*/
            
     
         return false;

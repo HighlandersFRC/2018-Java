@@ -16,19 +16,19 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  */
 public class OI {
 	public static Joystick joyStickOne = new Joystick(0);
-	public static Joystick joyStickTwo = new Joystick(1);
+	//public static Joystick joyStickTwo = new Joystick(1);
 	public static JoystickButton shiftDown = new JoystickButton(joyStickOne,5);
-	public static JoystickButton shiftUp = new JoystickButton(joyStickOne,6);
+	//public static JoystickButton shiftUp = new JoystickButton(joyStickOne,6);
 	
-	public static JoystickButton armForwardIntake = new JoystickButton(joyStickTwo,3);
-	public static JoystickButton armReverseIntake = new JoystickButton(joyStickTwo,2);
-	public static JoystickButton armForwardShoot = new JoystickButton(joyStickTwo, 4);
-	public static JoystickButton armReverseShoot = new JoystickButton(joyStickTwo, 1);
+	public static JoystickButton armForwardIntake = new JoystickButton(joyStickOne,3);
+	public static JoystickButton armReverseIntake = new JoystickButton(joyStickOne,2);
+	public static JoystickButton armForwardShoot = new JoystickButton(joyStickOne, 4);
+	public static JoystickButton armReverseShoot = new JoystickButton(joyStickOne, 1);
 	
-	public static JoystickButton hardOuttake = new JoystickButton(joyStickTwo, 6);
-	public static JoystickButton softOuttake = new JoystickButton(joyStickTwo, 5);
+	//public static JoystickButton hardOuttake = new JoystickButton(joyStickTwo, 6);
+	public static JoystickButton softOuttake = new JoystickButton(joyStickOne, 6);
 	
-	public static JoystickButton intake = new JoystickButton(joyStickTwo,9);
+	//public static JoystickButton intake = new JoystickButton(joyStickTwo,9);
 	
 	public static Joystick dial = new Joystick(2);
 	public static JoystickButton dialOne = new JoystickButton(dial,1);

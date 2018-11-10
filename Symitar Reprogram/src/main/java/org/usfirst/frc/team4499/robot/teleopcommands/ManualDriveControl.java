@@ -43,10 +43,10 @@ public class ManualDriveControl extends Command {
     	else {
     		RobotMap.rightDriveLead.set(ControlMode.PercentOutput, 0);
     	}	
-		if(OI.shiftUp.get()) {
+		if(OI.shiftDown.get()&& RobotMap.shifters.get()==RobotMap.lowGear) {
 			RobotMap.shifters.set(RobotMap.highGear);
 		}
-		else if(OI.shiftDown.get()) {
+		else if(OI.shiftDown.get()&&RobotMap.shifters.get()==RobotMap.highGear) {
 			RobotMap.shifters.set(RobotMap.lowGear);
 		}
 		if(RobotMap.shifters.get() == RobotMap.highGear) {
