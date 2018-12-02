@@ -18,8 +18,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team4499.robot.autocommands.AutoSuite;
 import org.usfirst.frc.team4499.robot.autocommands.PathSetup;
 import org.usfirst.frc.team4499.robot.commands.ChangeLightColor;
+import org.usfirst.frc.team4499.robot.teleopcommands.DriverFeedback;
 import org.usfirst.frc.team4499.robot.teleopcommands.TeleopSuite;
-import org.usfirst.frc.team4499.robot.subsystems.ExampleSubsystem;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
 /**
@@ -38,7 +38,7 @@ public class Robot extends TimedRobot {
 	private TeleopSuite teleopS;
 	private PathSetup pathSetup;
 	private ChangeLightColor change = new ChangeLightColor(1, 1, 1);
-
+	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -68,6 +68,7 @@ public class Robot extends TimedRobot {
 	public void disabledInit() {
 		//this is to regenerate paths upon disable, I hope & bet that this isn't necessary but i'll experiment later
 		//TODO experiment later
+	
 		RobotConfig.leftAutoPath = pathSetup.generateLeftPathFollower();
 		RobotConfig.rightAutoPath = pathSetup.generateRightPathFollower();
 
@@ -75,8 +76,6 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void disabledPeriodic() {
-	
-
 		Scheduler.getInstance().run();
 	}
 

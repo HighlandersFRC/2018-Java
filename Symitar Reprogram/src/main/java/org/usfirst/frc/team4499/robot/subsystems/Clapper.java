@@ -2,6 +2,7 @@ package org.usfirst.frc.team4499.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 
+import org.usfirst.frc.team4499.robot.OI;
 import org.usfirst.frc.team4499.robot.RobotMap;
 import org.usfirst.frc.team4499.robot.commands.SetPiston;
 import org.usfirst.frc.team4499.robot.teleopcommands.ManualArmControl;
@@ -55,7 +56,22 @@ public class Clapper extends Subsystem {
 		RobotMap.intakeRight.set(ControlMode.PercentOutput,0);	
 	}
 		//both sides of clapper closed, intake wheels still
-	
+	public boolean isTryingToGetCube(){
+		if(OI.joyStickOne.getRawAxis(2) >0.5||OI.joyStickOne.getRawAxis(3)>0.5){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+	public boolean hasCube(){
+		if(RobotMap.intakeLeft.getOutputCurrent()>5||RobotMap.intakeRight.getOutputCurrent()>5){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

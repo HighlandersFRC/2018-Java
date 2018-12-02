@@ -58,11 +58,7 @@ public class MPArm extends Command {
         RobotMap.armMaster.set(ControlMode.PercentOutput, -armPid.getResult());
         currentPosition = -(RobotMap.armMaster.getSensorCollection().getQuadraturePosition()/2048.0)*180;
         armPid.updatePID(currentPosition);        
-      /*  else{
-            RobotMap.armMaster.set(ControlMode.PercentOutput, armCratePid.getResult());
-            armCratePid.updatePID(currentPosition);
-            System.out.println(armPid.getResult());
-        }*/
+      
         
     }
 
@@ -74,10 +70,6 @@ public class MPArm extends Command {
         if(Timer.getFPGATimestamp()-startTime>5){
             return true;
         }
-    /*    if(Math.abs(OI.joyStickTwo.getRawAxis(5))>0.15) {
-            return true;
-        }*/
-           
     
         return false;
     }

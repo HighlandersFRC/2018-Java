@@ -10,6 +10,8 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class ManualClapperControl extends Command {
+    private double openPistonValue;
+    private double intakeValue;
 
     public ManualClapperControl() {
     	requires(RobotMap.clapper);
@@ -24,7 +26,9 @@ public class ManualClapperControl extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(OI.joyStickOne.getRawAxis(2)>=0.15) {
+        openPistonValue = OI.joyStickOne.getRawAxis(2);
+        intakeValue = OI.joyStickOne.getRawAxis(3);
+    	if(openPistonValue>=0.15) {
              RobotMap.clapper.openLeftClaw();
              RobotMap.clapper.openRightClaw();
      	}
@@ -33,12 +37,10 @@ public class ManualClapperControl extends Command {
               RobotMap.clapper.closeRightClaw();
          }
         
-    	if(OI.joyStickOne.getRawAxis(3) > 0.5) {
+    	if(intakeValue > 0.5) {
     		RobotMap.clapper.intake();
     	}
-    	/*else if(OI.hardOuttake.get()) {
-    		RobotMap.clapper.shootOut();  Lyndsey: Why is this commented out?
-    	}*/
+    	
     	else if(OI.softOuttake.get()) {
     		RobotMap.clapper.outtake();
         }
@@ -47,6 +49,7 @@ public class ManualClapperControl extends Command {
         }
     	
     }
+  
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {

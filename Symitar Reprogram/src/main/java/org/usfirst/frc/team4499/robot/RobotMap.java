@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.XboxController;
 
 import org.usfirst.frc.team4499.robot.sensors.DriveEncoder;
 import org.usfirst.frc.team4499.robot.sensors.Navx;
@@ -116,6 +117,8 @@ public class RobotMap {
 		public static Clapper clapper = new Clapper();
 		public static Arm arm = new Arm();
 		public static DriveTrain drive = new DriveTrain();
+
+		public static XboxController xboxController1 = new XboxController(0);
 	
 	// For example to map the left and right motors, you could define the
 	// following variables to use with your drivetrain subsystem.

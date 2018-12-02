@@ -28,7 +28,6 @@ public class ManualArmControl extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//System.out.println(-(RobotMap.armMaster.getSensorCollection().getQuadraturePosition()/2048.0)*180);
     	if(RobotMap.armMaster.getSensorCollection().isRevLimitSwitchClosed()) {
 	    	RobotMap.armMaster.getSensorCollection().setQuadraturePosition(RobotConfig.armMaxEncoderTicks, RobotConfig.timeOut);
     	}
@@ -56,15 +55,7 @@ public class ManualArmControl extends Command {
             mpArm.start();
     	}
     	
-    	/*if(Math.abs(OI.joyStickTwo.getRawAxis(5))>0.15) {
-        	RobotMap.brake.set(RobotMap.releaseBrake);
-        	RobotMap.armMaster.set(ControlMode.PercentOutput, 0.35*OI.joyStickTwo.getRawAxis(5));
-        }
-    	else if(!(mpArm.isRunning())){
-    		RobotMap.armMaster.set(ControlMode.PercentOutput, 0);
-        	RobotMap.brake.set(RobotMap.setBrake);
-
-    	}*/
+    	
     }
     	
     
