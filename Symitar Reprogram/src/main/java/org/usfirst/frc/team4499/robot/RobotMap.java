@@ -24,6 +24,7 @@ import org.usfirst.frc.team4499.robot.sensors.Navx;
 import org.usfirst.frc.team4499.robot.subsystems.Arm;
 import org.usfirst.frc.team4499.robot.subsystems.Clapper;
 import org.usfirst.frc.team4499.robot.subsystems.DriveTrain;
+import org.usfirst.frc.team4499.robot.autocommands.PathList;
 import org.usfirst.frc.team4499.robot.sensors.ArmEncoder;
 
 /**
@@ -82,16 +83,15 @@ public class RobotMap {
 		public static DoubleSolenoid.Value highGear = DoubleSolenoid.Value.kReverse;
 		
 		public static DoubleSolenoid brake = new DoubleSolenoid(4,5);
-		public static DoubleSolenoid.Value releaseBrake = DoubleSolenoid.Value.kReverse;//TODO On comp botDoubleSolenoid.Value.kReverse;
-		public static DoubleSolenoid.Value setBrake = DoubleSolenoid.Value.kForward;//TODO On Comp BotDoubleSolenoid.Value.kForward;
-		
+		public static DoubleSolenoid.Value releaseBrake = DoubleSolenoid.Value.kReverse;
+		public static DoubleSolenoid.Value setBrake = DoubleSolenoid.Value.kForward;
 		public static DoubleSolenoid rightIntakePiston = new DoubleSolenoid(2,3);
 		public static DoubleSolenoid.Value openRightIntake = DoubleSolenoid.Value.kForward;
 		public static DoubleSolenoid.Value closeRightIntake = DoubleSolenoid.Value.kReverse;
 		
 		public static DoubleSolenoid leftIntakePiston = new DoubleSolenoid(6,7);
-		public static DoubleSolenoid.Value openLeftIntake = DoubleSolenoid.Value.kReverse;//TODO On comp botDoubleSolenoid.Value.kReverse;
-		public static DoubleSolenoid.Value closeLeftIntake = DoubleSolenoid.Value.kForward;//TODO On Comp BotDoubleSolenoid.Value.kForward;
+		public static DoubleSolenoid.Value openLeftIntake = DoubleSolenoid.Value.kReverse;
+		public static DoubleSolenoid.Value closeLeftIntake = DoubleSolenoid.Value.kForward;
 		
 		public static DriveEncoder leftMainDrive = new DriveEncoder(leftDriveLead,RobotMap.leftDriveLead.getSelectedSensorPosition(0));
 		public static DriveEncoder rightMainDrive = new DriveEncoder(rightDriveLead,RobotMap.rightDriveLead.getSelectedSensorPosition(0));
@@ -119,14 +119,6 @@ public class RobotMap {
 		public static DriveTrain drive = new DriveTrain();
 
 		public static XboxController xboxController1 = new XboxController(0);
-	
-	// For example to map the left and right motors, you could define the
-	// following variables to use with your drivetrain subsystem.
-	// public static int leftMotor = 1;
-	// public static int rightMotor = 2;
-
-	// If you are using multiple modules, make sure to define both the port
-	// number and the module. For example you with a rangefinder:
-	// public static int rangefinderPort = 1;
-	// public static int rangefinderModule = 1;
+		
+		public static PathList universalPathlist = new PathList();
 }

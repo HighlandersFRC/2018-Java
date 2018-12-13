@@ -18,12 +18,15 @@ public class Navx {
 		return imu.getAngle()-originalAngle;	
 	}
 	public double currentYaw(){
-		return imu.getYaw()-originalYaw;
-		
+		return ((imu.getYaw())-originalYaw);
+	}
+	public double currentReverseYaw(){
+		return ((-imu.getYaw())+originalYaw) ;
 	}
 	public boolean isMoving() {
 		return imu.isMoving();
 	}
+
 	public boolean isOn(){
 		return imu.isConnected();
 	}

@@ -16,7 +16,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc.team4499.robot.autocommands.AutoSuite;
-import org.usfirst.frc.team4499.robot.autocommands.PathSetup;
 import org.usfirst.frc.team4499.robot.commands.ChangeLightColor;
 import org.usfirst.frc.team4499.robot.teleopcommands.DriverFeedback;
 import org.usfirst.frc.team4499.robot.teleopcommands.TeleopSuite;
@@ -36,7 +35,6 @@ public class Robot extends TimedRobot {
 	private RobotConfig config;
 	private AutoSuite autoS;
 	private TeleopSuite teleopS;
-	private PathSetup pathSetup;
 	private ChangeLightColor change = new ChangeLightColor(1, 1, 1);
 	
 	/**
@@ -48,12 +46,7 @@ public class Robot extends TimedRobot {
 		//paths require math to generate and math is hard, so always generate your paths upon robot initialization, to save time,
 		//the RIO generally uses 40%-50% cpu but this spikes to 80%-95% when paths are generated, you know that they are generated with this 
 		//implementation when the robot code line is green
-		pathSetup = new PathSetup();
-		pathSetup.generateMainPath();
-		RobotConfig.leftAutoPath = pathSetup.generateLeftPathFollower();
-		RobotConfig.rightAutoPath = pathSetup.generateRightPathFollower();
 		change.start();
-	
 		// chooser.addObject("My Auto", new MyAutoCommand());
 		SmartDashboard.putData("Auto mode", m_chooser);
 		config = new RobotConfig();
@@ -66,12 +59,9 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void disabledInit() {
+		RobotMap.universalPathlist.resetAllPaths();
 		//this is to regenerate paths upon disable, I hope & bet that this isn't necessary but i'll experiment later
 		//TODO experiment later
-	
-		RobotConfig.leftAutoPath = pathSetup.generateLeftPathFollower();
-		RobotConfig.rightAutoPath = pathSetup.generateRightPathFollower();
-
 	}
 
 	@Override
@@ -125,7 +115,6 @@ public class Robot extends TimedRobot {
 		//this is all the commands that should be run in teleop
 		teleopS = new TeleopSuite();
 		teleopS.startTeleopCommands();
-
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
@@ -140,9 +129,6 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		
-
-		
 		Scheduler.getInstance().run();
 	}
 
