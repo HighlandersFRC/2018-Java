@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.ExampleSubsystem;
+import edu.wpi.first.wpilibj.SerialPort;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,6 +24,26 @@ import frc.robot.subsystems.ExampleSubsystem;
  * project.
  */
 public class Robot extends TimedRobot {
+  SerialPort jevois = new SerialPort(baudrate, SerialPort.Port.kUSB(port #))
+  
+/*  public void operatorControl(){
+  while(true){
+      try{
+        System.out.println(jevois.readstring());
+      }catch()
+      }
+    }
+  }
+    */
+
+  
+  
+  public static SerialPort(int baudRate, Serial.Port port){
+    baudRate = #;
+    port = kUSB#;
+    public java.lang.String readString();
+    System.out.println("")
+  }
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
 
@@ -119,6 +140,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void teleopPeriodic() {
+  
     Scheduler.getInstance().run();
   }
 
