@@ -16,18 +16,13 @@ public class Intake extends Command {
     protected void initialize() {
     }
     protected void execute() {
-			if (OI.controllerZero.getRawAxis(3) > 0.5) {
+			if (OI.controllerZero.getRawAxis(2) > 0.5) {
 				Robot.subsystem.setIntakeout();
 				Robot.subsystem.setWheelsReverse();
-			} else if (OI.controllerZero.getRawAxis(2) > 0.5) {
+			} else if (OI.controllerZero.getRawAxis(3) > 0.5) {
 				Robot.subsystem.setIntakein();
 				Robot.subsystem.setWheelsForward();
             } 
-            /*else {
-				Robot.subsystem.setIntakein();
-				Robot.subsystem.setWheelsStop();
-            }
-            */
             else {
 				Robot.subsystem.setIntakeout();
 				Robot.subsystem.setWheelsStop();

@@ -13,12 +13,6 @@ public class Fire extends CommandGroup {
 		requires(Robot.subsystem);
 
     	addSequential(new Set_Piston(RobotMap.intake, RobotMap.intakeOut, Robot.subsystem)); //intake out
-
-/*		addSequential(new Wait(2.0));
-		addSequential(new Set_Piston(RobotMap.catapult, RobotMap.catapultSet, Robot.catapultSubsystem));
-		addSequential(new Set_Piston(RobotMap.catapultRelease, RobotMap.releaseOpen, Robot.catapultSubsystem));
-		addParallel(new Wait(10.0));
-*/	
     	addSequential(new Set_Piston(RobotMap.catapultRelease, RobotMap.releaseOpen, Robot.catapultSubsystem)); //fire
     	addSequential(new Wait(0.2));
 		addSequential(new Set_Piston(RobotMap.catapult, RobotMap.catapultResting, Robot.catapultSubsystem)); //catapult back to rest
