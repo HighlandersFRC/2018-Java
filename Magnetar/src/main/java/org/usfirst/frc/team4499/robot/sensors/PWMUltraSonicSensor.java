@@ -12,7 +12,7 @@ public class PWMUltraSonicSensor {
         sensor.setSemiPeriodMode(true);
     }
     public double getDistance(){
-        double distance = sensor.getPeriod() * 1949.60961;
+        double distance = sensor.getPeriod()/ 4709.694434;
         if(distance>0.0){
             return distance;
         }
@@ -20,12 +20,12 @@ public class PWMUltraSonicSensor {
             return -1.0;
         }
     }
-    public boolean isConnected(){
+ /*public boolean isConnected(){
         if(sensor.getPeriod()>1.0){
             return false;
         }
         else{
             return true;
         } 
-    } 
+    } */
 }
