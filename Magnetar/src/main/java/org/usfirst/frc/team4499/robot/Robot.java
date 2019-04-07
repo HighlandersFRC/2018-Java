@@ -105,6 +105,8 @@ public class Robot extends TimedRobot {
 
 	@Override
 	public void teleopPeriodic() {
+		System.out.println(RobotMap.pwmUltrasonicSensor.getDistance()+": dist");
+		System.out.println(RobotMap.counter1.get()+"get");
 /*		if (OI.catapultUp.get()) {
 			RobotMap.catapult.set(RobotMap.catapultSet);
 			System.out.println("test");
@@ -119,7 +121,7 @@ public class Robot extends TimedRobot {
 			RobotMap.catapultRelease.set(RobotMap.releaseClosed);
 		}
 		*/
-		System.out.println((250*(RobotMap.pressureSensor.getAverageVoltage())/supplyVoltage)-25);
+	//	System.out.println((250*(RobotMap.pressureSensor.getAverageVoltage())/supplyVoltage)-25);
 	
 	if (OI.fireButton.get()) {
 			fire.start();

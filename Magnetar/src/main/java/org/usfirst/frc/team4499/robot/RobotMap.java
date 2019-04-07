@@ -9,16 +9,18 @@ package org.usfirst.frc.team4499.robot;
 
 import com.kauailabs.navx.frc.AHRS;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.I2C.Port;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
-
+import edu.wpi.first.wpilibj.Counter;
+import frc.robot.sensors.PWMUltraSonicSensor;
 import edu.wpi.first.wpilibj.I2C.Port;
 
 public class RobotMap {
 
+	public static Counter counter1 = new Counter(9);
+	public static PWMUltraSonicSensor pwmUltrasonicSensor = new PWMUltraSonicSensor(counter1);
 	public static DoubleSolenoid shifters = new DoubleSolenoid(0, 7);
 	public static DoubleSolenoid intake = new DoubleSolenoid(2, 5);
 	public static DoubleSolenoid catapult = new DoubleSolenoid(1, 6);

@@ -23,7 +23,7 @@ public class Wait extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	System.out.println((Timer.getFPGATimestamp()- startTime) > waitTime);
+    	//System.out.println((Timer.getFPGATimestamp()- startTime) > waitTime);
     }
 
     // Make this return true when this Command no longer needs to run execute()
