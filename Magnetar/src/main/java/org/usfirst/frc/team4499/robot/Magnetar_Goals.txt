@@ -1,2 +1,0 @@
-convert to psi
-fix firing at high pressures
